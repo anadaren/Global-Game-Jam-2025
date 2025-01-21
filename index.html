@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GGJ 2k25</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/98.css" />
+</head>
+
+<body>
+<!--  -->
+<!--    FOLDERS!    -->
+<!--  -->
+  <div id="icon-container">
+    <!--    Test icons -->
+    <div class="icon-group" title="" onclick="openWindow('')">
+      <div class="icon-image my-computer"><img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png"/></div>
+      <span class="icon-name">Files</span>
+      </div>
+
+    <div class="icon-group" title="" onclick="openWindow('')">
+      <div class="icon-image my-documents"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+      <span class="icon-name">Folder 1</span>
+      </div>
+      
+    <div class="icon-group" title="" onclick="">
+      <div class="icon-image my-documents"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+      <span class="icon-name">Folder 2</span>
+      </div>
+
+    <div class="icon-group" title="" onclick="">
+      <div class="icon-image my-documents"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+      <span class="icon-name">Folder 3</span>
+      </div>
+
+    <!-- Recycle bin icon-->
+    <div class="icon-group" title="Recycle bin" onclick="">
+      <div class="icon-image recycle-bin"><img src="https://win98icons.alexmeub.com/icons/png/recycle_bin_full_cool-0.png"/></div>
+      <span class="icon-name">Recycle Bin</span>
+      </div>
+
+  </div>
+
+
+<!--  -->
+<!--    WINDOWS!    -->
+<!--  -->
+
+<!-- Test window -->
+  <div class="window" style="margin: 32px; width: 250px" onclick="focusWindow('test')" id="test-window">
+    <div class="title-bar" id="test-windowheader">
+      <div class="title-bar-text">Test</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close"></button>
+    </div>
+  </div>
+    <div class="window-body">
+      <p>Hello, world!</p>
+      <section class="field-row" style="justify-content: flex-end">
+        <button>OK</button>
+        <button>Cancel</button>
+      </section>
+    </div>
+  </div>
+  <!-- End of Desktop -->
+
+
+  <!-- Task bar -->
+  <footer> 
+    <div id="footer-left">
+    
+        <div class="start-menu">
+            <button class="start-button" onclick="clickStart()">START</button>
+        </div>
+      
+ 
+    </div>
+    
+
+    <div id="footer-right">
+        <span id="clock"></span>
+    </div>
+    
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

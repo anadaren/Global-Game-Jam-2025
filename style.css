@@ -1,0 +1,223 @@
+html{
+    background-color: #008080;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.window{
+    position:absolute;
+}
+
+#test-window { /* Remove Later */
+    right: 50%;
+    bottom: 50%;
+}
+
+table {
+  border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+  border-spacing: 25px 0;
+}
+
+td {
+  padding: 10px 0;
+    width:100px;
+}
+
+.email-full {
+/*border-collapse: separate;*/
+    border-bottom: .05px solid black;
+    margin-bottom: 0px;
+}
+
+
+td.email-content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+    display: block;
+    width: 300px;
+}
+
+.email {
+    cursor: pointer;
+}
+
+
+.case-name{
+    text-decoration: underline;
+    font-size: 2em;
+}
+
+.tree-view{
+    line-height: 20px;
+}
+
+
+.my-computer, .my-documents, .network-neighborhood, .folder, .recycle-bin, .application-icons {
+    height: 64px;
+    width: 64px;
+}
+        
+        
+div.icon-group {
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+    margin: 10px;
+    cursor: pointer;
+}
+.icon-image {
+}
+
+.icon-name {
+    display: block;
+    color: white;
+}
+
+#icon-container {
+    display: flex;
+    flex-direction: column;
+    float: left;
+}
+
+footer {
+    background-color: #c0c0c0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 35px;
+    width: 100%;
+    border-top: 2px solid rgb(231, 231, 231);
+    /*    overflow: hidden;*/
+}
+
+.title-bar {
+    cursor: grab;
+}
+
+footer * {
+    margin: 1px 2px 0px 2px;
+    display:inline-block;
+
+/*    max-height: 30px;*/
+}
+
+#footer-left{
+    display:inline-flex;
+    left: 0px;
+    top: 5px;
+    padding-right: 5px;
+    border-right: 1px solid grey;
+}
+
+#footer-right{
+    position:absolute;
+    display:inline-flex;
+    right: 0px;
+    top: 2px;
+    box-shadow: 1px 1px 1px rgb(53, 53, 53) inset;
+    padding: 6px;
+    
+}
+
+.start-button {
+    font-weight: bold;
+    padding: 8px;
+}
+
+.start-menu {
+  position: relative;
+/*  display: flex;*/
+}
+
+#start-menu-content {
+    position:absolute;
+    min-width: 160px;
+    bottom: 22pt;
+    z-index: 100;
+    background-color: #c0c0c0;
+}
+
+#desktop{
+    user-select:none;
+}
+
+#load-screen, #blue-screen {
+    color: white;
+    z-index: 1000;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    font-family: monospace;
+    font-size: 1.5em;
+}
+
+#load-screen {
+    background-color: black;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#blue-screen {
+    background-color: #0827F5;
+}
+
+#load-screen div {
+position: relative; 
+left: 50%;
+top: 50%;
+transform: translateX(-50%);
+    transform: translate(-50%);
+}
+
+#blue-screen div{
+    margin: 10px;
+    padding: 10px;
+    max-width:500px;
+}
+
+/*https://codepen.io/penry/pen/xEPKpj*/
+#start-menu-content .side-banner{
+  height: 100%;
+  background: linear-gradient(to bottom, #000080, #1084d0);
+  display: inline-block;
+  width: 30px;
+  bottom: 0;
+  left: -5px;
+  position: absolute;
+}
+
+.headline {
+  transform: rotate(-90deg);
+  transform-origin: 0% 0%;
+/*  width: 150%;*/
+  padding-bottom: 3px;
+  padding-left: 0px;
+  color: white;
+  position: absolute;
+  left 0;
+  bottom: 0;
+  text-align: left;
+  margin-bottom: -10px;
+}
+
+.start-menu-divs {
+    margin-left: 40px;
+}
+
+#start-menu-content .item{
+    display: block;
+    margin-top:15px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.start-menu-divs .item *{
+    display: inline-block;
+    vertical-align: middle;   
+}
