@@ -11,11 +11,6 @@ body {
     position:absolute;
 }
 
-#test-window { /* Remove Later */
-    right: 50%;
-    bottom: 50%;
-}
-
 table {
   border-collapse: collapse;
     width: 100%;
@@ -62,7 +57,18 @@ td.email-content {
     height: 64px;
     width: 64px;
 }
-        
+
+#recycle-body {
+    min-height: 200px;
+}
+  
+#folder1-body {
+    min-height: 200px;
+}
+
+#notepad-body {
+    min-height: 200px;
+}
         
 div.icon-group {
     vertical-align: top;
@@ -82,7 +88,9 @@ div.icon-group {
 #icon-container {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     float: left;
+    max-height: 600px;
 }
 
 footer {
@@ -122,7 +130,9 @@ footer * {
     top: 2px;
     box-shadow: 1px 1px 1px rgb(53, 53, 53) inset;
     padding: 6px;
-    
+}
+#footer-right img {
+    cursor: pointer;
 }
 
 .start-button {
@@ -141,6 +151,24 @@ footer * {
     bottom: 22pt;
     z-index: 100;
     background-color: #c0c0c0;
+    border-top: 2px solid #e4e4e4;
+    border-left: 5px solid #e4e4e4;
+    border-right: 2px solid rgb(98, 98, 98);
+    border-bottom: 2px solid rgb(98, 98, 98);;
+}
+
+.start-menu-divs .item {
+    cursor: pointer;
+}
+
+.start-menu-divs .icon-image {
+    max-height: 32px;
+    max-width: 32px;
+}
+
+.start-menu-divs .icon-name {
+    color: black;
+    margin-left: 10px;
 }
 
 #desktop{
