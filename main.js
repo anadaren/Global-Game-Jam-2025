@@ -85,7 +85,7 @@ function closeWindow(name){
     }
     
     //delete minimize tab
-    document.getElementById(minimizename).remove();
+    //document.getElementById(minimizename).remove();
     
     //remove from onScreen array
     removeFromArray(name);
@@ -371,11 +371,12 @@ function setupFolder1() {
         return;
     }
     
-    var addHTML = "<table><tr><th>Name</th><th>Test1a</th><th>Test1b</th></tr>";
+    var addHTML = "<table><tr><th>Test</th><th>Test1a</th><th>Test2a</th><th>Test3a</th></tr>";
     for(var i = 0; i < testCases.length; i++){
-       addHTML += '<tr><td onclick=openCases(\'' + testCases[i].ID + '\')>' + testCases[i].Name + '</td>' +
+       addHTML += '<tr><td>' + testCases[i].Test + '</td>' +
                   '<td>' + testCases[i].Test1a + '</td>' +
-                  '<td>' + testCases[i].Test1b + '</td></tr>'; 
+                  '<td>' + testCases[i].Test2a + '</td>' +
+                  '<td>' + testCases[i].Test3a + '</td></tr>'; 
     }
       addHTML += "</table>";
     var elements = document.getElementsByClassName("folder1-database")
