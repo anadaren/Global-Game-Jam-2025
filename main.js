@@ -456,3 +456,28 @@ function getOffset( el ) {
     }
     return [_y, _x];
 }
+
+//------
+// PUZZLE FUNCTIONS
+//------
+
+$(document).ready(function () {
+    $(".icon-name").dblclick(function () {
+        
+      const oldText = $(this).text();
+      const newText = prompt("Rename:", $(this).text());
+      
+      if (newText !== null && newText !== "") {
+        $(this).text(newText);
+        checkName($(this).attr("id"), newText);
+      } else {
+        newText = $(this).text(oldText);
+      }
+    });
+  });
+
+  function checkName(name, newName) {
+    const solvedName;  // check solvedName against whatever value necessary for puzzle
+    if(newName == solvedName)
+  }
+
