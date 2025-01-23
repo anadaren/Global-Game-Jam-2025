@@ -3,7 +3,7 @@
     --windows-light-grey: #fdffff;
     --windows-dark-grey: #818181;
     --windows-blue: #010081;
-    --windows-aqua: #008080;;
+    --windows-aqua: #008080;
 
 }
 
@@ -113,6 +113,7 @@ div.icon-group {
     flex-wrap: wrap;
     float: left;
     max-height: 600px;
+    font-family: monospace;
 }
 
 textarea {
@@ -172,6 +173,7 @@ footer * {
 
 .start-menu {
   position: relative;
+  font-family: monospace;
 /*  display: flex;*/
 }
 
@@ -280,21 +282,26 @@ transform: translateX(-50%);
     vertical-align: middle;   
 }
 
+/* Right Click Menu */
 .custom-menu {
     display: none;
     z-index: 1000;
     position: absolute;
     overflow: hidden;
-    border: 1px solid var(--windows-dark-grey);
+    border-top: 2px solid var(--windows-light-grey);
+    border-left: 2px solid var(--windows-light-grey);
+    border-right: 3px solid var(--windows-dark-grey);
+    border-bottom: 3px solid var(--windows-dark-grey);
     white-space: nowrap;
-    font-family: sans-serif;
     background: var(--windows-grey);
     color: black;
-    border-radius: 5px;
+    font-family: monospace;
+    list-style-type: none;
+    padding: 0;
 }
 
 .custom-menu li {
-    padding: 8px 12px;
+    padding: 5px 100px 5px 20px;
     cursor: pointer;
 }
 

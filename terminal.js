@@ -195,7 +195,7 @@ $('#terminal-body').terminal({
     
     
 }, {
-    greetings: '[ISF - COMP 1] Waiting for command...'
+    greetings: '[ (C) Placeholder OS ] Waiting for command...'
    
 });
 

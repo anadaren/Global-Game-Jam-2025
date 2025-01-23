@@ -15,54 +15,68 @@
 
 <body>
   <ul class='custom-menu'>
-    <li data-action = "first">First thing</li>
-    <li data-action = "second">Second thing</li>
-    <li data-action = "third">Third thing</li>
+    <li data-action = "first"><b><u>O</u>pen</b></li>
+    <li data-action = "second">Rena<u>m</u>e</li>
+    <li data-action = "third"><u>D</u>elete</li>
   </ul>
 
+<!-- Icon Source: https://win98icons.alexmeub.com/ -->
   
 <!--  -->
 <!--    FOLDERS!    -->
 <!--  -->
   <div id="icon-container">
-    <!--    Test icons -->
+
+    <!-- File Explorer Icon -->
     <div class="icon-group" title="" onclick="">
       <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png"/></div>
       <span class="icon-name" id="files-text">Files</span>
       </div>
 
+    <!-- Folder 1 Icon -->
     <div class="icon-group" title="" onclick="openWindow('folder1','Folder 1')">
       <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
       <span class="icon-name" id="folder1-text">Folder 1</span>
       </div>
-      
+    
+    <!-- Folder 2 Icon -->
     <div class="icon-group" title="" onclick="">
       <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
       <span class="icon-name" id="folder2-text">Folder 2</span>
       </div>
-
+    
+      <!-- Folder 3 Icon -->
     <div class="icon-group" title="" onclick="">
       <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
       <span class="icon-name" id="folder3-text">Folder 3</span>
       </div>
 
+      <!-- Browser Icon -->
     <div class="icon-group" title="" onclick="openWindow('browser','Browser')">
       <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/world-2.png"/></div>
       <span class="icon-name" id="browser-text">Browser</span>
       </div>
 
+      <!-- Notepad Icon -->
     <div class="icon-group" title="" onclick="openWindow('notepad','Notepad')">
         <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/notepad-2.png"/></div>
         <span class="icon-name" id="notepad-text">Notepad</span>
         </div>
 
+        <!-- File1 Icon -->
     <div class="icon-group" title="" onclick="openWindow('file1','File1')">
         <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
         <span class="icon-name" id="file1-text">File1.txt</span>
         </div>
 
+        <!-- ReadMe Icon -->
+    <div class="icon-group" title="" onclick="openWindow('readme','README')">
+      <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+      <span class="icon-name" id="file1-text">README.txt</span>
+      </div>
 
-    <!-- Recycle bin icon-->
+
+    <!-- Recycle bin Icon-->
     <div class="icon-group" title="Recycle bin" onclick="openWindow('recycle','Recycle Bin')">
       <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/recycle_bin_full_cool-0.png"/></div>
       <span class="icon-name">Recycle Bin</span>
@@ -75,6 +89,7 @@
 <!--    WINDOWS!    -->
 <!--  -->
 
+<!-- File Explorer Window -->
   <div class="window" style="width: 450px;display:none" onclick="focusWindow('files')" id="files-window">
     <div class="title-bar" id="files-windowheader">
       <div class="title-bar-text">File Explorer</div>
@@ -89,7 +104,7 @@
     </div>
   </div>
 
-  <!-- Folder 1 page-->
+  <!-- Folder 1 Window -->
 <div class="window" style="width: 450px;display:none" onclick="focusWindow('folder1')" id="folder1-window">
   <div class="title-bar" id="folder1-windowheader">
     <div class="title-bar-text">Folder 1</div>
@@ -114,7 +129,7 @@
   </div>
 </div>
 
- <!-- File 1 page-->
+ <!-- File 1 Window -->
  <div class="window" style="width: 450px;display:none" onclick="focusWindow('file1')" id="file1-window">
   <div class="title-bar" id="file1-windowheader">
     <div class="title-bar-text">File 1</div>
@@ -130,7 +145,28 @@
   </div>
 </div>
 
-<!-- Browser page-->
+<!-- README Window -->
+<div class="window" style="width: 450px;display:none" onclick="focusWindow('readme')" id="readme-window">
+  <div class="title-bar" id="readme-windowheader">
+    <div class="title-bar-text">READ ME</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize" onclick="minimizeWindow('readme')"></button>
+      <button aria-label="Close" onclick="closeWindow('readme')"></button>
+    </div>
+  </div>
+  <div class="window-body">
+      <ul class="tree-view" id="readme-body">
+        <p>Hello [New Hire Name],</p>
+        <br>
+        <p>Welcome to the job.</p>
+        <br>
+        <p>Signed,</p>
+        <p>Guy who used to have your job</p>
+      </ul>
+  </div>
+</div>
+
+<!-- Browser Window-->
 <div class="window" style="width: 450px;display:none" onclick="focusWindow('browser')" id="browser-window">
   <div class="title-bar" id="browser-windowheader">
     <div class="title-bar-text">Browser</div>
@@ -148,7 +184,7 @@
   </div>
 </div>
 
- <!-- Notepad page-->
+ <!-- Notepad Window-->
  <div class="window" style="width: 450px;display:none" onclick="focusWindow('notepad')" id="notepad-window">
   <div class="title-bar" id="notepad-windowheader">
     <div class="title-bar-text">Notepad</div>
@@ -164,7 +200,7 @@
   </div>
 </div>
 
-  <!-- Recycle page-->
+  <!-- Recycle Window-->
 <div class="window" style="width: 450px;display:none" onclick="focusWindow('recycle')" id="recycle-window">
   <div class="title-bar" id="recycle-windowheader">
     <div class="title-bar-text">Recycle bin</div>
@@ -192,7 +228,7 @@
   </div>
 </div>
 
-<!--    Terminal page-->
+<!--    Terminal Window-->
 <div class="window" style="width:450px;display:none" onclick="focusWindow('terminal')" id="terminal-window">
   <div class="title-bar" id="terminal-windowheader">
     <div class="title-bar-text">Terminal</div>

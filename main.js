@@ -443,14 +443,23 @@ $(document).ready(function () {
   });
 
   function checkName(name, newName) {
-    const solvedName = "test";
+    console.log(name);
+    const namePuzzles = new Map([
+        ["file1-text", "file1-c"],
+        ["file2-text", "file2-c"],
+        ["file3-text", "file3-c"]
+    ]);
 
-    // check solvedName against whatever value necessary for puzzle
+    const solvedName = namePuzzles.get(name);
 
     if(newName == solvedName) {
-        console.log("New name is a match.");
+        alert("New name is a match.");
     }
   }
+
+//------
+// RIGHT CLICK MENU FUNCTIONS
+//------
 
 // Trigger action when the contexmenu is about to be shown
 $(document).bind("contextmenu", function (event) {
