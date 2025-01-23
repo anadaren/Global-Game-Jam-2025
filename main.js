@@ -477,7 +477,12 @@ $(document).ready(function () {
   });
 
   function checkName(name, newName) {
-    const solvedName;  // check solvedName against whatever value necessary for puzzle
-    if(newName == solvedName)
+    const solvedName = "test";
+    
+    // check solvedName against whatever value necessary for puzzle
+
+    if(newName == solvedName) {
+        console.log("New name is a match.");
+    }
   }
 

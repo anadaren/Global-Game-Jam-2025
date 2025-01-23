@@ -53,9 +53,12 @@ td.email-content {
 }
 
 
-.my-computer, .my-documents, .network-neighborhood, .folder, .recycle-bin, .application-icons {
+.icon-image {
     height: 64px;
     width: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #recycle-body {
@@ -76,6 +79,7 @@ div.icon-group {
     text-align: center;
     margin: 10px;
     cursor: pointer;
+    max-width: 64px;
 }
 .icon-image {
 }

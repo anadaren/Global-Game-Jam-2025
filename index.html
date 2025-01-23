@@ -17,40 +17,45 @@
 <!--  -->
   <div id="icon-container">
     <!--    Test icons -->
-    <div class="icon-group" title="" onclick="openWindow('')">
-      <div class="icon-image my-computer"><img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png"/></div>
+    <div class="icon-group" title="" onclick="">
+      <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png"/></div>
       <span class="icon-name" id="files-text">Files</span>
       </div>
 
     <div class="icon-group" title="" onclick="openWindow('folder1','Folder 1')">
-      <div class="icon-image my-documents"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+      <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
       <span class="icon-name" id="folder1-text">Folder 1</span>
       </div>
       
     <div class="icon-group" title="" onclick="">
-      <div class="icon-image my-documents"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+      <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
       <span class="icon-name" id="folder2-text">Folder 2</span>
       </div>
 
     <div class="icon-group" title="" onclick="">
-      <div class="icon-image my-documents"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+      <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
       <span class="icon-name" id="folder3-text">Folder 3</span>
       </div>
 
-      <div class="icon-group" title="" onclick="openWindow('browser','Browser')">
-        <div class="icon-image my-documents"><img src="https://win98icons.alexmeub.com/icons/png/world-2.png"/></div>
-        <span class="icon-name" id="browser-text">Browser</span>
+    <div class="icon-group" title="" onclick="openWindow('browser','Browser')">
+      <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/world-2.png"/></div>
+      <span class="icon-name" id="browser-text">Browser</span>
+      </div>
+
+    <div class="icon-group" title="" onclick="openWindow('notepad','Notepad')">
+        <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/notepad-2.png"/></div>
+        <span class="icon-name" id="notepad-text">Notepad</span>
         </div>
 
-        <div class="icon-group" title="" onclick="openWindow('notepad','Notepad')">
-          <div class="icon-image my-documents"><img src="https://win98icons.alexmeub.com/icons/png/notepad-2.png"/></div>
-          <span class="icon-name" id="notepad-text">Notepad</span>
-          </div>
+    <div class="icon-group" title="" onclick="openWindow('file1','File1')">
+        <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+        <span class="icon-name" id="file1-text">File1.txt</span>
+        </div>
 
 
     <!-- Recycle bin icon-->
     <div class="icon-group" title="Recycle bin" onclick="openWindow('recycle','Recycle Bin')">
-      <div class="icon-image recycle-bin"><img src="https://win98icons.alexmeub.com/icons/png/recycle_bin_full_cool-0.png"/></div>
+      <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/recycle_bin_full_cool-0.png"/></div>
       <span class="icon-name">Recycle Bin</span>
       </div>
 
@@ -73,6 +78,22 @@
   <div class="window-body">
       <ul class="tree-view" id="folder1-body">
         <span class="folder1-database"></span>
+      </ul>
+  </div>
+</div>
+
+ <!-- File 1 page-->
+ <div class="window" style="width: 450px;display:none" onclick="focusWindow('file1')" id="file1-window">
+  <div class="title-bar" id="file1-windowheader">
+    <div class="title-bar-text">File 1</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize" onclick="minimizeWindow('file1')"></button>
+      <button aria-label="Close" onclick="closeWindow('file1')"></button>
+    </div>
+  </div>
+  <div class="window-body">
+      <ul class="tree-view" id="file1-body">
+        <p>File</p>
       </ul>
   </div>
 </div>
