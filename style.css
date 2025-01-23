@@ -9,6 +9,11 @@ body {
 
 .window{
     position:absolute;
+    width: 300px;
+    resize: both;
+    overflow: auto;
+}
+.window-body {
 }
 
 table {
@@ -88,6 +93,10 @@ div.icon-group {
     display: block;
     color: white;
 }
+.icon-name-dark {
+    display: block;
+    color: black;
+}
 
 #icon-container {
     display: flex;
@@ -95,6 +104,14 @@ div.icon-group {
     flex-wrap: wrap;
     float: left;
     max-height: 600px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 300px;
+    border-style: none; 
+    border-color: Transparent; 
+    overflow: auto;  
 }
 
 footer {

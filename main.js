@@ -13,12 +13,12 @@ var onScreen = []; // 2d array of the IDs for objects that are on screen [id nam
 
 //var divIDOnScreen = ["cases","agents","containment","email","terminal","recycle","manual","untitled"]; // list of all the divs that are hard-coded, used in closeWindow()
 
-var divIDOnScreen = ["folder1","browser","notepad","recycle"]; // list of all the divs that are hard-coded, used in closeWindow()
+var divIDOnScreen = ["files","folder1","file1","browser","notepad","recycle","terminal"]; // list of all the divs that are hard-coded, used in closeWindow()
 
 var setup = false; // tracks if the databse windows have been loaded in yet
 
 //Current highest window index
-var zind = 5;
+var zind = 6;
 
 //terminal.js variables
 /*var g = 0;
@@ -44,7 +44,7 @@ function openWindow(name,display){
     windowobj.style.display="block";
     
     if(!setup){
-        setupFolder1();
+        setupFile1();
         //setupBrowser();
         //setupNotepad();
         //setupRecycling();
@@ -85,7 +85,7 @@ function closeWindow(name){
     }
     
     //delete minimize tab
-    //document.getElementById(minimizename).remove();
+    document.getElementById(minimizename).remove();
     
     //remove from onScreen array
     removeFromArray(name);
@@ -111,7 +111,6 @@ function minimizeWindow(name){ //when clicking the minimize button on the window
      for(var i = 0; i < onScreen.length; i++){
          if(onScreen[i][0] === name){
              onScreen[i][1] = true;
-     
          }
      }
  
@@ -194,43 +193,10 @@ function addMinimized(name,display=""){ //adds a minimized tab in the taskbar
     minTab.setAttribute("id",name+"-minimize");
     minTab.setAttribute("onclick","unminimizeWindow('" + name + "')");
     minTab.innerHTML = display;
-    //document.getElementById("footer").appendChild(minTab);
+    document.getElementById("footer-container").appendChild(minTab);
     
 }
 
-function finishWindow(pageHTML,id,display=""){
-
-    let windowobj = document.createElement("div");
-windowobj.innerHTML = pageHTML;
-windowobj.setAttribute("class","window");
-windowobj.setAttribute("id",id+"-window");
-windowobj.style.width="450px";
-//    windowobj.style.zIndex = 11;
-windowobj.setAttribute("onclick","focusWindow(\'" + id + "\')");
-document.getElementById("desktop").appendChild(windowobj);
-
-
-
-    //set starting position, same for all windows
-windowobj.style.top = "60px";
-windowobj.style.left = "25%";
-    
-onScreen.push([id, false]);
-
-//add a minimized button in the footer
-//name is the div id, display is what to display if it's different than the ID 
-//(eg. readme vs README.txt)
-addMinimized(id,display);
-
-//Defunct, used to hard-code the minimize tabs like a loser but now they GENERATE THEMSELVES
-//document.getElementById(minimizename).style.display="inline-block";
-
-//make the window draggable
-dragElement(windowobj);
-
-//make the window the only focused window on screen
-focusWindow(id);
-}
 
 function clickStart(){
     var element = document.getElementById("start-menu-content");
@@ -365,7 +331,7 @@ function parseText(array) {
 //SETUP FOR ALL THE DATABASES
 //------
 
-function setupFolder1() {
+function setupFile1() {
     if (!testCases) {
         console.error("Error: testCases is undefined. Data not yet loaded.");
         return;
@@ -379,7 +345,7 @@ function setupFolder1() {
                   '<td>' + testCases[i].Test3a + '</td></tr>'; 
     }
       addHTML += "</table>";
-    var elements = document.getElementsByClassName("folder1-database")
+    var elements = document.getElementsByClassName("file1-database")
     elements[0].innerHTML = addHTML;
     setup=true;
 }
@@ -478,7 +444,7 @@ $(document).ready(function () {
 
   function checkName(name, newName) {
     const solvedName = "test";
-    
+
     // check solvedName against whatever value necessary for puzzle
 
     if(newName == solvedName) {
