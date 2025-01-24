@@ -263,7 +263,7 @@ footer * {
     user-select:none;
 }
 
-#load-screen, #blue-screen {
+#load-screen, #blue-screen, #reboot-screen {
     color: white;
     z-index: 1000;
     position: fixed;
@@ -273,7 +273,7 @@ footer * {
     font-size: 1.5em;
 }
 
-#load-screen {
+#load-screen, #reboot-screen {
     background-color: black;
     text-align: center;
     vertical-align: middle;
@@ -283,10 +283,10 @@ footer * {
     background-color: var(--windows-blue);
 }
 
-#load-screen div {
+#load-screen div, #reboot-screen div {
 position: relative; 
 left: 50%;
-top: 50%;
+top: 45%;
 transform: translateX(-50%);
     transform: translate(-50%);
 }

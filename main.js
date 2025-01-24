@@ -31,6 +31,10 @@ if(getCookie("restorefolder") == "true"){
     reFolder();
 }
 
+
+// Call the load screen fade out when the page is fully loaded
+window.onload = fadeOut("load-screen");
+
 //------
 // WINDOW / DIV FUNCTIONS
 //------
@@ -225,6 +229,48 @@ function clickSettings(){
 
 }
 
+function fadeOut(id){
+    var fadeTarget = document.getElementById(id);
+
+    // Initialize opacity to 1 if not set
+    if (!fadeTarget.style.opacity) {
+        fadeTarget.style.opacity = 1;
+    }
+
+    var fadeEffect = setInterval(function () {
+        // Convert opacity to a number before comparison
+        var currentOpacity = parseFloat(fadeTarget.style.opacity);
+
+        if (currentOpacity > 0) {
+            fadeTarget.style.opacity = currentOpacity - 0.1;
+        } else {
+            clearInterval(fadeEffect);
+            fadeTarget.style.display = "none"; // Optional: Hide the element after fading out
+        }
+    }, 200);
+        
+}
+function fadeIn(id) {
+    var fadeTarget = document.getElementById(id);
+
+    // Initialize opacity to 0 if not set
+    if (!fadeTarget.style.opacity) {
+        fadeTarget.style.opacity = 0;
+    }
+    var fadeEffect = setInterval(function () {
+        // Convert opacity to a number before comparison
+        var currentOpacity = parseFloat(fadeTarget.style.opacity);
+
+        if (currentOpacity < 1) {
+            fadeTarget.style.opacity = currentOpacity + 0.1;
+        } else {
+            clearInterval(fadeEffect);
+            fadeTarget.remove();
+        }
+    }, 200);
+}
+
+
 
 //-----
 // CHECK FUNCTIONS
@@ -256,6 +302,8 @@ function isInArray(name){
  }
 
  function checkForWinState() {
+    /* Check that all the files are name correctly */
+
     if(document.getElementById('recycle-body').contains(document.getElementById('not_a_virus.txt'))) {
         document.getElementById("reset").disabled = false;
         document.getElementById("reset").style.color = "black";
@@ -341,6 +389,7 @@ function parseText(array) {
     }
           
 }
+
 
 //------
 //SETUP FOR ALL THE DATABASES
@@ -461,7 +510,7 @@ $(document).ready(function () {
   }
 
   function checkName(name, newName) {
-    console.log(name);
+
     const namePuzzles = new Map([
         ["file1-text", "file1-c"],
         ["file2-text", "file2-c"],
@@ -484,12 +533,23 @@ $(document).ready(function () {
         for (var i = onScreen.length - 1; i >= 0; i--) {
             closeWindow(onScreen[i][0]);
         }
-        // Win popup
-        document.getElementById("win-window").style.display="block";
+        rebootScreenFade();
+        
     } else {
         alert("Password incorrect.")
     }
   }
+
+  const delay = ms => new Promise(res => setTimeout(res, ms));
+  const rebootScreenFade = async () => {
+    document.getElementById("reboot-screen").style.display = "block";
+    fadeIn("reboot-screen");
+  
+    await delay(3000);
+    // Win popup
+    document.getElementById("win-window").style.display="block";
+    fadeOut("reboot-screen");
+  };
 
 
 //------
