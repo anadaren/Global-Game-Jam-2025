@@ -29,16 +29,18 @@
           <div>Rebooting...</div>   
       </div>
 
-<!-- Icon Source: https://win98icons.alexmeub.com/ -->
+<div class="desktop">
   
-<!-- DESKTOP BACKGROUND-->
-<div id="bust-background">
-  <img src="src/bust.png">
-</div>
+  <!-- DESKTOP BACKGROUND-->
+  <div id="bust-background">
+    <img src="src/bust.png">
+  </div>
 
-<!--  -->
-<!--    FOLDERS!    -->
-<!--  -->
+  <!-- Icon Source: https://win98icons.alexmeub.com/ -->
+
+  <!--  -->
+  <!--    FOLDERS!    -->
+  <!--  -->
   <div id="icon-container">
 
     <!-- File Explorer Icon -->
@@ -98,242 +100,241 @@
 
   </div>
 
+  <!--  -->
+  <!--    WINDOWS!    -->
+  <!--  -->
 
-<!--  -->
-<!--    WINDOWS!    -->
-<!--  -->
+  <!-- File Explorer Window -->
+    <div class="window" style="width: 450px;display:none" onclick="focusWindow('files')" id="files-window">
+      <div class="title-bar" id="files-windowheader">
+        <div class="title-bar-text">File Explorer</div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize" onclick="minimizeWindow('files')"></button>
+          <button aria-label="Close" onclick="closeWindow('files')"></button>
+        </div>
+      </div>
+      <div class="window-body">
+          <ul class="tree-view" id="files-body">
+            <div class="icon-group" title="Folder1" onclick="openWindow('folder1')">
+              <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+              <span class="icon-name-dark">Folder 1</span>
+              </div>
+            <div class="icon-group" title="Folder1" onclick="openWindow('folder2')">
+              <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+              <span class="icon-name-dark">Folder 2</span>
+              </div>
 
-<!-- File Explorer Window -->
-  <div class="window" style="width: 450px;display:none" onclick="focusWindow('files')" id="files-window">
-    <div class="title-bar" id="files-windowheader">
-      <div class="title-bar-text">File Explorer</div>
+              <div class="icon-group" title="Folder1" onclick="openWindow('folder3')">
+              <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+              <span class="icon-name-dark">Folder 3</span>
+              </div>
+          </ul>
+      </div>
+    </div>
+
+    <!-- Folder 1 Window -->
+  <div class="window" style="width: 450px;display:none" onclick="focusWindow('folder1')" id="folder1-window">
+    <div class="title-bar" id="folder1-windowheader">
+      <div class="title-bar-text">Folder 1</div>
       <div class="title-bar-controls">
-        <button aria-label="Minimize" onclick="minimizeWindow('files')"></button>
-        <button aria-label="Close" onclick="closeWindow('files')"></button>
+        <button aria-label="Minimize" onclick="minimizeWindow('folder1')"></button>
+        <button aria-label="Close" onclick="closeWindow('folder1')"></button>
       </div>
     </div>
     <div class="window-body">
-        <ul class="tree-view" id="files-body">
-          <div class="icon-group" title="Folder1" onclick="openWindow('folder1')">
-            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
-            <span class="icon-name-dark">Folder 1</span>
-            </div>
-          <div class="icon-group" title="Folder1" onclick="openWindow('folder2')">
-            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
-            <span class="icon-name-dark">Folder 2</span>
-            </div>
-
-            <div class="icon-group" title="Folder1" onclick="openWindow('folder3')">
-            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
-            <span class="icon-name-dark">Folder 3</span>
-            </div>
+        <ul class="tree-view" id="folder1-body">
+          
+          <div class="icon-group" title="Subfolder1" onclick="openWindow('subfolder1')">
+          <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+          <span class="icon-name-dark">Subfolder 1</span>
+          </div>
+    
+          <div class="icon-group" title="Untitled.txt" onclick="openWindow('untitled1')">
+          <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+          <span class="icon-name-dark">Untitled.txt</span>
+          </div>
         </ul>
     </div>
   </div>
 
-  <!-- Folder 1 Window -->
-<div class="window" style="width: 450px;display:none" onclick="focusWindow('folder1')" id="folder1-window">
-  <div class="title-bar" id="folder1-windowheader">
-    <div class="title-bar-text">Folder 1</div>
-    <div class="title-bar-controls">
-      <button aria-label="Minimize" onclick="minimizeWindow('folder1')"></button>
-      <button aria-label="Close" onclick="closeWindow('folder1')"></button>
+  <!-- File 1 Window -->
+  <div class="window" style="width: 450px;display:none" onclick="focusWindow('file1')" id="file1-window">
+    <div class="title-bar" id="file1-windowheader">
+      <div class="title-bar-text">File 1</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize" onclick="minimizeWindow('file1')"></button>
+        <button aria-label="Close" onclick="closeWindow('file1')"></button>
+      </div>
+    </div>
+    <div class="window-body">
+        <ul class="tree-view" id="file1-body">
+          <span class="file1-database"></span>
+        </ul>
     </div>
   </div>
-  <div class="window-body">
-      <ul class="tree-view" id="folder1-body">
-        
-        <div class="icon-group" title="Subfolder1" onclick="openWindow('subfolder1')">
-        <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
-        <span class="icon-name-dark">Subfolder 1</span>
-        </div>
-   
-        <div class="icon-group" title="Untitled.txt" onclick="openWindow('untitled1')">
-        <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
-        <span class="icon-name-dark">Untitled.txt</span>
-        </div>
-      </ul>
-  </div>
-</div>
 
- <!-- File 1 Window -->
- <div class="window" style="width: 450px;display:none" onclick="focusWindow('file1')" id="file1-window">
-  <div class="title-bar" id="file1-windowheader">
-    <div class="title-bar-text">File 1</div>
-    <div class="title-bar-controls">
-      <button aria-label="Minimize" onclick="minimizeWindow('file1')"></button>
-      <button aria-label="Close" onclick="closeWindow('file1')"></button>
+  <!-- Subfolder 1 Window -->
+  <div class="window" style="width: 450px;display:none" onclick="focusWindow('subfolder1')" id="subfolder1-window">
+    <div class="title-bar" id="subfolder1-windowheader">
+      <div class="title-bar-text">SubFolder 1</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize" onclick="minimizeWindow('subfolder1')"></button>
+        <button aria-label="Close" onclick="closeWindow('subfolder1')"></button>
+      </div>
     </div>
-  </div>
-  <div class="window-body">
-      <ul class="tree-view" id="file1-body">
-        <span class="file1-database"></span>
-      </ul>
-  </div>
-</div>
-
-<!-- Subfolder 1 Window -->
-<div class="window" style="width: 450px;display:none" onclick="focusWindow('subfolder1')" id="subfolder1-window">
-  <div class="title-bar" id="subfolder1-windowheader">
-    <div class="title-bar-text">SubFolder 1</div>
-    <div class="title-bar-controls">
-      <button aria-label="Minimize" onclick="minimizeWindow('subfolder1')"></button>
-      <button aria-label="Close" onclick="closeWindow('subfolder1')"></button>
-    </div>
-  </div>
-  <div class="window-body">
-      <ul class="tree-view" id="folder1-body">
-        <div class="icon-group" title="File2.txt" onclick="openWindow('untitled')">
-          <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
-          <span class="icon-name-dark">File2.txt</span>
-          </div>
-
-
-        <div class="icon-group" title="File3.txt" onclick="openWindow('untitled')">
-          <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
-          <span class="icon-name-dark">File3.txt</span>
-          </div>
-
-   
-        <div class="icon-group" title="not_a_virus.txt" id="not_a_virus.txt" onclick="openWindow('untitled')">
-        <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
-        <span class="icon-name-dark">not_a_virus.txt</span>
-        </div>
-      </ul>
-  </div>
-</div>
-
-<!-- Untitled File 1 Window -->
-<div class="window" style="width:450px;display:none" onclick="focusWindow('untitled1')" id="untitled1-window">
-  <div class="title-bar" id="untitled1-windowheader">
-    <div class="title-bar-text">Untitled</div>
-    <div class="title-bar-controls">
-      <button aria-label="Minimize" onclick="minimizeWindow('untitled1')"></button>
-      <button aria-label="Close" onclick="closeWindow('untitled1')"></button>
-    </div>
-  </div>
-  <div class="window-body">
-      <ul class="tree-view" id="untitled1-body">
-      </ul>
-  </div>
-</div>
-
-<!-- README Window -->
-<div class="window" style="width: 450px;display:none" onclick="focusWindow('readme')" id="readme-window">
-  <div class="title-bar" id="readme-windowheader">
-    <div class="title-bar-text">READ ME</div>
-    <div class="title-bar-controls">
-      <button aria-label="Minimize" onclick="minimizeWindow('readme')"></button>
-      <button aria-label="Close" onclick="closeWindow('readme')"></button>
-    </div>
-  </div>
-  <div class="window-body">
-      <ul class="tree-view" id="readme-body">
-        <p>Hello [New Hire Name],</p>
-        <br>
-        <p>Welcome to the job. This computer's got some pretty nasty viruses on it, so try and sort those out. A lot of people use this thing though so you might need to sleuth around for a while to figure out what's wrong.</p>
-        <p>And be sure to do a factory reset once you get everything working again.</p>
-        <br>
-        <p>Signed,</p>
-        <p>Guy who used to have your job</p>
-      </ul>
-  </div>
-</div>
-
-<!-- Browser Window-->
-<div class="window" style="width: 450px;display:none" onclick="focusWindow('browser')" id="browser-window">
-  <div class="title-bar" id="browser-windowheader">
-    <div class="title-bar-text">Browser</div>
-    <div class="title-bar-controls">
-      <button aria-label="Minimize" onclick="minimizeWindow('browser')"></button>
-      <button aria-label="Close" onclick="closeWindow('browser')"></button>
-    </div>
-  </div>
-  <div class="window-body">
-      <ul class="tree-view" id="browser-body">
-        <!-- Internet -->
-        
-        <!-- End of Internet -->
-      </ul>
-  </div>
-</div>
-
- <!-- Notepad Window-->
- <div class="window" style="width: 450px;display:none" onclick="focusWindow('notepad')" id="notepad-window">
-  <div class="title-bar" id="notepad-windowheader">
-    <div class="title-bar-text">Notepad</div>
-    <div class="title-bar-controls">
-      <button aria-label="Minimize" onclick="minimizeWindow('notepad')"></button>
-      <button aria-label="Close" onclick="closeWindow('notepad')"></button>
-    </div>
-  </div>
-  <div class="window-body">
-      <ul class="tree-view" id="notepad-body">
-       <textarea></textarea>
-      </ul>
-  </div>
-</div>
-
-  <!-- Recycle Window-->
-<div class="window" style="width: 450px;display:none" onclick="focusWindow('recycle')" id="recycle-window">
-  <div class="title-bar" id="recycle-windowheader">
-    <div class="title-bar-text">Recycle bin</div>
-    <div class="title-bar-controls">
-      <button aria-label="Minimize" onclick="minimizeWindow('recycle')"></button>
-      <button aria-label="Close" onclick="closeWindow('recycle')"></button>
-    </div>
-  </div>
-  <div class="window-body">
-      <ul class="tree-view" id="recycle-body">
-        <div class="icon-group" title="Subfolder2" id="Subfolder2" onclick="openWindow('subfolder2')">
-          <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
-          <span class="icon-name-dark">Subfolder 2</span>
-          </div>
-
-          <div class="icon-group" title="File4.txt" onclick="openWindow('untitled')">
+    <div class="window-body">
+        <ul class="tree-view" id="folder1-body">
+          <div class="icon-group" title="File2.txt" onclick="openWindow('untitled')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
-            <span class="icon-name-dark">File4.txt</span>
+            <span class="icon-name-dark">File2.txt</span>
             </div>
 
-            <div class="icon-group" title="File5.txt" onclick="openWindow('untitled')">
-              <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
-              <span class="icon-name-dark">File5.txt</span>
-      </ul>
-  </div>
-</div>
 
-<!--    Terminal Window-->
-<div class="window" style="width:450px;display:none" onclick="focusWindow('terminal')" id="terminal-window">
-  <div class="title-bar" id="terminal-windowheader">
-    <div class="title-bar-text">Terminal</div>
-    <div class="title-bar-controls">
-      <button aria-label="Minimize" onclick="minimizeWindow('terminal')"></button>
-      <button aria-label="Close" onclick="closeWindow('terminal')"></button>
-    </div>
-  </div>
-  <div class="window-body"  style="max-height:300px;min-height:300px;overflow-y:scroll;">
-      <div id="terminal-body" style="min-height:300px">
-      </div>
-  </div>
-</div>
+          <div class="icon-group" title="File3.txt" onclick="openWindow('untitled')">
+            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+            <span class="icon-name-dark">File3.txt</span>
+            </div>
 
-
-<!-- Win State Window -->
-<div class="window" style="width:300px;display:none" id="win-window">
-  <div class="title-bar">
-    <div class="title-bar-text">You Win!</div>
-    <div class="title-bar-controls">
-      <button aria-label="Minimize" onclick="minimizeWindow('win-window')"></button>
-      <button aria-label="Close" onclick="closeWindow('win-window')"></button>
-    </div>
-  </div>
-  <div class="window-body">
-    <p>Computer Sucessfully Rebooted!</p>
-    <br>
-    <a href="https://github.com/anadaren/Global-Game-Jam-2025"><button style="float:right;" class="default">OK</button></a>
-  </div>
-</div>
     
+          <div class="icon-group" title="not_a_virus.txt" id="not_a_virus.txt" onclick="openWindow('untitled')">
+          <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+          <span class="icon-name-dark">not_a_virus.txt</span>
+          </div>
+        </ul>
+    </div>
+  </div>
+
+  <!-- Untitled File 1 Window -->
+  <div class="window" style="width:450px;display:none" onclick="focusWindow('untitled1')" id="untitled1-window">
+    <div class="title-bar" id="untitled1-windowheader">
+      <div class="title-bar-text">Untitled</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize" onclick="minimizeWindow('untitled1')"></button>
+        <button aria-label="Close" onclick="closeWindow('untitled1')"></button>
+      </div>
+    </div>
+    <div class="window-body">
+        <ul class="tree-view" id="untitled1-body">
+        </ul>
+    </div>
+  </div>
+
+  <!-- README Window -->
+  <div class="window" style="width: 450px;display:none" onclick="focusWindow('readme')" id="readme-window">
+    <div class="title-bar" id="readme-windowheader">
+      <div class="title-bar-text">READ ME</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize" onclick="minimizeWindow('readme')"></button>
+        <button aria-label="Close" onclick="closeWindow('readme')"></button>
+      </div>
+    </div>
+    <div class="window-body">
+        <ul class="tree-view" id="readme-body">
+          <p>Hello [New Hire Name],</p>
+          <br>
+          <p>Welcome to the job. This computer's got some pretty nasty viruses on it, so try and sort those out. A lot of people use this thing though so you might need to sleuth around for a while to figure out what's wrong.</p>
+          <p>And be sure to do a factory reset once you get everything working again.</p>
+          <br>
+          <p>Signed,</p>
+          <p>Guy who used to have your job</p>
+        </ul>
+    </div>
+  </div>
+
+  <!-- Browser Window-->
+  <div class="window" style="width: 450px;display:none" onclick="focusWindow('browser')" id="browser-window">
+    <div class="title-bar" id="browser-windowheader">
+      <div class="title-bar-text">Browser</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize" onclick="minimizeWindow('browser')"></button>
+        <button aria-label="Close" onclick="closeWindow('browser')"></button>
+      </div>
+    </div>
+    <div class="window-body">
+        <ul class="tree-view" id="browser-body">
+          <!-- Internet -->
+          
+          <!-- End of Internet -->
+        </ul>
+    </div>
+  </div>
+
+  <!-- Notepad Window-->
+  <div class="window" style="width: 450px;display:none" onclick="focusWindow('notepad')" id="notepad-window">
+    <div class="title-bar" id="notepad-windowheader">
+      <div class="title-bar-text">Notepad</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize" onclick="minimizeWindow('notepad')"></button>
+        <button aria-label="Close" onclick="closeWindow('notepad')"></button>
+      </div>
+    </div>
+    <div class="window-body">
+        <ul class="tree-view" id="notepad-body">
+        <textarea></textarea>
+        </ul>
+    </div>
+  </div>
+
+    <!-- Recycle Window-->
+  <div class="window" style="width: 450px;display:none" onclick="focusWindow('recycle')" id="recycle-window">
+    <div class="title-bar" id="recycle-windowheader">
+      <div class="title-bar-text">Recycle bin</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize" onclick="minimizeWindow('recycle')"></button>
+        <button aria-label="Close" onclick="closeWindow('recycle')"></button>
+      </div>
+    </div>
+    <div class="window-body">
+        <ul class="tree-view" id="recycle-body">
+          <div class="icon-group" title="Subfolder2" id="Subfolder2" onclick="openWindow('subfolder2')">
+            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+            <span class="icon-name-dark">Subfolder 2</span>
+            </div>
+
+            <div class="icon-group" title="File4.txt" onclick="openWindow('untitled')">
+              <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+              <span class="icon-name-dark">File4.txt</span>
+              </div>
+
+              <div class="icon-group" title="File5.txt" onclick="openWindow('untitled')">
+                <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+                <span class="icon-name-dark">File5.txt</span>
+        </ul>
+    </div>
+  </div>
+
+  <!--    Terminal Window-->
+  <div class="window" style="width:450px;display:none" onclick="focusWindow('terminal')" id="terminal-window">
+    <div class="title-bar" id="terminal-windowheader">
+      <div class="title-bar-text">Terminal</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize" onclick="minimizeWindow('terminal')"></button>
+        <button aria-label="Close" onclick="closeWindow('terminal')"></button>
+      </div>
+    </div>
+    <div class="window-body"  style="max-height:300px;min-height:300px;overflow-y:scroll;">
+        <div id="terminal-body" style="min-height:300px">
+        </div>
+    </div>
+  </div>
+
+
+  <!-- Win State Window -->
+  <div class="window" style="width:300px;display:none" id="win-window">
+    <div class="title-bar">
+      <div class="title-bar-text">You Win!</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize" onclick="minimizeWindow('win-window')"></button>
+        <button aria-label="Close" onclick="closeWindow('win-window')"></button>
+      </div>
+    </div>
+    <div class="window-body">
+      <p>Computer Sucessfully Rebooted!</p>
+      <br>
+      <a href="https://github.com/anadaren/Global-Game-Jam-2025"><button style="float:right;" class="default">OK</button></a>
+    </div>
+  </div>
+</div>      
   <!-- End of Desktop -->
 
   

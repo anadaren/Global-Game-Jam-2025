@@ -14,6 +14,7 @@ html{
                                       var(--vaporwave-magenta), 
                                       var(--vaporwave-cyan)
     );
+    background: var(--vaporwave-cyan);
 }
 
 body {
@@ -34,12 +35,17 @@ td {
 }
 
 #bust-background {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 2em;
-    height: 50%;
-    width: 50%;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+    text-align: center;
+}
+
+.desktop {
+    width: 100%;
+    height: 100%;
+    position: absolute;
 }
 
 .email-full {
