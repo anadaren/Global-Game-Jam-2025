@@ -15,9 +15,9 @@
 
 <body>
   <ul class='custom-menu'>
-    <li data-action = "first"><b><u>O</u>pen</b></li>
-    <li data-action = "second">Rena<u>m</u>e</li>
-    <li data-action = "third"><u>D</u>elete</li>
+    <li data-action = "open"><b><u>O</u>pen</b></li>
+    <li data-action = "rename">Rena<u>m</u>e</li>
+    <li data-action = "delete"><u>D</u>elete</li>
   </ul>
 
 <!-- Icon Source: https://win98icons.alexmeub.com/ -->
@@ -100,6 +100,19 @@
     </div>
     <div class="window-body">
         <ul class="tree-view" id="files-body">
+          <div class="icon-group" title="Folder1" onclick="openWindow('folder1')">
+            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+            <span class="icon-name-dark">Folder 1</span>
+            </div>
+          <div class="icon-group" title="Folder1" onclick="openWindow('folder2')">
+            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+            <span class="icon-name-dark">Folder 2</span>
+            </div>
+
+            <div class="icon-group" title="Folder1" onclick="openWindow('folder3')">
+            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+            <span class="icon-name-dark">Folder 3</span>
+            </div>
         </ul>
     </div>
   </div>
@@ -168,9 +181,9 @@
           </div>
 
    
-        <div class="icon-group" title="File4.txt" onclick="openWindow('untitled')">
+        <div class="icon-group" title="not_a_virus.txt" id="not_a_virus.txt" onclick="openWindow('untitled')">
         <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
-        <span class="icon-name-dark">File4.txt</span>
+        <span class="icon-name-dark">not_a_virus.txt</span>
         </div>
       </ul>
   </div>
@@ -258,19 +271,19 @@
   </div>
   <div class="window-body">
       <ul class="tree-view" id="recycle-body">
-        <div class="icon-group" title="Subfolder1" onclick="openWindow('subfolder1')">
+        <div class="icon-group" title="Subfolder2" id="Subfolder2" onclick="openWindow('subfolder2')">
           <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
-          <span class="icon-name-dark">Subfolder 1</span>
+          <span class="icon-name-dark">Subfolder 2</span>
           </div>
 
-          <div class="icon-group" title="File5.txt" onclick="openWindow('untitled')">
+          <div class="icon-group" title="File4.txt" onclick="openWindow('untitled')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
-            <span class="icon-name-dark">File5.txt</span>
+            <span class="icon-name-dark">File4.txt</span>
             </div>
 
-            <div class="icon-group" title="File6.txt" onclick="openWindow('untitled')">
+            <div class="icon-group" title="File5.txt" onclick="openWindow('untitled')">
               <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
-              <span class="icon-name-dark">File6.txt</span>
+              <span class="icon-name-dark">File5.txt</span>
       </ul>
   </div>
 </div>
@@ -329,6 +342,14 @@
                     <div class="icon-image my-computer"><img src="https://win98icons.alexmeub.com/icons/png/console_prompt-0.png"/></div>
                     <span class="icon-name">Terminal</span>
                 </div>
+                <div class="item" title="Terminal" onclick=""> 
+                  <div class="icon-image my-computer"><img src="https://win98icons.alexmeub.com/icons/png/key_win-3.png"/></div>
+                  <span class="icon-name">Log Out</span>
+              </div>
+              <div class="item" title="Terminal" onclick=""> 
+                <div class="icon-image my-computer"><img src="https://win98icons.alexmeub.com/icons/png/shut_down_normal-3.png"/></div>
+                <span class="icon-name">Shut Down</span>
+            </div>
                     
                 
                     <div class="item-placeholder" style="height: 100px;"> </div>
@@ -356,13 +377,30 @@
                 <p><b>Settings</b></p>
                 <button class="setting-name" onclick="openWindow('files')">File Explorer</button>
                 <button class="setting-name">Sound Settings</button>
-                <button class="setting-name" id="reset" disabled>Factory Reset</button>
+                <button class="setting-name" id="reset" onClick="winState()" disabled>Factory Reset</button>
             </div>
         </div>
 
     </div>
+
+    <div class="settings-menu">
+        
+      <img src="https://win98icons.alexmeub.com/icons/png/loudspeaker_rays-1.png" onclick="clickSettings()"/>
+                  
+      <div id="settings-menu-content" style="display:none;">
+          
+              <!-- Start Menu icons-->
+          <div class="start-menu-divs">
+              <p><b>Settings</b></p>
+              <button class="setting-name" onclick="openWindow('files')">File Explorer</button>
+              <button class="setting-name">Sound Settings</button>
+              <button class="setting-name" id="reset" disabled>Factory Reset</button>
+          </div>
+      </div>
+
+  </div>
       
-      <img src="https://win98icons.alexmeub.com/icons/png/loudspeaker_rays-1.png"/>
+
         <span id="clock"></span>
     </div>
     

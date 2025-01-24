@@ -11,7 +11,7 @@ var emails; //object array of all the emails
 
 var onScreen = []; // 2d array of the IDs for objects that are on screen [id name, minimized boolean]
 
-var divIDOnScreen = ["files","folder1","file1","subfolder1","untitled1","browser","notepad","recycle","terminal"]; // list of all the divs that are hard-coded, used in closeWindow()
+var divIDOnScreen = ["files","folder1","file1","subfolder1","subfolder2","untitled1","browser","notepad","recycle","terminal"]; // list of all the divs that are hard-coded, used in closeWindow()
 
 var setup = false; // tracks if the databse windows have been loaded in yet
 
@@ -34,7 +34,6 @@ if(getCookie("restorefolder") == "true"){
 // WINDOW / DIV FUNCTIONS
 //------
 function openWindow(name,display){
-    console.log('test');
     var windowname = name + "-window";
     var minimizename = name + "-minimize";
  
@@ -256,6 +255,13 @@ function isInArray(name){
      }
  }
 
+ function checkForWinState() {
+    if(document.getElementById('recycle-body').contains(document.getElementById('not_a_virus.txt'))) {
+        document.getElementById("reset").disabled = false;
+        document.getElementById("reset").style.color = "black";
+    }
+  }
+
 //------
 // CSV to JSON
 //------
@@ -437,19 +443,22 @@ function getOffset( el ) {
 //------
 
 $(document).ready(function () {
-    $(".icon-name").dblclick(function () {
-        
-      const oldText = $(this).text();
-      const newText = prompt("Rename:", $(this).text());
-      
-      if (newText !== null && newText !== "") {
-        $(this).text(newText);
-        checkName($(this).attr("id"), newText);
-      } else {
-        newText = $(this).text(oldText);
-      }
+    $(".icon-name").dblclick(function (){
+        renameFile($(this));
     });
   });
+
+  function renameFile(fileToRename) {
+    const oldText = fileToRename.text();
+      const newText = prompt("Rename:", oldText);
+      
+      if (newText !== null && newText !== "") {
+        fileToRename.text(newText);
+        checkName(fileToRename.attr("id"), newText);
+      } else {
+        newText = fileToRename.text(oldText);
+      }
+  }
 
   function checkName(name, newName) {
     console.log(name);
@@ -463,9 +472,9 @@ $(document).ready(function () {
 
     if(newName == solvedName) {
         alert("New name is a match.");
+        // Make something else happen here
     }
   }
-
 
   function winState() {
     document.getElementById("win-window").style.display="block";
@@ -476,47 +485,56 @@ $(document).ready(function () {
 // RIGHT CLICK MENU FUNCTIONS
 //------
 
+let currentRightClickedElement = null; // To store the currently right-clicked element
+
 // Trigger action when the contexmenu is about to be shown
 $(document).bind("contextmenu", function (event) {
-    
-    // Avoid the real one
-    event.preventDefault();
-    
-    // Show contextmenu
-    $(".custom-menu").finish().toggle(100).
-    
-    // In the right position (the mouse)
-    css({
-        top: event.pageY + "px",
-        left: event.pageX + "px"
-    });
+
+    if (($(event.target).closest(".icon-group").length > 0) && ($(event.target).closest(".icon-group") !== "recycle")) {    // FIXME
+        // Avoid the real one
+        event.preventDefault();
+        
+
+        currentRightClickedElement = $(event.target).closest(".icon-group"); // Store the clicked element
+
+        $(".custom-menu").finish().toggle(100).css({
+            top: event.pageY + "px",
+            left: event.pageX + "px",
+        });
+    } else {
+        // Hide context menu if right-clicked outside "icon-group"
+        $(".custom-menu").hide(100);
+        currentRightClickedElement = null;
+    }
 });
 
-
-// If the document is clicked somewhere
+// If the document is clicked somewhere else
 $(document).bind("mousedown", function (e) {
-    
     // If the clicked element is not the menu
     if (!$(e.target).parents(".custom-menu").length > 0) {
-        
         // Hide it
         $(".custom-menu").hide(100);
     }
 });
 
-
 // If the menu element is clicked
-$(".custom-menu li").click(function(){
-    
-    // This is the triggered action name
-    switch($(this).attr("data-action")) {
-        
-        // A case for each action. Your actions here
-        case "first": alert("first"); break;
-        case "second": alert("second"); break;
-        case "third": alert("third"); break;
+$(".custom-menu li").click(function () {
+    switch ($(this).attr("data-action")) {
+        case "open": openWindow(currentRightClickedElement.getAttribute("onclick")); break;
+        case "rename": const fileNameElement = currentRightClickedElement.find(".icon-name"); // Ensure correct target
+                        renameFile(fileNameElement);
+                        break;
+        case "delete": deleteFile(); break; // Call the updated deleteFile
     }
-  
+
     // Hide it AFTER the action was triggered
     $(".custom-menu").hide(100);
-  });
+});
+
+function deleteFile() {
+    if (currentRightClickedElement) {
+        $("#recycle-body").append(currentRightClickedElement);
+        currentRightClickedElement = null;
+    }
+    checkForWinState();
+}
