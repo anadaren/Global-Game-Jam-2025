@@ -28,7 +28,7 @@
   <div id="icon-container">
 
     <!-- File Explorer Icon -->
-    <div class="icon-group" title="" onclick="">
+    <div class="icon-group" title="" onclick="openWindow('files','File Explorer')">
       <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png"/></div>
       <span class="icon-name" id="files-text">Files</span>
       </div>
@@ -121,7 +121,7 @@
         <span class="icon-name-dark">Subfolder 1</span>
         </div>
    
-        <div class="icon-group" title="Untitled.txt" onclick="openWindow('untitled')">
+        <div class="icon-group" title="Untitled.txt" onclick="openWindow('untitled1')">
         <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
         <span class="icon-name-dark">Untitled.txt</span>
         </div>
@@ -145,6 +145,52 @@
   </div>
 </div>
 
+<!-- Subfolder 1 Window -->
+<div class="window" style="width: 450px;display:none" onclick="focusWindow('subfolder1')" id="subfolder1-window">
+  <div class="title-bar" id="subfolder1-windowheader">
+    <div class="title-bar-text">SubFolder 1</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize" onclick="minimizeWindow('subfolder1')"></button>
+      <button aria-label="Close" onclick="closeWindow('subfolder1')"></button>
+    </div>
+  </div>
+  <div class="window-body">
+      <ul class="tree-view" id="folder1-body">
+        <div class="icon-group" title="File2.txt" onclick="openWindow('untitled')">
+          <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+          <span class="icon-name-dark">File2.txt</span>
+          </div>
+
+
+        <div class="icon-group" title="File3.txt" onclick="openWindow('untitled')">
+          <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+          <span class="icon-name-dark">File3.txt</span>
+          </div>
+
+   
+        <div class="icon-group" title="File4.txt" onclick="openWindow('untitled')">
+        <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+        <span class="icon-name-dark">File4.txt</span>
+        </div>
+      </ul>
+  </div>
+</div>
+
+<!-- Untitled File 1 Window -->
+<div class="window" style="width:450px;display:none" onclick="focusWindow('untitled1')" id="untitled1-window">
+  <div class="title-bar" id="untitled1-windowheader">
+    <div class="title-bar-text">Untitled</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize" onclick="minimizeWindow('untitled1')"></button>
+      <button aria-label="Close" onclick="closeWindow('untitled1')"></button>
+    </div>
+  </div>
+  <div class="window-body">
+      <ul class="tree-view" id="untitled1-body">
+      </ul>
+  </div>
+</div>
+
 <!-- README Window -->
 <div class="window" style="width: 450px;display:none" onclick="focusWindow('readme')" id="readme-window">
   <div class="title-bar" id="readme-windowheader">
@@ -158,7 +204,8 @@
       <ul class="tree-view" id="readme-body">
         <p>Hello [New Hire Name],</p>
         <br>
-        <p>Welcome to the job.</p>
+        <p>Welcome to the job. This computer's got some pretty nasty viruses on it, so try and sort those out. A lot of people use this thing though so you might need to sleuth around for a while to figure out what's wrong.</p>
+        <p>And be sure to do a factory reset once you get everything working again.</p>
         <br>
         <p>Signed,</p>
         <p>Guy who used to have your job</p>
@@ -216,14 +263,14 @@
           <span class="icon-name-dark">Subfolder 1</span>
           </div>
 
-          <div class="icon-group" title="Untitled.txt" onclick="openWindow('untitled')">
+          <div class="icon-group" title="File5.txt" onclick="openWindow('untitled')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
-            <span class="icon-name-dark">Untitled.txt</span>
+            <span class="icon-name-dark">File5.txt</span>
             </div>
 
-            <div class="icon-group" title="Untitled.txt" onclick="openWindow('untitled')">
+            <div class="icon-group" title="File6.txt" onclick="openWindow('untitled')">
               <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
-              <span class="icon-name-dark">Untitled.txt</span>
+              <span class="icon-name-dark">File6.txt</span>
       </ul>
   </div>
 </div>
@@ -240,6 +287,23 @@
   <div class="window-body"  style="max-height:300px;min-height:300px;overflow-y:scroll;">
       <div id="terminal-body" style="min-height:300px">
       </div>
+  </div>
+</div>
+
+
+<!-- Win State Window -->
+<div class="window" style="width:300px;display:none" id="win-window">
+  <div class="title-bar">
+    <div class="title-bar-text">You Win!</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize" onclick="minimizeWindow('win-window')"></button>
+      <button aria-label="Close" onclick="closeWindow('win-window')"></button>
+    </div>
+  </div>
+  <div class="window-body">
+    <p>Computer Sucessfully Rebooted!</p>
+    <br>
+    <a href="https://github.com/anadaren/Global-Game-Jam-2025"><button style="float:right;" class="default">OK</button></a>
   </div>
 </div>
     
@@ -281,7 +345,23 @@
     
 
     <div id="footer-right">
-      <img src="https://win98icons.alexmeub.com/icons/png/monitor_tweakui-1.png"/>
+      <div class="settings-menu">
+        
+        <img src="https://win98icons.alexmeub.com/icons/png/monitor_tweakui-1.png" onclick="clickSettings()"/>
+                    
+        <div id="settings-menu-content" style="display:none;">
+            
+                <!-- Start Menu icons-->
+            <div class="start-menu-divs">
+                <p><b>Settings</b></p>
+                <button class="setting-name" onclick="openWindow('files')">File Explorer</button>
+                <button class="setting-name">Sound Settings</button>
+                <button class="setting-name" id="reset" disabled>Factory Reset</button>
+            </div>
+        </div>
+
+    </div>
+      
       <img src="https://win98icons.alexmeub.com/icons/png/loudspeaker_rays-1.png"/>
         <span id="clock"></span>
     </div>

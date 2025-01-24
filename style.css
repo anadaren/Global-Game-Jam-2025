@@ -16,9 +16,8 @@ body {
     padding: 0;
 }
 
-.window{
+.window {
     position:absolute;
-    width: 300px;
     resize: both;
     overflow: auto;
 }
@@ -64,6 +63,7 @@ td.email-content {
 
 .tree-view{
     line-height: 20px;
+    min-height: 200px;
 }
 
 
@@ -73,18 +73,6 @@ td.email-content {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-#recycle-body {
-    min-height: 200px;
-}
-  
-#folder1-body {
-    min-height: 200px;
-}
-
-#notepad-body {
-    min-height: 200px;
 }
         
 div.icon-group {
@@ -166,6 +154,22 @@ footer * {
     cursor: pointer;
 }
 
+.minimized-tab {
+}
+
+#win-window {
+    
+    height:100px;
+    width: 100%;
+    top: 33%;
+    left: 38%;
+}
+#win-window a {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .start-button {
     font-weight: bold;
     padding: 8px;
@@ -174,7 +178,6 @@ footer * {
 .start-menu {
   position: relative;
   font-family: monospace;
-/*  display: flex;*/
 }
 
 #start-menu-content {
@@ -202,6 +205,55 @@ footer * {
     color: black;
     margin-left: 10px;
 }
+
+
+.settings-menu {
+    position: relative;
+    font-family: monospace;
+  }
+  
+  #settings-menu-content {
+      position:absolute;
+      min-width: 160px;
+      bottom: 22pt;
+      right: 15px;
+      z-index: 100;
+      background-color: var(--windows-grey);
+      border-top: 2px solid var(--windows-light-grey);
+      border-left: 2px solid var(--windows-light-grey);
+      border-right: 2px solid var(--windows-dark-grey);
+      border-bottom: 2px solid var(--windows-dark-grey);
+  }
+  
+  .settings-menu-divs .item {
+      cursor: pointer;
+  }
+  
+  .settings-menu-divs .icon-image {
+      max-height: 32px;
+      max-width: 32px;
+  }
+  
+  .settings-menu-divs .icon-name {
+      margin: 0px;
+  }
+
+  .seting-name {
+    
+  }
+  .setting-name:hover {
+    background-color: var(--windows-blue);
+    color: white;
+  }
+
+  #reset {
+    color: var(--windows-dark-grey);
+    cursor: default;
+  }
+
+  #reset:hover {
+    background-color: var(--windows-grey);
+  }
 
 #desktop{
     user-select:none;

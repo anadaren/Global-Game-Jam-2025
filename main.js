@@ -11,9 +11,7 @@ var emails; //object array of all the emails
 
 var onScreen = []; // 2d array of the IDs for objects that are on screen [id name, minimized boolean]
 
-//var divIDOnScreen = ["cases","agents","containment","email","terminal","recycle","manual","untitled"]; // list of all the divs that are hard-coded, used in closeWindow()
-
-var divIDOnScreen = ["files","folder1","file1","browser","notepad","recycle","terminal"]; // list of all the divs that are hard-coded, used in closeWindow()
+var divIDOnScreen = ["files","folder1","file1","subfolder1","untitled1","browser","notepad","recycle","terminal"]; // list of all the divs that are hard-coded, used in closeWindow()
 
 var setup = false; // tracks if the databse windows have been loaded in yet
 
@@ -21,7 +19,7 @@ var setup = false; // tracks if the databse windows have been loaded in yet
 var zind = 6;
 
 //terminal.js variables
-/*var g = 0;
+var g = 0;
 var admin = 0;
 var salty = "saltyboi";
 var adminusername = "";
@@ -30,12 +28,13 @@ var passwords = [["abshirea","627c787c7a647f612e73",""],
 
 if(getCookie("restorefolder") == "true"){
     reFolder();
-}*/
+}
 
 //------
 // WINDOW / DIV FUNCTIONS
 //------
 function openWindow(name,display){
+    console.log('test');
     var windowname = name + "-window";
     var minimizename = name + "-minimize";
  
@@ -44,10 +43,8 @@ function openWindow(name,display){
     windowobj.style.display="block";
     
     if(!setup){
+        // Setup for everything that reads from a CSV file
         setupFile1();
-        //setupBrowser();
-        //setupNotepad();
-        //setupRecycling();
     }
         
     //if the window isn't already open, add it to the onScreen array
@@ -190,6 +187,7 @@ function addMinimized(name,display=""){ //adds a minimized tab in the taskbar
     
     //add a new btutton
     let minTab = document.createElement("button");
+    minTab.setAttribute("class","minimized-tab");
     minTab.setAttribute("id",name+"-minimize");
     minTab.setAttribute("onclick","unminimizeWindow('" + name + "')");
     minTab.innerHTML = display;
@@ -215,6 +213,17 @@ function clickBody(){
 if(element.style.display=="block"){
    element.style.display="none"; 
 }
+}
+
+function clickSettings(){
+    var element = document.getElementById("settings-menu-content");
+    
+    if(element.style.display=="block"){
+       element.style.display="none"; 
+    } else {
+        element.style.display="block";
+    }
+
 }
 
 
@@ -456,6 +465,12 @@ $(document).ready(function () {
         alert("New name is a match.");
     }
   }
+
+
+  function winState() {
+    document.getElementById("win-window").style.display="block";
+  }
+
 
 //------
 // RIGHT CLICK MENU FUNCTIONS
