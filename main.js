@@ -1,6 +1,7 @@
 //https://stackoverflow.com/questions/27979002/convert-csv-data-into-json-format-using-javascript
 
 var testCases;
+var password = "password";
 
 //Object arrays grabbed from the spreadsheets
 /*var cases; // object array of all the cases
@@ -11,17 +12,15 @@ var emails; //object array of all the emails
 
 var onScreen = []; // 2d array of the IDs for objects that are on screen [id name, minimized boolean]
 
-//var divIDOnScreen = ["cases","agents","containment","email","terminal","recycle","manual","untitled"]; // list of all the divs that are hard-coded, used in closeWindow()
-
-var divIDOnScreen = ["folder1","browser","notepad","recycle"]; // list of all the divs that are hard-coded, used in closeWindow()
+var divIDOnScreen = ["files","folder1","file1","subfolder1","subfolder2","untitled1","browser","notepad","recycle","terminal"]; // list of all the divs that are hard-coded, used in closeWindow()
 
 var setup = false; // tracks if the databse windows have been loaded in yet
 
 //Current highest window index
-var zind = 5;
+var zind = 6;
 
 //terminal.js variables
-/*var g = 0;
+var g = 0;
 var admin = 0;
 var salty = "saltyboi";
 var adminusername = "";
@@ -30,7 +29,11 @@ var passwords = [["abshirea","627c787c7a647f612e73",""],
 
 if(getCookie("restorefolder") == "true"){
     reFolder();
-}*/
+}
+
+
+// Call the load screen fade out when the page is fully loaded
+window.onload = fadeOut("load-screen");
 
 //------
 // WINDOW / DIV FUNCTIONS
@@ -44,10 +47,8 @@ function openWindow(name,display){
     windowobj.style.display="block";
     
     if(!setup){
-        setupFolder1();
-        //setupBrowser();
-        //setupNotepad();
-        //setupRecycling();
+        // Setup for everything that reads from a CSV file
+        setupFile1();
     }
         
     //if the window isn't already open, add it to the onScreen array
@@ -58,7 +59,6 @@ function openWindow(name,display){
         windowobj.style.left = 200 + (onScreen.length*10) + "px";
         
         onScreen.push([name, false]);
-    
         //add a minimized button in the footer
         //name is the div id, display is what to display if it's different than the ID 
         //(eg. readme vs README.txt)
@@ -85,7 +85,7 @@ function closeWindow(name){
     }
     
     //delete minimize tab
-    //document.getElementById(minimizename).remove();
+    document.getElementById(minimizename).remove();
     
     //remove from onScreen array
     removeFromArray(name);
@@ -111,7 +111,6 @@ function minimizeWindow(name){ //when clicking the minimize button on the window
      for(var i = 0; i < onScreen.length; i++){
          if(onScreen[i][0] === name){
              onScreen[i][1] = true;
-     
          }
      }
  
@@ -191,46 +190,14 @@ function addMinimized(name,display=""){ //adds a minimized tab in the taskbar
     
     //add a new btutton
     let minTab = document.createElement("button");
+    minTab.setAttribute("class","minimized-tab");
     minTab.setAttribute("id",name+"-minimize");
     minTab.setAttribute("onclick","unminimizeWindow('" + name + "')");
     minTab.innerHTML = display;
-    //document.getElementById("footer").appendChild(minTab);
+    document.getElementById("footer-container").appendChild(minTab);
     
 }
 
-function finishWindow(pageHTML,id,display=""){
-
-    let windowobj = document.createElement("div");
-windowobj.innerHTML = pageHTML;
-windowobj.setAttribute("class","window");
-windowobj.setAttribute("id",id+"-window");
-windowobj.style.width="450px";
-//    windowobj.style.zIndex = 11;
-windowobj.setAttribute("onclick","focusWindow(\'" + id + "\')");
-document.getElementById("desktop").appendChild(windowobj);
-
-
-
-    //set starting position, same for all windows
-windowobj.style.top = "60px";
-windowobj.style.left = "25%";
-    
-onScreen.push([id, false]);
-
-//add a minimized button in the footer
-//name is the div id, display is what to display if it's different than the ID 
-//(eg. readme vs README.txt)
-addMinimized(id,display);
-
-//Defunct, used to hard-code the minimize tabs like a loser but now they GENERATE THEMSELVES
-//document.getElementById(minimizename).style.display="inline-block";
-
-//make the window draggable
-dragElement(windowobj);
-
-//make the window the only focused window on screen
-focusWindow(id);
-}
 
 function clickStart(){
     var element = document.getElementById("start-menu-content");
@@ -250,6 +217,59 @@ if(element.style.display=="block"){
    element.style.display="none"; 
 }
 }
+
+function clickSettings(){
+    var element = document.getElementById("settings-menu-content");
+    
+    if(element.style.display=="block"){
+       element.style.display="none"; 
+    } else {
+        element.style.display="block";
+    }
+
+}
+
+function fadeOut(id){
+    var fadeTarget = document.getElementById(id);
+
+    // Initialize opacity to 1 if not set
+    if (!fadeTarget.style.opacity) {
+        fadeTarget.style.opacity = 1;
+    }
+
+    var fadeEffect = setInterval(function () {
+        // Convert opacity to a number before comparison
+        var currentOpacity = parseFloat(fadeTarget.style.opacity);
+
+        if (currentOpacity > 0) {
+            fadeTarget.style.opacity = currentOpacity - 0.1;
+        } else {
+            clearInterval(fadeEffect);
+            fadeTarget.style.display = "none"; // Optional: Hide the element after fading out
+        }
+    }, 200);
+        
+}
+function fadeIn(id) {
+    var fadeTarget = document.getElementById(id);
+
+    // Initialize opacity to 0 if not set
+    if (!fadeTarget.style.opacity) {
+        fadeTarget.style.opacity = 0;
+    }
+    var fadeEffect = setInterval(function () {
+        // Convert opacity to a number before comparison
+        var currentOpacity = parseFloat(fadeTarget.style.opacity);
+
+        if (currentOpacity < 1) {
+            fadeTarget.style.opacity = currentOpacity + 0.1;
+        } else {
+            clearInterval(fadeEffect);
+            fadeTarget.remove();
+        }
+    }, 200);
+}
+
 
 
 //-----
@@ -280,6 +300,15 @@ function isInArray(name){
          }
      }
  }
+
+ function checkForWinState() {
+    /* Check that all the files are name correctly */
+
+    if(document.getElementById('recycle-body').contains(document.getElementById('not_a_virus.txt'))) {
+        document.getElementById("reset").disabled = false;
+        document.getElementById("reset").style.color = "black";
+    }
+  }
 
 //------
 // CSV to JSON
@@ -361,11 +390,12 @@ function parseText(array) {
           
 }
 
+
 //------
 //SETUP FOR ALL THE DATABASES
 //------
 
-function setupFolder1() {
+function setupFile1() {
     if (!testCases) {
         console.error("Error: testCases is undefined. Data not yet loaded.");
         return;
@@ -379,7 +409,7 @@ function setupFolder1() {
                   '<td>' + testCases[i].Test3a + '</td></tr>'; 
     }
       addHTML += "</table>";
-    var elements = document.getElementsByClassName("folder1-database")
+    var elements = document.getElementsByClassName("file1-database")
     elements[0].innerHTML = addHTML;
     setup=true;
 }
@@ -462,27 +492,120 @@ function getOffset( el ) {
 //------
 
 $(document).ready(function () {
-    $(".icon-name").dblclick(function () {
-        
-      const oldText = $(this).text();
-      const newText = prompt("Rename:", $(this).text());
-      
-      if (newText !== null && newText !== "") {
-        $(this).text(newText);
-        checkName($(this).attr("id"), newText);
-      } else {
-        newText = $(this).text(oldText);
-      }
+    $(".icon-name").dblclick(function (){
+        renameFile($(this));
     });
   });
 
+  function renameFile(fileToRename) {
+    const oldText = fileToRename.text();
+      const newText = prompt("Rename:", oldText);
+      
+      if (newText !== null && newText !== "") {
+        fileToRename.text(newText);
+        checkName(fileToRename.attr("id"), newText);
+      } else {
+        newText = fileToRename.text(oldText);
+      }
+  }
+
   function checkName(name, newName) {
-    const solvedName = "test";
-    
-    // check solvedName against whatever value necessary for puzzle
+
+    const namePuzzles = new Map([
+        ["file1-text", "file1-c"],
+        ["file2-text", "file2-c"],
+        ["file3-text", "file3-c"]
+    ]);
+
+    const solvedName = namePuzzles.get(name);
 
     if(newName == solvedName) {
-        console.log("New name is a match.");
+        alert("New name is a match.");
+        // Make something else happen here
     }
   }
 
+  function winState() {
+    const enterPassword = prompt("Enter password to reset:");
+
+    if(enterPassword === password) {
+        // Closes all windows
+        for (var i = onScreen.length - 1; i >= 0; i--) {
+            closeWindow(onScreen[i][0]);
+        }
+        rebootScreenFade();
+        
+    } else {
+        alert("Password incorrect.")
+    }
+  }
+
+  const delay = ms => new Promise(res => setTimeout(res, ms));
+  const rebootScreenFade = async () => {
+    document.getElementById("reboot-screen").style.display = "block";
+    fadeIn("reboot-screen");
+  
+    await delay(3000);
+    // Win popup
+    document.getElementById("win-window").style.display="block";
+    fadeOut("reboot-screen");
+  };
+
+
+//------
+// RIGHT CLICK MENU FUNCTIONS
+//------
+
+let currentRightClickedElement = null; // To store the currently right-clicked element
+
+// Trigger action when the contexmenu is about to be shown
+$(document).bind("contextmenu", function (event) {
+
+    if (($(event.target).closest(".icon-group").length > 0) && ($(event.target).closest(".icon-group") !== "recycle")) {    // FIXME
+        // Avoid the real one
+        event.preventDefault();
+        
+
+        currentRightClickedElement = $(event.target).closest(".icon-group"); // Store the clicked element
+
+        $(".custom-menu").finish().toggle(100).css({
+            top: event.pageY + "px",
+            left: event.pageX + "px",
+        });
+    } else {
+        // Hide context menu if right-clicked outside "icon-group"
+        $(".custom-menu").hide(100);
+        currentRightClickedElement = null;
+    }
+});
+
+// If the document is clicked somewhere else
+$(document).bind("mousedown", function (e) {
+    // If the clicked element is not the menu
+    if (!$(e.target).parents(".custom-menu").length > 0) {
+        // Hide it
+        $(".custom-menu").hide(100);
+    }
+});
+
+// If the menu element is clicked
+$(".custom-menu li").click(function () {
+    switch ($(this).attr("data-action")) {
+        case "open": openWindow(currentRightClickedElement.getAttribute("onclick")); break;
+        case "rename": const fileNameElement = currentRightClickedElement.find(".icon-name"); // Ensure correct target
+                        renameFile(fileNameElement);
+                        break;
+        case "delete": deleteFile(); break; // Call the updated deleteFile
+    }
+
+    // Hide it AFTER the action was triggered
+    $(".custom-menu").hide(100);
+});
+
+function deleteFile() {
+    if (currentRightClickedElement) {
+        $("#recycle-body").append(currentRightClickedElement);
+        currentRightClickedElement = null;
+    }
+    checkForWinState();
+}
