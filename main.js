@@ -1,6 +1,7 @@
 //https://stackoverflow.com/questions/27979002/convert-csv-data-into-json-format-using-javascript
 
 var testCases;
+var password = "password";
 
 //Object arrays grabbed from the spreadsheets
 /*var cases; // object array of all the cases
@@ -54,7 +55,6 @@ function openWindow(name,display){
         windowobj.style.left = 200 + (onScreen.length*10) + "px";
         
         onScreen.push([name, false]);
-    
         //add a minimized button in the footer
         //name is the div id, display is what to display if it's different than the ID 
         //(eg. readme vs README.txt)
@@ -477,7 +477,18 @@ $(document).ready(function () {
   }
 
   function winState() {
-    document.getElementById("win-window").style.display="block";
+    const enterPassword = prompt("Enter password to reset:");
+
+    if(enterPassword === password) {
+        // Closes all windows
+        for (var i = onScreen.length - 1; i >= 0; i--) {
+            closeWindow(onScreen[i][0]);
+        }
+        // Win popup
+        document.getElementById("win-window").style.display="block";
+    } else {
+        alert("Password incorrect.")
+    }
   }
 
 
