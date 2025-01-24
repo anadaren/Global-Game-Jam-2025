@@ -1,4 +1,6 @@
 :root {
+    --vaporwave-cyan: #03f0f0;
+    --vaporwave-magenta: #f003fc;
     --windows-grey: #c3c3c3;
     --windows-light-grey: #fdffff;
     --windows-dark-grey: #818181;
@@ -8,7 +10,10 @@
 }
 
 html{
-    background-color: var(--windows-aqua);
+    background-image: linear-gradient(to bottom right, 
+                                      var(--vaporwave-magenta), 
+                                      var(--vaporwave-cyan)
+    );
 }
 
 body {
@@ -26,6 +31,15 @@ table {
 td {
   padding: 10px 0;
     width:100px;
+}
+
+#bust-background {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2em;
+    height: 50%;
+    width: 50%;
 }
 
 .email-full {
@@ -88,6 +102,11 @@ div.icon-group {
     max-width: 64px;
 }
 .icon-image {
+    height: 64px;
+    width: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .icon-name {
