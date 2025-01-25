@@ -14,7 +14,7 @@ var onScreen = []; // 2d array of the IDs for objects that are on screen [id nam
 
 var divIDOnScreen = ["files","folder1","file1","subfolder1","subfolder2","untitled1","browser","notepad","recycle","terminal"]; // list of all the divs that are hard-coded, used in closeWindow()
 var webPages = ["web_pages/birds.html", "web_pages/computer_info.html", "web_pages/online_shopping_checkout.html", "web_pages/online_shopping_general.html"]
-
+var webPageUrl = ["www.birdsarereal.com", "", "www.vaporwaveshop.net/checkout", "www.vaporwaveshop.net"]
 
 var setup = false; // tracks if the databse windows have been loaded in yet
 
@@ -76,14 +76,15 @@ function openWindow(name,display){
 
 function openBrowser() {
     // Load in browser content
-    $('#browser').load(webPages[0], function (response, status, xhr) {
+    $('#browser-body').load(webPages[0], function (response, status, xhr) {
         if (status == "error") {
             console.log("Error loading content: " + xhr.status + " " + xhr.statusText);
         } else {
             console.log("Content loaded successfully.");
         }
         });
-        openWindow('browser','Browser');
+        document.getElementById("site").value = webPageUrl[0];
+    openWindow('browser','Browser');
 }
 
 function closeWindow(name){
