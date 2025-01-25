@@ -13,6 +13,8 @@ var emails; //object array of all the emails
 var onScreen = []; // 2d array of the IDs for objects that are on screen [id name, minimized boolean]
 
 var divIDOnScreen = ["files","folder1","file1","subfolder1","subfolder2","untitled1","browser","notepad","recycle","terminal"]; // list of all the divs that are hard-coded, used in closeWindow()
+var webPages = ["web_pages/birds.html", "web_pages/computer_info.html", "web_pages/online_shopping_checkout.html", "web_pages/online_shopping_general.html"]
+
 
 var setup = false; // tracks if the databse windows have been loaded in yet
 
@@ -70,7 +72,18 @@ function openWindow(name,display){
     
     //make the window the only focused window on screen
     focusWindow(name);
-    
+}
+
+function openBrowser() {
+    // Load in browser content
+    $('#browser').load(webPages[0], function (response, status, xhr) {
+        if (status == "error") {
+            console.log("Error loading content: " + xhr.status + " " + xhr.statusText);
+        } else {
+            console.log("Content loaded successfully.");
+        }
+        });
+        openWindow('browser','Browser');
 }
 
 function closeWindow(name){
@@ -532,6 +545,7 @@ $(document).ready(function () {
         // Closes all windows
         for (var i = onScreen.length - 1; i >= 0; i--) {
             closeWindow(onScreen[i][0]);
+            document.getElementById("settings-menu").style.display.none;
         }
         rebootScreenFade();
         
@@ -609,3 +623,4 @@ function deleteFile() {
     }
     checkForWinState();
 }
+

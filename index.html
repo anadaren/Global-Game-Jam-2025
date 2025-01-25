@@ -68,7 +68,7 @@
       </div>
 
       <!-- Browser Icon -->
-    <div class="icon-group" title="" onclick="openWindow('browser','Browser')">
+    <div class="icon-group" title="" onclick="openBrowser()">
       <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/world-2.png"/></div>
       <span class="icon-name" id="browser-text">Browser</span>
       </div>
@@ -242,21 +242,7 @@
   </div>
 
   <!-- Browser Window-->
-  <div class="window" style="width: 450px;display:none" onclick="focusWindow('browser')" id="browser-window">
-    <div class="title-bar" id="browser-windowheader">
-      <div class="title-bar-text">Browser</div>
-      <div class="title-bar-controls">
-        <button aria-label="Minimize" onclick="minimizeWindow('browser')"></button>
-        <button aria-label="Close" onclick="closeWindow('browser')"></button>
-      </div>
-    </div>
-    <div class="window-body">
-        <ul class="tree-view" id="browser-body">
-          <!-- Internet -->
-          
-          <!-- End of Internet -->
-        </ul>
-    </div>
+  <div id="browser">
   </div>
 
   <!-- Notepad Window-->

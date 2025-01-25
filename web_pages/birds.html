@@ -1,17 +1,17 @@
 <link rel="stylesheet" href="https://unpkg.com/98.css">
 
-<div class="window" style="width: 700px">
+<div class="window" style="width: 700px" onclick="focusWindow('browser')" id="browser-window">
 
-    <div class="title-bar">
+    <div class="title-bar" id="browser-windowheader">
         <div class="title-bar-text">Web Surfer</div>
         <div class="title-bar-controls">
-            <button aria-label="Minimize"></button>
-            <button aria-label="Close"></button>
+            <button aria-label="Minimize" onclick="minimizeWindow('browser')""></button>
+            <button aria-label="Close" onclick="closeWindow('browser')"></button>
         </div>
     </div>
 
     <div class="window-body">
-        Address
+        <p style="line-height: 0;">Address</p>
         <div class="field-row">
             <input id="site" type="text" value="www.birdsarereal.com" style="width: 100% !important;" />
 
