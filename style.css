@@ -35,10 +35,11 @@ td {
 }
 
 #bust-background {
-    left: 50%;
-    transform: translateX(-50%);
-    position: relative; 
+    width: 100%;
+    height: 100%;
+    position: fixed;
     z-index: -1;
+    text-align: center;
 }
 
 .desktop {
