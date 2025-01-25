@@ -13,8 +13,8 @@ var emails; //object array of all the emails
 var onScreen = []; // 2d array of the IDs for objects that are on screen [id name, minimized boolean]
 
 var divIDOnScreen = ["files","folder1","file1","subfolder1","subfolder2","untitled1","browser","notepad","recycle","terminal"]; // list of all the divs that are hard-coded, used in closeWindow()
-var webPages = ["web_pages/birds.html", "web_pages/computer_info.html", "web_pages/online_shopping_checkout.html", "web_pages/online_shopping_general.html"]
-var webPageUrl = ["www.birdsarereal.com", "", "www.vaporwaveshop.net/checkout", "www.vaporwaveshop.net"]
+var webPages = ["web_pages/birds.html", "web_pages/computer_info.html", "web_pages/online_shopping_general.html", "web_pages/online_shopping_checkout.html"]
+var webPageUrl = ["www.birdsarereal.com", "", "www.vaporwaveshop.net", "www.vaporwaveshop.net/checkout"]
 
 var setup = false; // tracks if the databse windows have been loaded in yet
 
@@ -75,15 +75,17 @@ function openWindow(name,display){
 }
 
 function openBrowser() {
+    // Which webpage to load
+    whichPage = 2;
     // Load in browser content
-    $('#browser-body').load(webPages[0], function (response, status, xhr) {
+    $('#browser-body').load(webPages[whichPage], function (response, status, xhr) {
         if (status == "error") {
             console.log("Error loading content: " + xhr.status + " " + xhr.statusText);
         } else {
             console.log("Content loaded successfully.");
         }
         });
-        document.getElementById("site").value = webPageUrl[0];
+        document.getElementById("site").value = webPageUrl[whichPage];
     openWindow('browser','Browser');
 }
 
@@ -415,12 +417,11 @@ function setupFile1() {
         return;
     }
     
-    var addHTML = "<table><tr><th>Test</th><th>Test1a</th><th>Test2a</th><th>Test3a</th></tr>";
+    var addHTML = "<table><tr><th>User</th><th>Time</th><th>Search</th></tr>";
     for(var i = 0; i < testCases.length; i++){
-       addHTML += '<tr><td>' + testCases[i].Test + '</td>' +
-                  '<td>' + testCases[i].Test1a + '</td>' +
-                  '<td>' + testCases[i].Test2a + '</td>' +
-                  '<td>' + testCases[i].Test3a + '</td></tr>'; 
+       addHTML += '<tr><td>' + testCases[i].User + '</td>' +
+                  '<td>' + testCases[i].Time + '</td>' +
+                  '<td>' + testCases[i].Search + '</td></tr>'; 
     }
       addHTML += "</table>";
     var elements = document.getElementsByClassName("file1-database")
