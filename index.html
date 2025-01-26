@@ -157,11 +157,6 @@
     </div>
     <div class="window-body">
         <ul class="tree-view" id="programFiles-body">
-          
-          <div class="icon-group" title="Subfolder1" onclick="openWindow('subfolder1')">
-          <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
-          <span class="icon-name-dark">Subfolder 1</span>
-          </div>
 
           <div class="icon-group" title="not_a_virus.txt" id="not_a_virus.txt" onclick="openWindow('untitled')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
@@ -183,9 +178,9 @@
     <div class="window-body">
         <ul class="tree-view" id="os-body">
     
-          <div class="icon-group" title="Untitled.txt" onclick="openWindow('untitled1')">
+          <div class="icon-group" title="manual" onclick="openWindow('manual')">
           <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
-          <span class="icon-name-dark">Untitled.txt</span>
+          <span class="icon-name-dark">User Manual</span>
           </div>
         </ul>
     </div>
@@ -363,36 +358,9 @@
       </ul>
   </div>
 </div>
-  
-
-
-   <!-- Folder 1 Window -->
-   <div class="window" style="width: 450px;display:none" onclick="focusWindow('folder1')" id="folder1-window">
-    <div class="title-bar" id="folder1-windowheader">
-      <div class="title-bar-text">Folder 1</div>
-      <div class="title-bar-controls">
-        <button aria-label="Minimize" onclick="minimizeWindow('folder1')"></button>
-        <button aria-label="Close" onclick="closeWindow('folder1')"></button>
-      </div>
-    </div>
-    <div class="window-body">
-        <ul class="tree-view" id="folder1-body">
-          
-          <div class="icon-group" title="Subfolder1" onclick="openWindow('subfolder1')">
-          <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
-          <span class="icon-name-dark">Subfolder 1</span>
-          </div>
-    
-          <div class="icon-group" title="Untitled.txt" onclick="openWindow('untitled1')">
-          <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
-          <span class="icon-name-dark">Untitled.txt</span>
-          </div>
-        </ul>
-    </div>
-  </div>
 
   <!-- File 1 Window -->
-  <div class="window" style="width: 450px;display:none" onclick="focusWindow('file1')" id="file1-window">
+  <div class="window" style="width: 450px;height: 300px;display:none" onclick="focusWindow('file1')" id="file1-window">
     <div class="title-bar" id="file1-windowheader">
       <div class="title-bar-text">Search_History.txt</div>
       <div class="title-bar-controls">
@@ -407,46 +375,18 @@
     </div>
   </div>
 
-  <!-- Subfolder 1 Window -->
-  <div class="window" style="width: 450px;display:none" onclick="focusWindow('subfolder1')" id="subfolder1-window">
-    <div class="title-bar" id="subfolder1-windowheader">
-      <div class="title-bar-text">SubFolder 1</div>
+  <!-- Manual Window -->
+  <div class="window" style="width:450px;display:none" onclick="focusWindow('manual')" id="manual-window">
+    <div class="title-bar" id="manual-windowheader">
+      <div class="title-bar-text">User Manual</div>
       <div class="title-bar-controls">
-        <button aria-label="Minimize" onclick="minimizeWindow('subfolder1')"></button>
-        <button aria-label="Close" onclick="closeWindow('subfolder1')"></button>
+        <button aria-label="Minimize" onclick="minimizeWindow('manual')"></button>
+        <button aria-label="Close" onclick="closeWindow('manual')"></button>
       </div>
     </div>
     <div class="window-body">
-        <ul class="tree-view" id="folder1-body">
-          <div class="icon-group" title="File2.txt" onclick="openWindow('untitled')">
-            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
-            <span class="icon-name-dark">File2.txt</span>
-            </div>
-
-
-          <div class="icon-group" title="File3.txt" onclick="openWindow('untitled')">
-            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
-            <span class="icon-name-dark">File3.txt</span>
-            </div>
-
-    
-          
-          </div>
-        </ul>
-    </div>
-  </div>
-
-  <!-- Untitled File 1 Window -->
-  <div class="window" style="width:450px;display:none" onclick="focusWindow('untitled1')" id="untitled1-window">
-    <div class="title-bar" id="untitled1-windowheader">
-      <div class="title-bar-text">Untitled</div>
-      <div class="title-bar-controls">
-        <button aria-label="Minimize" onclick="minimizeWindow('untitled1')"></button>
-        <button aria-label="Close" onclick="closeWindow('untitled1')"></button>
-      </div>
-    </div>
-    <div class="window-body">
-        <ul class="tree-view" id="untitled1-body">
+        <ul class="tree-view" id="manual-body">
+          <p>For information and tips on how to use this operating system, go to www.placeholderos.com!</p>
         </ul>
     </div>
   </div>

@@ -289,6 +289,10 @@ footer * {
     user-select:none;
 }
 
+#file1-database {
+    overflow-y: scroll;
+}
+
 #load-screen, #blue-screen, #reboot-screen {
     color: white;
     z-index: 1000;
