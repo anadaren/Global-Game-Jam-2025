@@ -9,16 +9,14 @@
 
 }
 
-html{
+body{
     background-image: linear-gradient(to bottom right, 
                                       var(--vaporwave-magenta), 
                                       var(--vaporwave-cyan)
     );
     background: var(--vaporwave-cyan);
 
-}
 
-body {
     margin: 0;
     padding: 0;
 }

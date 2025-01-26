@@ -12,7 +12,7 @@ var emails; //object array of all the emails
 
 var onScreen = []; // 2d array of the IDs for objects that are on screen [id name, minimized boolean]
 
-var divIDOnScreen = ["files","users","programFiles","os","user1","user2","user3","downloads","documents","pictures","folder1","folder2","file1","subfolder1","subfolder2","untitled1","browser","notepad","recycle","terminal"]; // list of all the divs that are hard-coded, used in closeWindow()
+var divIDOnScreen = ["files","users","programFiles","os","user1","user2","user3","downloads","documents","pictures","folder1","subfolder1","file1","untitled1","browser","notepad","recycle","terminal"]; // list of all the divs that are hard-coded, used in closeWindow()
 var webPages = ["web_pages/404.html", "web_pages/computer_info.html", "web_pages/online_shopping_general.html", "web_pages/online_shopping_checkout.html", "web_pages/birds.html"]
 var webPageUrl = ["404", "www.placeholderos.com", "www.vaporwaveshop.net", "www.vaporwaveshop.net/checkout", "www.birdsarereal.com",]
 
@@ -586,9 +586,12 @@ $(document).ready(function () {
         // Closes all windows
         for (var i = onScreen.length - 1; i >= 0; i--) {
             closeWindow(onScreen[i][0]);
-            document.getElementById("settings-menu").style.display.none;
         }
         rebootScreenFade();
+        
+        document.body.style.backgroundColor = "#008080";
+        document.getElementById("bust-background").style.display = "none";
+        document.getElementsByClassName("icon-name").style.color = "white";
         
     } else {
         alert("Password incorrect.")

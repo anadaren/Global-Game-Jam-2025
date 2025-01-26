@@ -162,10 +162,10 @@
           <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
           <span class="icon-name-dark">Subfolder 1</span>
           </div>
-    
-          <div class="icon-group" title="Untitled.txt" onclick="openWindow('untitled1')">
-          <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
-          <span class="icon-name-dark">Untitled.txt</span>
+
+          <div class="icon-group" title="not_a_virus.txt" id="not_a_virus.txt" onclick="openWindow('untitled')">
+            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+            <span class="icon-name-dark">not_a_virus.txt</span>
           </div>
         </ul>
     </div>
@@ -182,11 +182,6 @@
     </div>
     <div class="window-body">
         <ul class="tree-view" id="os-body">
-          
-          <div class="icon-group" title="Subfolder1" onclick="openWindow('subfolder1')">
-          <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
-          <span class="icon-name-dark">Subfolder 1</span>
-          </div>
     
           <div class="icon-group" title="Untitled.txt" onclick="openWindow('untitled1')">
           <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
@@ -318,8 +313,58 @@
     </div>
   </div>
 
+<!-- Downloads Window -->
+<div class="window" style="width: 450px;display:none" onclick="focusWindow('downloads')" id="downloads-window">
+  <div class="title-bar" id="downloads-windowheader">
+    <div class="title-bar-text">Downloads</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize" onclick="minimizeWindow('downloads')"></button>
+      <button aria-label="Close" onclick="closeWindow('downloads')"></button>
+    </div>
+  </div>
+  <div class="window-body">
+      <ul class="tree-view" id="downloads-body">
+        
+        
+      </ul>
+  </div>
+</div>
 
+<!-- Documents Window -->
+<div class="window" style="width: 450px;display:none" onclick="focusWindow('documents')" id="documents-window">
+  <div class="title-bar" id="documents-windowheader">
+    <div class="title-bar-text">Documents</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize" onclick="minimizeWindow('documents')"></button>
+      <button aria-label="Close" onclick="closeWindow('documents')"></button>
+    </div>
+  </div>
+  <div class="window-body">
+      <ul class="tree-view" id="documents-body">
+        
+        
+      </ul>
+  </div>
+</div>
+
+<!-- Pictures Window -->
+<div class="window" style="width: 450px;display:none" onclick="focusWindow('pictures')" id="pictures-window">
+  <div class="title-bar" id="pictures-windowheader">
+    <div class="title-bar-text">Pictures</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize" onclick="minimizeWindow('pictures')"></button>
+      <button aria-label="Close" onclick="closeWindow('pictures')"></button>
+    </div>
+  </div>
+  <div class="window-body">
+      <ul class="tree-view" id="pictures-body">
+        
+        
+      </ul>
+  </div>
+</div>
   
+
 
    <!-- Folder 1 Window -->
    <div class="window" style="width: 450px;display:none" onclick="focusWindow('folder1')" id="folder1-window">
@@ -385,9 +430,7 @@
             </div>
 
     
-          <div class="icon-group" title="not_a_virus.txt" id="not_a_virus.txt" onclick="openWindow('untitled')">
-          <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
-          <span class="icon-name-dark">not_a_virus.txt</span>
+          
           </div>
         </ul>
     </div>
@@ -493,19 +536,7 @@
     </div>
     <div class="window-body">
         <ul class="tree-view" id="recycle-body">
-          <div class="icon-group" title="Subfolder2" id="Subfolder2" onclick="openWindow('subfolder2')">
-            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
-            <span class="icon-name-dark">Subfolder 2</span>
-            </div>
-
-            <div class="icon-group" title="File4.txt" onclick="openWindow('untitled')">
-              <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
-              <span class="icon-name-dark">File4.txt</span>
-              </div>
-
-              <div class="icon-group" title="File5.txt" onclick="openWindow('untitled')">
-                <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
-                <span class="icon-name-dark">File5.txt</span>
+          
         </ul>
     </div>
   </div>
