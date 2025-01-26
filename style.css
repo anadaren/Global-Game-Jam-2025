@@ -117,7 +117,8 @@ div.icon-group {
 
 .icon-name {
     display: block;
-    color: white;
+    color: black;
+    font-weight: bold;
 }
 .icon-name-dark {
     display: block;
