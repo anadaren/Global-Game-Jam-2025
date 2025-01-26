@@ -14,7 +14,7 @@ var onScreen = []; // 2d array of the IDs for objects that are on screen [id nam
 
 var divIDOnScreen = ["files","folder1","file1","subfolder1","subfolder2","untitled1","browser","notepad","recycle","terminal"]; // list of all the divs that are hard-coded, used in closeWindow()
 var webPages = ["web_pages/birds.html", "web_pages/computer_info.html", "web_pages/online_shopping_general.html", "web_pages/online_shopping_checkout.html"]
-var webPageUrl = ["www.birdsarereal.com", "", "www.vaporwaveshop.net", "www.vaporwaveshop.net/checkout"]
+var webPageUrl = ["www.birdsarereal.com", "www.placeholderos.com", "www.vaporwaveshop.net", "www.vaporwaveshop.net/checkout"]
 
 var setup = false; // tracks if the databse windows have been loaded in yet
 
@@ -76,7 +76,7 @@ function openWindow(name,display){
 
 function openBrowser() {
     // Which webpage to load
-    whichPage = 2;
+    whichPage = 1;
     // Load in browser content
     $('#browser-body').load(webPages[whichPage], function (response, status, xhr) {
         if (status == "error") {

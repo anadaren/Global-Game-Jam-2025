@@ -1,0 +1,71 @@
+<style>
+    h1{
+        line-height: normal;
+        font-size:x-large;
+    }
+
+    h2{
+        font-size: medium;
+    }
+
+    h3{
+        font-size: small;
+    }
+</style>
+
+<h1>Welcome to PLACEHOLDER OS!</h1>
+<p> PlaceHolder OS is your place to hold all your files, programs, and more on your computer device.</p>
+
+<p>Most people use PlaceHolder OS with a keyboard, mouse, monitor, and a user account. This system is excellent for public computers like in a library or internet cafe, as most functions are locked down under admin access.</p>
+
+<p>For admins, there are several available commands:</p>
+
+<h2>Echoes and pingbacks</h2>
+
+<h3>hello</h3>
+<p>Used to check input in the Terminal.</p>
+<p>Input: <code>hello Someone</code></p>
+<p>Expected output: <code>Hello, Someone!</code> </p>
+
+<h3>ping</h3>
+<p>Used to check the time it takes for the terminal to respond. You must use your own stopwatch to time it.</p>
+<p>Input: <code>ping</code></p>
+<p>Expected output: <code>pong!</code> </p>
+
+<h3>pong</h3>
+<p>Same as above.</p>
+<p>Input: <code>pong</code></p>
+<p>Expected output: <code>ping!</code> </p>
+<hr>
+
+<h2>Actions</h2>
+<p>All actions require admin access.</p>
+<h3>adminaccess [TRUE / FALSE]</h3>
+<p>Used to sign in to your admin account to make changes to the operating system, files, and programs.</p>
+<p>Input: <code>adminaccess TRUE</code></p>
+<p>Expected output: <code>Attempting to set Admin access set to TRUE.<br>
+    Admin username and password required.<br>
+    Enter admin username to continue.</code> </p>
+    <p>Input: <code>adminaccess [ username ]</code></p>
+<p>Expected output: <code>Username accepted.<br>
+   Enter password for account : [ username ]</code></p>
+<p>Then you'll be asked to enter your password. If entered correctly, you'll have admin access. If entered incorrectly, some older versions of PlaceHolder OS return and encrypted version of the admin password. Make sure your password is encrypted, safe, and not guessable.</p>
+
+
+<h3>checkdisk</h3>
+<p>Used to check the disk for viruses and harddrive corruption.</p>
+<p>Input: <code>checkdisk</code></p>
+<p>Expected output: <code>No issues reported. All systems functioning within normal parameters.</code> </p>
+
+<h3>restorefolder</h3>
+<p>Used to restore a deleted folder from the recycle bin.</p>
+<p>Input: <code>restorefolder</code></p>
+<p>Expected output: <code>[1] folder restored.</code> </p>
+
+<hr>
+<h2>Bonus functions</h2>
+<h3>game [ start ]</h3>
+<p>Used to spend some fun time during the day! Each PlaceHolder OS was coded with a unique game.</p>
+<p>Input: <code>game start</code></p>
+<p>Expected output: <code>Game description . . . . </code> </p>
+<p>To play the game, make choices by typing <code>game [ choice ]</code></p>
