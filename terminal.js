@@ -4,40 +4,7 @@ $('#terminal-body').terminal({
                   '. Welcome to this terminal.');
     },
     checkdisk: function(){
-
-        
-     if(getCookie("adminlogin") == "true"){
-        if(getCookie("bluescreen") == "true"){
-                this.echo("Previous failure detected. Admin access set to TRUE, printing error:");
-                this.echo("-- USER GRANTED ADMIN ACCESS");
-                this.echo("-- USER RESTORED FOLDER FROM DELETE DISK");
-                this.echo("-- USER OPENED A FILE IN THE FOLDER");
-                this.echo("-- FOLDER CORRUPT, UNABLE TO OPEN");
-                this.echo("If this problem persists, try cleardisk to reboot to a recent backup of the disk.");
-            } else {
-            this.echo("No issues reported. All systems functioning within normal parameters.");
-            }
-            
-        } else {
-            if(getCookie("bluescreen") == "true"){
-            this.echo("Previous failure detected. Admin access required for further system diagnostic.");
-            } else {
-                this.echo("No issues reported. All systems functioning within normal parameters.");
-            }
-        }
-        
-    },
-    restorefolder: function(){
-        if (getCookie("adminlogin") == "true" && getCookie("restorefolder") != "true"){
-            this.echo("[1] folder restored.");
-            document.cookie="restorefolder=true;";
-            reFolder();
-        } else if (getCookie("adminlogin") == "true" && getCookie("restorefolder" == "true")){
-            this.echo("No folders to restore.");
-        } else {
-            this.echo("Admin access required.");
-        }
-        
+        this.echo("Admin access required."); 
     },
     ping: function() {
         this.echo('pong!');
@@ -158,20 +125,12 @@ $('#terminal-body').terminal({
                   
               default:
                 this.echo("An error has occured.");
-                this.echo("Please take a screenshot of what you see and send it to Nina.");
-                this.echo("Error code: CONTACT-NINA-002");
           }
             
             
             
-        } else if(getCookie("adminlogin") == "true") { //logged in
-            
-              this.echo("User already logged in with Admin controls.");
-            
         } else {
                 this.echo("An error has occured.");
-                this.echo("Please take a screenshot of what you see and send it to Nina.");
-                this.echo("Error code: CONTACT-NINA-001");
         }
         
     },    
@@ -226,136 +185,3 @@ $('#terminal-body').terminal({
     greetings: '[ (C) Placeholder OS ] Waiting for command...'
    
 });
-
-//This is a VERY INSECURE HASHING SYSTEM.
-//DO NOT USE WITH ACTUALLY SENSITIVE MATERIAL.
-//https://stackoverflow.com/questions/18279141/javascript-string-encryption-and-decryption
-const cipher = salt => {
-    const textToChars = text => text.split('').map(c => c.charCodeAt(0));
-    const byteHex = n => ("0" + Number(n).toString(16)).substr(-2);
-    const applySaltToChar = code => textToChars(salt).reduce((a,b) => a ^ b, code);
-
-    return text => text.split('')
-        .map(textToChars)
-        .map(applySaltToChar)
-        .map(byteHex)
-        .join('');
-}
-
-const decipher = salt => {
-    const textToChars = text => text.split('').map(c => c.charCodeAt(0));
-    const applySaltToChar = code => textToChars(salt).reduce((a,b) => a ^ b, code);
-    return encoded => encoded.match(/.{1,2}/g)
-        .map(hex => parseInt(hex, 16))
-        .map(applySaltToChar)
-        .map(charCode => String.fromCharCode(charCode))
-        .join('');
-}
-
-
-function BSOD(){
-    
-    var desktop = document.getElementById("bd");
-    
-    desktop.innerHTML = `   
-<div id="blue-screen">
-        <div>*** STOP ****</div>  
-        <div>If this is the first time you've seen this Stop error screen, restart your computer.</div>
-        <div>If this screen appears again, follows these steps:</div>
-        <div>Restart your computer and run command 'checkdisk' in Terminal to check for hard drive corruption.</div>
-        <div>Contact your IT Administrator if the error persists.</div>
-</div>
-    `;
-    
-    
-    document.cookie="bluescreen=true;";
-
-
-}
-
-
-function getCookie(cname){
-    
-     var name = cname + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(';');
-  for(var i = 0; i <ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-    
-    
-}
-
-
-function clearListCookies(){
-    var cookies = document.cookie.split(";");
-        for (var i = 0; i < cookies.length; i++){   
-            var spcook =  cookies[i].split("=");
-            document.cookie = spcook[0] + "=;expires=Thu, 21 Sep 1979 00:00:01 UTC;";                                
-        }
-}
-
-
-
-function getShiftedCipher(cipherText){
-    
-    returnCiphered = "";
-    
-    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-    alphabet = alphabet.toLowerCase();
-//    currentLetter = 1;
-    var newIndex = 0;
-    
-    
-    for(var i = 0; i < cipherText.length; i++){
-        
-        newIndex = alphabet.indexOf(""+cipherText[i])+i+1;
-        
-        while(newIndex >= alphabet.length){
-            newIndex -= alphabet.length;
-        }
-  
-        returnCiphered += alphabet[newIndex];
-    }   
-    
-    return returnCiphered;
-}
-
-function getUnShiftedCipher(decipherText){
-    
-        returnDeciphered = "";
-    
-    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-    alphabet = alphabet.toLowerCase();
-    decipherText = decipherText.toLowerCase();
-
-    var newIndex = 0;
-    
-    
-    for(var i = 0; i < decipherText.length; i++){
-        
-        newIndex = alphabet.indexOf(""+decipherText[i])-i-1;
-        
-        while(newIndex < 0){
-            newIndex += alphabet.length;
-        }
-        
-        returnDeciphered += alphabet[newIndex];
-    }   
-    
-    return returnDeciphered;    
-    
-}
-
-function deciphPass(pass){
-        var myDecipher = decipher("saltyboi");
-    
-        return getUnShiftedCipher(myDecipher(pass));
-}

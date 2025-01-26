@@ -12,7 +12,13 @@ var emails; //object array of all the emails
 
 var onScreen = []; // 2d array of the IDs for objects that are on screen [id name, minimized boolean]
 
-var divIDOnScreen = ["files","users","programFiles","os","manual","user1","user2","user3","downloads","documents","pictures","folder1","subfolder1","file1","commands","birds","list","untitled1","browser","notepad","recycle","terminal"]; // list of all the divs that are hard-coded, used in closeWindow()
+var divIDOnScreen = [
+    "files","users","programFiles","os","manual","user1","user2","user3",
+    "downloads1","documents1","pictures1","downloads2","documents2",
+    "pictures2","downloads3","documents3","pictures3","file1","commands",
+    "birds","list","untitled","browser","notepad","recycle","terminal"];
+    // list of all the windows that are able to be opened
+
 var webPages = ["web_pages/404.html", "web_pages/computer_info.html", "web_pages/online_shopping_general.html", "web_pages/online_shopping_checkout.html", "web_pages/birds.html"]
 var webPageUrl = ["404", "www.placeholderos.com", "www.vaporwaveshop.net", "www.vaporwaveshop.net/checkout", "www.birdsarereal.com",]
 
@@ -27,15 +33,9 @@ var zind = 6;
 //terminal.js variables
 var g = 0;
 var admin = 0;
-var salty = "saltyboi";
 var adminusername = "libraryITguy";
 var passwords = [["libraryITguy","password",""],
                 ["old-libraryITguy","14159265358979323",""]];
-
-if(getCookie("restorefolder") == "true"){
-    reFolder();
-}
-
 
 // Call the load screen fade out when the page is fully loaded
 window.onload = fadeOut("load-screen");

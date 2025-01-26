@@ -202,17 +202,17 @@
     <div class="window-body">
         <ul class="tree-view" id="user1-body">
           
-          <div class="icon-group" title="Downloads" onclick="openWindow('downloads')">
+          <div class="icon-group" title="Downloads" onclick="openWindow('downloads1')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
             <span class="icon-name-dark">Downloads</span>
             </div>
 
-          <div class="icon-group" title="Documents" onclick="openWindow('documents')">
+          <div class="icon-group" title="Documents" onclick="openWindow('documents1')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
             <span class="icon-name-dark">Documents</span>
             </div>
 
-          <div class="icon-group" title="Pictures" onclick="openWindow('pictures')">
+          <div class="icon-group" title="Pictures" onclick="openWindow('pictures1')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
             <span class="icon-name-dark">Pictures</span>
             </div>
@@ -224,12 +224,12 @@
 
             <div class="icon-group" title="birds" onclick="openWindow('birds')">
               <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
-              <span class="icon-name-dark" id="file1-text">my birds.txt</span>
+              <span class="icon-name-dark" >my birds.txt</span>
               </div>
 
           <div class="icon-group" title="" onclick="openWindow('file1','File1')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
-            <span class="icon-name-dark" id="file1-text">Search_History.txt</span>
+            <span class="icon-name-dark" >Search_History.txt</span>
             </div>
 
         </ul>
@@ -247,17 +247,17 @@
     </div>
     <div class="window-body">
         <ul class="tree-view" id="user2-body">
-          <div class="icon-group" title="Downloads" onclick="openWindow('downloads')">
+          <div class="icon-group" title="Downloads" onclick="openWindow('downloads2')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
             <span class="icon-name-dark">Downloads</span>
             </div>
 
-          <div class="icon-group" title="Documents" onclick="openWindow('documents')">
+          <div class="icon-group" title="Documents" onclick="openWindow('documents2')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
             <span class="icon-name-dark">Documents</span>
             </div>
 
-          <div class="icon-group" title="Pictures" onclick="openWindow('pictures')">
+          <div class="icon-group" title="Pictures" onclick="openWindow('pictures2')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
             <span class="icon-name-dark">Pictures</span>
             </div>
@@ -269,13 +269,8 @@
 
           <div class="icon-group" title="" onclick="openWindow('file1','File1')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
-            <span class="icon-name-dark" id="file1-text">Search_History.txt</span>
+            <span class="icon-name-dark">Search_History.txt</span>
             </div>
-
-            <div class="icon-group" title="" onclick="openWindow('commands','Commands')">
-              <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
-              <span class="icon-name-dark" id="file1-text">Terminals_Commands.txt</span>
-              </div>
 
         </ul>
     </div>
@@ -293,17 +288,17 @@
     <div class="window-body">
         <ul class="tree-view" id="user3-body">
           
-          <div class="icon-group" title="Downloads" onclick="openWindow('downloads')">
+          <div class="icon-group" title="Downloads" onclick="openWindow('downloads3')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
             <span class="icon-name-dark">Downloads</span>
             </div>
 
-          <div class="icon-group" title="Documents" onclick="openWindow('documents')">
+          <div class="icon-group" title="Documents" onclick="openWindow('documents3')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
             <span class="icon-name-dark">Documents</span>
             </div>
 
-          <div class="icon-group" title="Pictures" onclick="openWindow('pictures')">
+          <div class="icon-group" title="Pictures" onclick="openWindow('pictures3')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
             <span class="icon-name-dark">Pictures</span>
             </div>
@@ -315,65 +310,229 @@
 
           <div class="icon-group" title="" onclick="openWindow('file1','File1')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
-            <span class="icon-name-dark" id="file1-text">Search_History.txt</span>
+            <span class="icon-name-dark">Search_History.txt</span>
             </div>
 
           <div class="icon-group" title="" onclick="openWindow('list')">
               <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
-              <span class="icon-name-dark" id="file1-text">ToDo.txt</span>
+              <span class="icon-name-dark">ToDo.txt</span>
               </div>
 
         </ul>
     </div>
   </div>
 
-<!-- Downloads Window -->
-<div class="window" style="width: 450px;display:none" onclick="focusWindow('downloads')" id="downloads-window">
-  <div class="title-bar" id="downloads-windowheader">
+<!-- Downloads1 Window -->
+<div class="window" style="width: 450px;display:none" onclick="focusWindow('downloads1')" id="downloads1-window">
+  <div class="title-bar" id="downloads1-windowheader">
     <div class="title-bar-text">Downloads</div>
     <div class="title-bar-controls">
-      <button aria-label="Minimize" onclick="minimizeWindow('downloads')"></button>
-      <button aria-label="Close" onclick="closeWindow('downloads')"></button>
+      <button aria-label="Minimize" onclick="minimizeWindow('downloads1')"></button>
+      <button aria-label="Close" onclick="closeWindow('downloads1')"></button>
     </div>
   </div>
   <div class="window-body">
-      <ul class="tree-view" id="downloads-body">
-        
+      <ul class="tree-view" id="downloads1-body">
+        <div class="icon-group" onclick="openWindow('untitled')">
+          <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+          <span class="icon-name-dark">not-a-virussss.exe</span>
+        </div>
+
+        <div class="icon-group" onclick="openWindow('untitled')">
+          <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+          <span class="icon-name-dark">MALWARE.exe</span>
+          </div>
+
+          <div class="icon-group" onclick="openWindow('untitled')">
+            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+            <span class="icon-name-dark">def_not_a_virus.exe</span>
+          </div>
+
+
+        <div class="icon-group" onclick="openWindow('untitled')">
+              <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+              <span class="icon-name-dark">two_viruses.exe</span>
+          </div>
+
+          <div class="icon-group" onclick="openWindow('untitled')">
+            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+            <span class="icon-name-dark">apple_pie_recipes_(viruses).exe</span>
+        </div>
+
+        <div class="icon-group" onclick="openWindow('untitled')">
+          <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+          <span class="icon-name-dark">download_to_kill_computer.exe</span>
+      </div>
+
+      <div class="icon-group" onclick="openWindow('untitled')">
+        <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+        <span class="icon-name-dark">cookie_recipe_DEATH_VIRUS.exe</span>
+    </div>
         
       </ul>
   </div>
 </div>
 
-<!-- Documents Window -->
-<div class="window" style="width: 450px;display:none" onclick="focusWindow('documents')" id="documents-window">
-  <div class="title-bar" id="documents-windowheader">
+<!-- Documents1 Window -->
+<div class="window" style="width: 450px;display:none" onclick="focusWindow('documents1')" id="documents1-window">
+  <div class="title-bar" id="documents1-windowheader">
     <div class="title-bar-text">Documents</div>
     <div class="title-bar-controls">
-      <button aria-label="Minimize" onclick="minimizeWindow('documents')"></button>
-      <button aria-label="Close" onclick="closeWindow('documents')"></button>
+      <button aria-label="Minimize" onclick="minimizeWindow('documents1')"></button>
+      <button aria-label="Close" onclick="closeWindow('documents1')"></button>
     </div>
   </div>
   <div class="window-body">
-      <ul class="tree-view" id="documents-body">
+      <ul class="tree-view" id="documents1-body">
         
         
       </ul>
   </div>
 </div>
 
-<!-- Pictures Window -->
-<div class="window" style="width: 450px;display:none" onclick="focusWindow('pictures')" id="pictures-window">
-  <div class="title-bar" id="pictures-windowheader">
+<!-- Pictures1 Window -->
+<div class="window" style="width: 450px;display:none" onclick="focusWindow('pictures1')" id="pictures1-window">
+  <div class="title-bar" id="pictures1-windowheader">
     <div class="title-bar-text">Pictures</div>
     <div class="title-bar-controls">
-      <button aria-label="Minimize" onclick="minimizeWindow('pictures')"></button>
-      <button aria-label="Close" onclick="closeWindow('pictures')"></button>
+      <button aria-label="Minimize" onclick="minimizeWindow('pictures1')"></button>
+      <button aria-label="Close" onclick="closeWindow('pictures1')"></button>
     </div>
   </div>
   <div class="window-body">
-      <ul class="tree-view" id="pictures-body">
+      <ul class="tree-view" id="pictures1-body">
+        <div class="icon-group" title="" onclick="">
+          <div class="icon-image"><img src="https://media.istockphoto.com/id/614631806/photo/common-kingfisher.jpg?s=612x612&w=0&k=20&c=5P7KZv8h2oC4JDJRnRPnuVPeJySCK13E8KG2WJqEBYU=" style="height:50px;width:50px;"/></div>
+          <span class="icon-name-dark">bird.png</span>
+          </div>
+      </ul>
+  </div>
+</div>
+
+<!-- Downloads2 Window -->
+<div class="window" style="width: 450px;display:none" onclick="focusWindow('downloads2')" id="downloads2-window">
+  <div class="title-bar" id="downloads2-windowheader">
+    <div class="title-bar-text">Downloads</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize" onclick="minimizeWindow('downloads2')"></button>
+      <button aria-label="Close" onclick="closeWindow('downloads2')"></button>
+    </div>
+  </div>
+  <div class="window-body">
+      <ul class="tree-view" id="downloads2-body">
+        <div class="icon-group" onclick="openWindow('untitled')">
+          <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+          <span class="icon-name-dark">favhacks.exe</span>
+      </div>
+      <div class="icon-group" onclick="openWindow('untitled')">
+        <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+        <span class="icon-name-dark">original_blender_cube.fbx</span>
+    </div>
+        
+      </ul>
+  </div>
+</div>
+
+<!-- Documents2 Window -->
+<div class="window" style="width: 450px;display:none" onclick="focusWindow('documents2')" id="documents2-window">
+  <div class="title-bar" id="documents2-windowheader">
+    <div class="title-bar-text">Documents</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize" onclick="minimizeWindow('documents2')"></button>
+      <button aria-label="Close" onclick="closeWindow('documents2')"></button>
+    </div>
+  </div>
+  <div class="window-body">
+      <ul class="tree-view" id="documents2-body">
+        <div class="icon-group" title="" onclick="openWindow('commands','Commands')">
+          <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+          <span class="icon-name-dark">Terminal_Commands.txt</span>
+          </div>
+      </ul>
+  </div>
+</div>
+
+<!-- Pictures2 Window -->
+<div class="window" style="width: 450px;display:none" onclick="focusWindow('pictures2')" id="pictures2-window">
+  <div class="title-bar" id="pictures2-windowheader">
+    <div class="title-bar-text">Pictures</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize" onclick="minimizeWindow('pictures2')"></button>
+      <button aria-label="Close" onclick="closeWindow('pictures2')"></button>
+    </div>
+  </div>
+  <div class="window-body">
+      <ul class="tree-view" id="pictures2-body">
+        
+      </ul>
+  </div>
+</div>
+
+<!-- Downloads3 Window -->
+<div class="window" style="width: 450px;display:none" onclick="focusWindow('downloads3')" id="downloads3-window">
+  <div class="title-bar" id="downloads3-windowheader">
+    <div class="title-bar-text">Downloads</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize" onclick="minimizeWindow('downloads3')"></button>
+      <button aria-label="Close" onclick="closeWindow('downloads3')"></button>
+    </div>
+  </div>
+  <div class="window-body">
+      <ul class="tree-view" id="downloads3-body">
         
         
+      </ul>
+  </div>
+</div>
+
+<!-- Documents3 Window -->
+<div class="window" style="width: 450px;display:none" onclick="focusWindow('documents3')" id="documents3-window">
+  <div class="title-bar" id="documents3-windowheader">
+    <div class="title-bar-text">Documents</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize" onclick="minimizeWindow('documents3')"></button>
+      <button aria-label="Close" onclick="closeWindow('documents3')"></button>
+    </div>
+  </div>
+  <div class="window-body">
+      <ul class="tree-view" id="documents3-body">
+        
+        
+      </ul>
+  </div>
+</div>
+
+<!-- Pictures3 Window -->
+<div class="window" style="width: 450px;display:none" onclick="focusWindow('pictures3')" id="pictures3-window">
+  <div class="title-bar" id="pictures3-windowheader">
+    <div class="title-bar-text">Pictures</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize" onclick="minimizeWindow('pictures3')"></button>
+      <button aria-label="Close" onclick="closeWindow('pictures3')"></button>
+    </div>
+  </div>
+  <div class="window-body">
+      <ul class="tree-view" id="pictures3-body">
+        <div class="icon-group" title="" onclick="">
+          <div class="icon-image"><img src="https://img.freepik.com/free-photo/retro-3d-shapes-vaporwave-style_23-2148981123.jpg?semt=ais_hybrid" style="height:50px;width:50px;"/></div>
+          <span class="icon-name-dark">img.png</span>
+          </div>
+          <div class="icon-group" title="" onclick="">
+            <div class="icon-image"><img src="https://img.freepik.com/free-photo/retro-3d-shapes-vaporwave-style_23-2148981122.jpg?semt=ais_hybrid" style="height:50px;width:50px;"/></div>
+            <span class="icon-name-dark">img2.png</span>
+            </div>
+            <div class="icon-group" title="" onclick="">
+              <div class="icon-image"><img src="https://img.freepik.com/free-photo/synth-wave-retro-wave-vaporwave-futuristic-aesthetics-glowing-neon-style-wallpaper_155003-43860.jpg?semt=ais_hybrid" style="height:50px;width:50px;"/></div>
+              <span class="icon-name-dark">img3.png</span>
+              </div>
+              <div class="icon-group" title="" onclick="">
+                <div class="icon-image"><img src="https://img.freepik.com/free-photo/colorful-3d-shapes-vaporwave-style_23-2148981126.jpg?semt=ais_hybrid" style="height:50px;width:50px;"/></div>
+                <span class="icon-name-dark">img4.png</span>
+                </div>
+                <div class="icon-group" title="" onclick="">
+                  <div class="icon-image"><img src="https://img.freepik.com/free-photo/holographic-gradient-wavy-fluid-pattern-design-space_53876-96121.jpg?semt=ais_hybrid" style="height:50px;width:50px;"/></div>
+                  <span class="icon-name-dark">img5.png</span>
+                  </div>
       </ul>
   </div>
 </div>
@@ -405,7 +564,8 @@
     </div>
     <div class="window-body">
         <ul class="tree-view" id="manual-body">
-          <p>For information and tips on how to use this operating system, go to www.placeholderos.com!</p>
+          <p>Operating system is outdated. Please update to access this file.</p>
+          <p>For information and tips on how to use this operating system, go to www.placeholderos.com.</p>
         </ul>
     </div>
   </div>
@@ -420,7 +580,7 @@
       </div>
     </div>
     <div class="window-body">
-        <ul class="tree-view" id="untitled1-body">
+        <ul class="tree-view" id="birds-body">
           <p>My favorite birds</p>
           <p>www.birdsarereal.com</p>
         </ul>
@@ -442,7 +602,7 @@
           <ul>
             <li>Pick up kids from school</li>
             <li>Buy LETTUCE from the store</li>
-            <li>Order my stuff from www.vaporwaveshop.net/checkout</li>
+            <li>Ordrer my stuff from www.vaporwaveshop.net/checkout</li>
             <li>Go to dance lesson</li>
             <li>Watch that new show Sharon told you about</li>
             <li>Meet up with Dan soon</li>
@@ -468,13 +628,33 @@
             <li>hello [name]</li>
             <li>ping/pong</li>
             <li>checkdisk</li>
-            <li>restorefolder</li>
+            <li>cleardisk</li>
             <li>hack</li>
             <li>scramble</li>
             <li>cursoreffects [true/false]</li>
             <li>adminaccess [true/false]</li>
             <li>game</li>
           </ul>
+        </ul>
+    </div>
+  </div>
+
+  <!-- Untitled File Window -->
+  <div class="window" style="width:450px;display:none" onclick="focusWindow('untitled')" id="untitled-window">
+    <div class="title-bar" id="untitled-windowheader">
+      <div class="title-bar-text">Untitled</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize" onclick="minimizeWindow('untitled')"></button>
+        <button aria-label="Close" onclick="closeWindow('untitled')"></button>
+      </div>
+    </div>
+    <div class="window-body">
+        <ul class="tree-view" id="untitled1-body">
+          <p>Executing...</p>
+          <p>...</p>
+          <p>...</p>
+          <p>...</p>
+          <p>Executing failed.</p>
         </ul>
     </div>
   </div>
