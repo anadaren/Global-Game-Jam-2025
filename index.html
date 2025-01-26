@@ -49,24 +49,6 @@
       <span class="icon-name" id="files-text">Files</span>
       </div>
 
-    <!-- Folder 1 Icon -->
-    <div class="icon-group" title="" onclick="openWindow('folder1','Folder 1')">
-      <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
-      <span class="icon-name" id="folder1-text">Folder 1</span>
-      </div>
-    
-    <!-- Folder 2 Icon -->
-    <div class="icon-group" title="" onclick="">
-      <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
-      <span class="icon-name" id="folder2-text">Folder 2</span>
-      </div>
-    
-      <!-- Folder 3 Icon -->
-    <div class="icon-group" title="" onclick="">
-      <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
-      <span class="icon-name" id="folder3-text">Folder 3</span>
-      </div>
-
       <!-- Browser Icon -->
     <div class="icon-group" title="" onclick="openBrowser()">
       <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/world-2.png"/></div>
@@ -79,11 +61,7 @@
         <span class="icon-name" id="notepad-text">Notepad</span>
         </div>
 
-        <!-- File1 Icon -->
-    <div class="icon-group" title="" onclick="openWindow('file1','File1')">
-        <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
-        <span class="icon-name" id="file1-text">Search_History.txt</span>
-        </div>
+       
 
         <!-- ReadMe Icon -->
     <div class="icon-group" title="" onclick="openWindow('readme','README')">
@@ -114,26 +92,237 @@
         </div>
       </div>
       <div class="window-body">
-          <ul class="tree-view" id="files-body">
-            <div class="icon-group" title="Folder1" onclick="openWindow('folder1')">
-              <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
-              <span class="icon-name-dark">Folder 1</span>
-              </div>
-            <div class="icon-group" title="Folder1" onclick="openWindow('folder2')">
-              <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
-              <span class="icon-name-dark">Folder 2</span>
-              </div>
+        <ul class="tree-view" id="users-body">
+        <div class="icon-group" title="users" onclick="openWindow('users')">
+          <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+          <span class="icon-name-dark">Users</span>
+        </div>
 
-              <div class="icon-group" title="Folder1" onclick="openWindow('folder3')">
-              <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
-              <span class="icon-name-dark">Folder 3</span>
+        <div class="icon-group" title="programFiles" onclick="openWindow('programFiles')">
+          <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+          <span class="icon-name-dark">Program Files</span>
+        </div>
+
+        <div class="icon-group" title="os" onclick="openWindow('os')">
+          <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+          <span class="icon-name-dark">Placeholder OS</span>
+        </div>
+      </ul>
               </div>
           </ul>
       </div>
     </div>
 
-    <!-- Folder 1 Window -->
-  <div class="window" style="width: 450px;display:none" onclick="focusWindow('folder1')" id="folder1-window">
+    <!-- Users Window -->
+  <div class="window" style="width: 450px;display:none" onclick="focusWindow('users')" id="users-window">
+    <div class="title-bar" id="users-windowheader">
+      <div class="title-bar-text">Users</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize" onclick="minimizeWindow('users')"></button>
+        <button aria-label="Close" onclick="closeWindow('users')"></button>
+      </div>
+    </div>
+    <div class="window-body">
+        <ul class="tree-view" id="users-body">
+
+
+          <div class="icon-group" title="user1" onclick="openWindow('user1')">
+          <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+          <span class="icon-name-dark">GraSmith</span>
+          </div>
+
+          <div class="icon-group" title="user2" onclick="openWindow('user2')">
+          <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+          <span class="icon-name-dark">JKR</span>
+          </div>
+
+          <div class="icon-group" title="user3" onclick="openWindow('user3')">
+          <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+          <span class="icon-name-dark">Qlile</span>
+          </div>
+
+          </div>
+        </ul>
+    </div>
+  </div>
+
+  <!-- Program Files Window -->
+  <div class="window" style="width: 450px;display:none" onclick="focusWindow('programFiles')" id="programFiles-window">
+    <div class="title-bar" id="programFiles-windowheader">
+      <div class="title-bar-text">Placeholder OS</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize" onclick="minimizeWindow('programFiles')"></button>
+        <button aria-label="Close" onclick="closeWindow('programFiles')"></button>
+      </div>
+    </div>
+    <div class="window-body">
+        <ul class="tree-view" id="programFiles-body">
+          
+          <div class="icon-group" title="Subfolder1" onclick="openWindow('subfolder1')">
+          <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+          <span class="icon-name-dark">Subfolder 1</span>
+          </div>
+    
+          <div class="icon-group" title="Untitled.txt" onclick="openWindow('untitled1')">
+          <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+          <span class="icon-name-dark">Untitled.txt</span>
+          </div>
+        </ul>
+    </div>
+  </div>
+
+  <!-- OS Window -->
+  <div class="window" style="width: 450px;display:none" onclick="focusWindow('os')" id="os-window">
+    <div class="title-bar" id="os-windowheader">
+      <div class="title-bar-text">Placeholder OS</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize" onclick="minimizeWindow('os')"></button>
+        <button aria-label="Close" onclick="closeWindow('os')"></button>
+      </div>
+    </div>
+    <div class="window-body">
+        <ul class="tree-view" id="os-body">
+          
+          <div class="icon-group" title="Subfolder1" onclick="openWindow('subfolder1')">
+          <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+          <span class="icon-name-dark">Subfolder 1</span>
+          </div>
+    
+          <div class="icon-group" title="Untitled.txt" onclick="openWindow('untitled1')">
+          <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+          <span class="icon-name-dark">Untitled.txt</span>
+          </div>
+        </ul>
+    </div>
+  </div>
+
+    <!-- User 1 Window -->
+  <div class="window" style="width: 450px;display:none" onclick="focusWindow('user1')" id="user1-window">
+    <div class="title-bar" id="user1-windowheader">
+      <div class="title-bar-text">GraSmith</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize" onclick="minimizeWindow('user1')"></button>
+        <button aria-label="Close" onclick="closeWindow('user1')"></button>
+      </div>
+    </div>
+    <div class="window-body">
+        <ul class="tree-view" id="user1-body">
+          
+          <div class="icon-group" title="Downloads" onclick="openWindow('downloads')">
+            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+            <span class="icon-name-dark">Downloads</span>
+            </div>
+
+          <div class="icon-group" title="Documents" onclick="openWindow('documents')">
+            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+            <span class="icon-name-dark">Documents</span>
+            </div>
+
+          <div class="icon-group" title="Pictures" onclick="openWindow('pictures')">
+            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+            <span class="icon-name-dark">Pictures</span>
+            </div>
+
+          <div class="icon-group" title="Recycle bin" onclick="openWindow('recycle','Recycle Bin')">
+            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/recycle_bin_full_cool-0.png"/></div>
+            <span class="icon-name">Recycle Bin</span>
+            </div>
+
+          <div class="icon-group" title="" onclick="openWindow('file1','File1')">
+            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+            <span class="icon-name-dark" id="file1-text">Search_History.txt</span>
+            </div>
+
+        </ul>
+    </div>
+  </div>
+
+  <!-- User 2 Window -->
+  <div class="window" style="width: 450px;display:none" onclick="focusWindow('user2')" id="user2-window">
+    <div class="title-bar" id="user2-windowheader">
+      <div class="title-bar-text">JKR</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize" onclick="minimizeWindow('user2')"></button>
+        <button aria-label="Close" onclick="closeWindow('user2')"></button>
+      </div>
+    </div>
+    <div class="window-body">
+        <ul class="tree-view" id="user2-body">
+          <div class="icon-group" title="Downloads" onclick="openWindow('downloads')">
+            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+            <span class="icon-name-dark">Downloads</span>
+            </div>
+
+          <div class="icon-group" title="Documents" onclick="openWindow('documents')">
+            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+            <span class="icon-name-dark">Documents</span>
+            </div>
+
+          <div class="icon-group" title="Pictures" onclick="openWindow('pictures')">
+            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+            <span class="icon-name-dark">Pictures</span>
+            </div>
+
+          <div class="icon-group" title="Recycle bin" onclick="openWindow('recycle','Recycle Bin')">
+            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/recycle_bin_full_cool-0.png"/></div>
+            <span class="icon-name">Recycle Bin</span>
+            </div>
+
+          <div class="icon-group" title="" onclick="openWindow('file1','File1')">
+            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+            <span class="icon-name-dark" id="file1-text">Search_History.txt</span>
+            </div>
+
+        </ul>
+    </div>
+  </div>
+
+  <!-- User 3 Window -->
+  <div class="window" style="width: 450px;display:none" onclick="focusWindow('user3')" id="user3-window">
+    <div class="title-bar" id="user3-windowheader">
+      <div class="title-bar-text">Qlile</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize" onclick="minimizeWindow('user3')"></button>
+        <button aria-label="Close" onclick="closeWindow('user3')"></button>
+      </div>
+    </div>
+    <div class="window-body">
+        <ul class="tree-view" id="user3-body">
+          
+          <div class="icon-group" title="Downloads" onclick="openWindow('downloads')">
+            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+            <span class="icon-name-dark">Downloads</span>
+            </div>
+
+          <div class="icon-group" title="Documents" onclick="openWindow('documents')">
+            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+            <span class="icon-name-dark">Documents</span>
+            </div>
+
+          <div class="icon-group" title="Pictures" onclick="openWindow('pictures')">
+            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+            <span class="icon-name-dark">Pictures</span>
+            </div>
+
+          <div class="icon-group" title="Recycle bin" onclick="openWindow('recycle','Recycle Bin')">
+            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/recycle_bin_full_cool-0.png"/></div>
+            <span class="icon-name">Recycle Bin</span>
+            </div>
+
+          <div class="icon-group" title="" onclick="openWindow('file1','File1')">
+            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+            <span class="icon-name-dark" id="file1-text">Search_History.txt</span>
+            </div>
+
+        </ul>
+    </div>
+  </div>
+
+
+  
+
+   <!-- Folder 1 Window -->
+   <div class="window" style="width: 450px;display:none" onclick="focusWindow('folder1')" id="folder1-window">
     <div class="title-bar" id="folder1-windowheader">
       <div class="title-bar-text">Folder 1</div>
       <div class="title-bar-controls">
@@ -371,15 +560,20 @@
                 
                     <!-- Start Menu icons-->
                 <div class="start-menu-divs">
+                <div class="item" title="FileExplorer" onclick="openWindow('files','File Explorer')">
+                  <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-2.png"/></div>
+                  <span class="icon-name" id="files-text">Files</span>
+                  </div>
+
                 <div class="item" title="Terminal" onclick="openWindow('terminal')"> 
                     <div class="icon-image my-computer"><img src="https://win98icons.alexmeub.com/icons/png/console_prompt-0.png"/></div>
                     <span class="icon-name">Terminal</span>
                 </div>
-                <div class="item" title="Terminal" onclick=""> 
+                <div class="item" title="LogOut" onclick=""> 
                   <div class="icon-image my-computer"><img src="https://win98icons.alexmeub.com/icons/png/key_win-3.png"/></div>
                   <span class="icon-name">Log Out</span>
               </div>
-              <div class="item" title="Terminal" onclick=""> 
+              <div class="item" title="ShutDown" onclick=""> 
                 <div class="icon-image my-computer"><img src="https://win98icons.alexmeub.com/icons/png/shut_down_normal-3.png"/></div>
                 <span class="icon-name">Shut Down</span>
             </div>
