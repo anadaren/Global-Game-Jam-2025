@@ -765,8 +765,8 @@ if(cursoreffects){
         "height": "5px",
         "will-change": "transform",
         "background": "#e6f1f7",
-        "opacity" : "50%",
-        "box-shadow": "-1px 0px #6badd3, 0px -1px #6badd3, 1px 0px #3a92c5, 0px 1px #3a92c5",
+        "opacity" : "80%",
+        "box-shadow": "-1px 0px #fc97f6, 0px -1px #fc97f6, 1px 0px #ad4ba7, 0px 1px #ad4ba7",
          "border-radius": "3px",
         "overflow": "hidden"
       };
