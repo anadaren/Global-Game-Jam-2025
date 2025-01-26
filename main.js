@@ -16,6 +16,8 @@ var divIDOnScreen = ["files","folder1","file1","subfolder1","subfolder2","untitl
 var webPages = ["web_pages/birds.html", "web_pages/computer_info.html", "web_pages/online_shopping_general.html", "web_pages/online_shopping_checkout.html"]
 var webPageUrl = ["www.birdsarereal.com", "www.placeholderos.com", "www.vaporwaveshop.net", "www.vaporwaveshop.net/checkout"]
 
+
+
 var setup = false; // tracks if the databse windows have been loaded in yet
 
 //Current highest window index
@@ -76,7 +78,28 @@ function openWindow(name,display){
 
 function openBrowser() {
     // Which webpage to load
-    whichPage = 1;
+    document.getElementById("site").value = webPageUrl[1];
+
+    launchWebpage();
+        openWindow('browser','Browser');
+}
+
+function launchWebpage() {
+    whichPage = getIndex(document.getElementById("site").value, webPageUrl);
+
+    if(!whichPage){
+
+            // Load in browser content
+    $('#browser-body').load("web_pages/404.html", function (response, status, xhr) {
+        if (status == "error") {
+            console.log("Error loading content: " + xhr.status + " " + xhr.statusText);
+        } else {
+            console.log("Content loaded successfully.");
+        }
+        });
+
+    } else {
+    
     // Load in browser content
     $('#browser-body').load(webPages[whichPage], function (response, status, xhr) {
         if (status == "error") {
@@ -85,8 +108,8 @@ function openBrowser() {
             console.log("Content loaded successfully.");
         }
         });
-        document.getElementById("site").value = webPageUrl[whichPage];
-    openWindow('browser','Browser');
+
+    }
 }
 
 function closeWindow(name){
@@ -286,6 +309,11 @@ function fadeIn(id) {
     }, 200);
 }
 
+$("#site").keyup(function(event) {
+    if (event.keyCode === 13) {
+        $("#confirmWebPage").click();
+    }
+});
 
 
 //-----
@@ -301,6 +329,16 @@ function isInArray(name){
      
  }
  
+function getIndex(item, array){
+    for(var i = 0; i < array.length; i++){
+        if(array[i] == item){
+            return i;
+        }
+    }
+
+    return false;
+}
+
  function removeFromArray(name){
         for(var i = 0; i < onScreen.length; i++){
          if(onScreen[i][0] === name){
