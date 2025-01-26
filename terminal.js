@@ -60,6 +60,20 @@ $('#terminal-body').terminal({
     hack: function(){
         this.echo('This terminal currently does not have hacking functionality. Please contact your local computer administrator, if you trust them.');
     },
+
+    cursoreffects: function(bool){
+        if(bool==true || bool==false){
+            
+        cursoreffects = bool;
+        bool = "" + bool;
+        bool = bool.toLowerCase();
+        this.echo('Cursor effects set to: ' + bool.toUpperCase());
+        
+    } else {
+        this.echo("Unknown arguments. Try TRUE or FALSE.")
+    }
+    },
+
     adminaccess: function(bool){
         bool = "" + bool;
         bool = bool.toLowerCase();
