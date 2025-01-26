@@ -1,6 +1,7 @@
 //https://stackoverflow.com/questions/27979002/convert-csv-data-into-json-format-using-javascript
 
-var testCases;
+var sheet1Data;
+var sheet2Data;
 var password = "password";
 
 //Object arrays grabbed from the spreadsheets
@@ -15,8 +16,9 @@ var onScreen = []; // 2d array of the IDs for objects that are on screen [id nam
 var divIDOnScreen = [
     "files","users","programFiles","os","manual","user1","user2","user3",
     "downloads1","documents1","pictures1","downloads2","documents2",
-    "pictures2","downloads3","documents3","pictures3","file1","commands",
-    "birds","list","untitled","browser","notepad","recycle","terminal"];
+    "pictures2","downloads3","documents3","pictures3","secure","file1",
+    "file2","commands","birds","list","untitled","notice","browser",
+    "notepad","recycle","terminal"];
     // list of all the windows that are able to be opened
 
 var webPages = ["web_pages/404.html", "web_pages/computer_info.html", "web_pages/online_shopping_general.html", "web_pages/online_shopping_checkout.html", "web_pages/birds.html"]
@@ -54,6 +56,8 @@ function openWindow(name,display){
     if(!setup){
         // Setup for everything that reads from a CSV file
         setupFile1();
+        setupFile2();
+        setup = true;
     }
         
     //if the window isn't already open, add it to the onScreen array
@@ -372,21 +376,35 @@ function getIndex(item, array){
 // CSV to JSON
 //------
 $(document).ready(function() {
-    const sheetUrl = "sheet1.csv";
 
     $.ajax({
         type: "GET",
-        url: sheetUrl,
+        url: "sheet1.csv",
         dataType: "text",
         success: function(data) {
-            testCases=csvToJson(data);
-            parseText(testCases); // Process text if needed
-            console.log("Data loaded successfully:", testCases);
+            sheet1Data=csvToJson(data);
+            parseText(sheet1Data); // Process text if needed
+            console.log("Data loaded successfully:", sheet1Data);
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.error("Error:", textStatus, errorThrown);
           }
      });
+
+    $.ajax({
+        type: "GET",
+        url: "sheet2.csv",
+        dataType: "text",
+        success: function(data) {
+            sheet2Data=csvToJson(data);
+            parseText(sheet2Data); // Process text if needed
+            console.log("Data loaded successfully:", sheet2Data);
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.error("Error:", textStatus, errorThrown);
+          }
+     });
+
 
 });
 
@@ -454,21 +472,36 @@ function parseText(array) {
 //------
 
 function setupFile1() {
-    if (!testCases) {
-        console.error("Error: testCases is undefined. Data not yet loaded.");
+    if (!sheet1Data) {
+        console.error("Error: sheet1Data is undefined. Data not yet loaded.");
         return;
     }
     
     var addHTML = "<table><tr><th>User</th><th>Time</th><th>Search</th></tr>";
-    for(var i = 0; i < testCases.length; i++){
-       addHTML += '<tr><td>' + testCases[i].User + '</td>' +
-                  '<td>' + testCases[i].Time + '</td>' +
-                  '<td>' + testCases[i].Search + '</td></tr>'; 
+    for(var i = 0; i < sheet1Data.length; i++){
+       addHTML += '<tr><td>' + sheet1Data[i].User + '</td>' +
+                  '<td>' + sheet1Data[i].Time + '</td>' +
+                  '<td>' + sheet1Data[i].Search + '</td></tr>'; 
     }
       addHTML += "</table>";
     var elements = document.getElementsByClassName("file1-database")
     elements[0].innerHTML = addHTML;
-    setup=true;
+}
+
+function setupFile2() {
+    if (!sheet2Data) {
+        console.error("Error: sheet2Data is undefined. Data not yet loaded.");
+        return;
+    }
+    
+    var addHTML = "<table><tr><th>UserID</th><th>Password</th></tr>";
+    for(var i = 0; i < sheet2Data.length; i++){
+       addHTML += '<tr><td>' + sheet2Data[i].UserID + '</td>' +
+                  '<td>' + sheet2Data[i].Password + '</td>';
+    }
+      addHTML += "</table>";
+    var elements = document.getElementsByClassName("file2-database")
+    elements[0].innerHTML = addHTML;
 }
 
 

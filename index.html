@@ -161,11 +161,39 @@
     </div>
     <div class="window-body">
         <ul class="tree-view" id="programFiles-body">
+          <div class="icon-group" title="secure" onclick="openWindow('secure')">
+            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
+            <span class="icon-name-dark">Secure</span>
+            </div>
 
           <div class="icon-group" title="uvsiot_r_an.exe" id="not_a_virus.exe" onclick="openWindow('untitled')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
             <span class="icon-name-dark">uvsiot_r_an.exe</span>
           </div>
+        </ul>
+    </div>
+  </div>
+
+  <!-- Secure Folder -->
+  <div class="window" style="width:450px;display:none" onclick="focusWindow('secure')" id="secure-window">
+    <div class="title-bar" id="secure-windowheader">
+      <div class="title-bar-text">Secure</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize" onclick="minimizeWindow('secure')"></button>
+        <button aria-label="Close" onclick="closeWindow('secure')"></button>
+      </div>
+    </div>
+    <div class="window-body">
+        <ul class="tree-view" id="secure-body">
+          <div class="icon-group" title="" onclick="openWindow('file2','Passwords.txt')">
+            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+            <span class="icon-name-dark">Passwords.txt</span>
+            </div>
+
+          <div class="icon-group" title="" onclick="openWindow('notice','Notice.txt')">
+            <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+            <span class="icon-name-dark">Notice.txt</span>
+            </div>
         </ul>
     </div>
   </div>
@@ -227,7 +255,7 @@
               <span class="icon-name-dark" >my birds.txt</span>
               </div>
 
-          <div class="icon-group" title="" onclick="openWindow('file1','File1')">
+          <div class="icon-group" title="" onclick="openWindow('file1','Search_History.txt')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
             <span class="icon-name-dark" >Search_History.txt</span>
             </div>
@@ -549,6 +577,40 @@
     <div class="window-body">
         <ul class="tree-view" id="file1-body">
           <span class="file1-database"></span>
+        </ul>
+    </div>
+  </div>
+
+  <!-- File 2 Window -->
+  <div class="window" style="width: 450px;height: 300px;display:none" onclick="focusWindow('file2')" id="file2-window">
+    <div class="title-bar" id="file2-windowheader">
+      <div class="title-bar-text">Passwords.txt</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize" onclick="minimizeWindow('file2')"></button>
+        <button aria-label="Close" onclick="closeWindow('file2')"></button>
+      </div>
+    </div>
+    <div class="window-body">
+        <ul class="tree-view" id="file2-body">
+          <span class="file2-database"></span>
+        </ul>
+    </div>
+  </div>
+
+  <!-- Untitled File 1 Window -->
+  <div class="window" style="width:450px;display:none" onclick="focusWindow('notice')" id="notice-window">
+    <div class="title-bar" id="notice-windowheader">
+      <div class="title-bar-text">Notice.txt</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize" onclick="minimizeWindow('notice')"></button>
+        <button aria-label="Close" onclick="closeWindow('notice')"></button>
+      </div>
+    </div>
+    <div class="window-body">
+        <ul class="tree-view" id="notice-body">
+          <p>!!IMPORTANT NOTICE!!</p>
+          <br>
+          <p>Remember to make a request to IT to secure the secure folder. There's very sensitive data and passwords in there.</p>
         </ul>
     </div>
   </div>
