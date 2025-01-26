@@ -162,9 +162,9 @@
     <div class="window-body">
         <ul class="tree-view" id="programFiles-body">
 
-          <div class="icon-group" title="not_a_virus.txt" id="not_a_virus.txt" onclick="openWindow('untitled')">
+          <div class="icon-group" title="uvsiot_r_an.exe" id="not_a_virus.exe" onclick="openWindow('untitled')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
-            <span class="icon-name-dark">not_a_virus.txt</span>
+            <span class="icon-name-dark">uvsiot_r_an.exe</span>
           </div>
         </ul>
     </div>
@@ -191,7 +191,7 @@
   </div>
 
     <!-- User 1 Window -->
-  <div class="window" style="width: 450px;display:none" onclick="focusWindow('user1')" id="user1-window">
+  <div class="window" style="width: 500px;display:none" onclick="focusWindow('user1')" id="user1-window">
     <div class="title-bar" id="user1-windowheader">
       <div class="title-bar-text">GraSmith</div>
       <div class="title-bar-controls">
@@ -222,6 +222,11 @@
             <span class="icon-name">Recycle Bin</span>
             </div>
 
+            <div class="icon-group" title="birds" onclick="openWindow('birds')">
+              <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+              <span class="icon-name-dark" id="file1-text">my birds.txt</span>
+              </div>
+
           <div class="icon-group" title="" onclick="openWindow('file1','File1')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
             <span class="icon-name-dark" id="file1-text">Search_History.txt</span>
@@ -232,7 +237,7 @@
   </div>
 
   <!-- User 2 Window -->
-  <div class="window" style="width: 450px;display:none" onclick="focusWindow('user2')" id="user2-window">
+  <div class="window" style="width: 500px;display:none" onclick="focusWindow('user2')" id="user2-window">
     <div class="title-bar" id="user2-windowheader">
       <div class="title-bar-text">JKR</div>
       <div class="title-bar-controls">
@@ -267,12 +272,17 @@
             <span class="icon-name-dark" id="file1-text">Search_History.txt</span>
             </div>
 
+            <div class="icon-group" title="" onclick="openWindow('commands','Commands')">
+              <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+              <span class="icon-name-dark" id="file1-text">Terminals_Commands.txt</span>
+              </div>
+
         </ul>
     </div>
   </div>
 
   <!-- User 3 Window -->
-  <div class="window" style="width: 450px;display:none" onclick="focusWindow('user3')" id="user3-window">
+  <div class="window" style="width: 500px;display:none" onclick="focusWindow('user3')" id="user3-window">
     <div class="title-bar" id="user3-windowheader">
       <div class="title-bar-text">Qlile</div>
       <div class="title-bar-controls">
@@ -307,6 +317,11 @@
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
             <span class="icon-name-dark" id="file1-text">Search_History.txt</span>
             </div>
+
+          <div class="icon-group" title="" onclick="openWindow('list')">
+              <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+              <span class="icon-name-dark" id="file1-text">ToDo.txt</span>
+              </div>
 
         </ul>
     </div>
@@ -391,6 +406,75 @@
     <div class="window-body">
         <ul class="tree-view" id="manual-body">
           <p>For information and tips on how to use this operating system, go to www.placeholderos.com!</p>
+        </ul>
+    </div>
+  </div>
+
+  <!-- Bird Window -->
+  <div class="window" style="width:450px;display:none" onclick="focusWindow('birds')" id="birds-window">
+    <div class="title-bar" id="birds-windowheader">
+      <div class="title-bar-text">My Birds</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize" onclick="minimizeWindow('birds')"></button>
+        <button aria-label="Close" onclick="closeWindow('birds')"></button>
+      </div>
+    </div>
+    <div class="window-body">
+        <ul class="tree-view" id="untitled1-body">
+          <p>My favorite birds</p>
+          <p>www.birdsarereal.com</p>
+        </ul>
+    </div>
+  </div>
+
+  <!-- List Window -->
+  <div class="window" style="width:450px;display:none" onclick="focusWindow('list')" id="list-window">
+    <div class="title-bar" id="birds-windowheader">
+      <div class="title-bar-text">To Do List</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize" onclick="minimizeWindow('list')"></button>
+        <button aria-label="Close" onclick="closeWindow('list')"></button>
+      </div>
+    </div>
+    <div class="window-body">
+        <ul class="tree-view" id="list-body">
+          <h4>To Do List</h4>
+          <ul>
+            <li>Pick up kids from school</li>
+            <li>Buy LETTUCE from the store</li>
+            <li>Order my stuff from www.vaporwaveshop.net/checkout</li>
+            <li>Go to dance lesson</li>
+            <li>Watch that new show Sharon told you about</li>
+            <li>Meet up with Dan soon</li>
+            <li>Return library books</li>
+          </ul>
+        </ul>
+    </div>
+  </div>
+
+  <!-- Commands Window -->
+  <div class="window" style="width:450px;display:none" onclick="focusWindow('commands')" id="commands-window">
+    <div class="title-bar" id="commands-windowheader">
+      <div class="title-bar-text">Terminal Commands</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize" onclick="minimizeWindow('commands')"></button>
+        <button aria-label="Close" onclick="closeWindow('commands')"></button>
+      </div>
+    </div>
+    <div class="window-body">
+        <ul class="tree-view" id="commands-body">
+          <h3>Terminal Commands</h3>
+          <ul>
+            <li>hello [name]</li>
+            <li>ping/pong</li>
+            <li>checkdisk</li>
+            <li>restorefolder</li>
+            <li>hack</li>
+            <li>scramble</li>
+            <li>cursoreffects [true/false]</li>
+            <li>adminaccess [true/false]</li>
+            <li>game</li>
+          </ul>
         </ul>
     </div>
   </div>
@@ -544,11 +628,7 @@
                     <div class="icon-image my-computer"><img src="https://win98icons.alexmeub.com/icons/png/console_prompt-0.png"/></div>
                     <span class="icon-name">Terminal</span>
                 </div>
-                <div class="item" title="LogOut" onclick=""> 
-                  <div class="icon-image my-computer"><img src="https://win98icons.alexmeub.com/icons/png/key_win-3.png"/></div>
-                  <span class="icon-name">Log Out</span>
-              </div>
-              <div class="item" title="ShutDown" onclick=""> 
+              <div class="item" title="ShutDown" onclick="fadeOut('load-screen')"> 
                 <div class="icon-image my-computer"><img src="https://win98icons.alexmeub.com/icons/png/shut_down_normal-3.png"/></div>
                 <span class="icon-name">Shut Down</span>
             </div>

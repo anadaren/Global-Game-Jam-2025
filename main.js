@@ -12,7 +12,7 @@ var emails; //object array of all the emails
 
 var onScreen = []; // 2d array of the IDs for objects that are on screen [id name, minimized boolean]
 
-var divIDOnScreen = ["files","users","programFiles","os","manual","user1","user2","user3","downloads","documents","pictures","folder1","subfolder1","file1","untitled1","browser","notepad","recycle","terminal"]; // list of all the divs that are hard-coded, used in closeWindow()
+var divIDOnScreen = ["files","users","programFiles","os","manual","user1","user2","user3","downloads","documents","pictures","folder1","subfolder1","file1","commands","birds","list","untitled1","browser","notepad","recycle","terminal"]; // list of all the divs that are hard-coded, used in closeWindow()
 var webPages = ["web_pages/404.html", "web_pages/computer_info.html", "web_pages/online_shopping_general.html", "web_pages/online_shopping_checkout.html", "web_pages/birds.html"]
 var webPageUrl = ["404", "www.placeholderos.com", "www.vaporwaveshop.net", "www.vaporwaveshop.net/checkout", "www.birdsarereal.com",]
 
@@ -28,9 +28,9 @@ var zind = 6;
 var g = 0;
 var admin = 0;
 var salty = "saltyboi";
-var adminusername = "";
-var passwords = [["abshirea","627c787c7a647f612e73",""],
-                ["turneri","7d74666f6d6f627a272523636526672561277474722426236d7422",""]];
+var adminusername = "libraryITguy";
+var passwords = [["libraryITguy","password",""],
+                ["old-libraryITguy","14159265358979323",""]];
 
 if(getCookie("restorefolder") == "true"){
     reFolder();
@@ -359,7 +359,10 @@ function getIndex(item, array){
  function checkForWinState() {
     /* Check that all the files are name correctly */
 
-    if(document.getElementById('recycle-body').contains(document.getElementById('not_a_virus.txt'))) {
+    if(document.getElementById('recycle-body').contains(document.getElementById('not_a_virus.exe'))) {
+        var audio = new Audio('audio/Errorsound1.wav');
+        audio.play();
+        
         document.getElementById("reset").disabled = false;
         document.getElementById("reset").style.color = "black";
     }
@@ -592,6 +595,7 @@ $(document).ready(function () {
         document.body.style.backgroundColor = "#008080";
         document.getElementById("bust-background").style.display = "none";
         document.getElementsByClassName("icon-name").style.color = "white";
+        cursoreffects = false;
         
     } else {
         alert("Password incorrect.")

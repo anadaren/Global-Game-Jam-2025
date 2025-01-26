@@ -60,6 +60,20 @@ $('#terminal-body').terminal({
     hack: function(){
         this.echo('This terminal currently does not have hacking functionality. Please contact your local computer administrator, if you trust them.');
     },
+    scramble: function(arg){
+        if(arg === "uvsiot_r_an") {
+            this.echo('Scrambled text: not_a_virus');
+        } else {
+            let characters = arg.split('');
+            
+            for (let i = characters.length - 1; i > 0; i--) {
+                const randomIndex = Math.floor(Math.random() * (i + 1));
+                [characters[i], characters[randomIndex]] = [characters[randomIndex], characters[i]];
+            }
+
+            this.echo("Scrambled text: " + characters.join(''));
+        }
+    },
 
     cursoreffects: function(bool){
         if(bool==true || bool==false){
