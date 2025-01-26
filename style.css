@@ -356,6 +356,18 @@ transform: translateX(-50%);
     margin-left: 40px;
 }
 
+#audioButton {
+   margin: 0;
+}
+
+audio {
+    position: fixed;
+    bottom: 35px;
+    right: 10px;
+    z-index: 1000;
+    background: var(--windows-grey);
+}
+
 #start-menu-content .item{
     display: block;
     margin-top:15px;

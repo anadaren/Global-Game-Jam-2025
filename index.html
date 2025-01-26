@@ -14,6 +14,10 @@
 </head>
 
 <body>
+  <audio src="audio/GGJ2k25.mp3" id="audio-controls" style="display:none" controls>
+    <p>If you are reading this, it is because your browser does not support the audio element.</p>
+    </audio>
+
   <ul class='custom-menu'>
     <li data-action = "open"><b><u>O</u>pen</b></li>
     <li data-action = "rename">Rena<u>m</u>e</li>
@@ -574,31 +578,14 @@
             <div class="start-menu-divs">
                 <p><b>Settings</b></p>
                 <button class="setting-name" onclick="openWindow('files')">File Explorer</button>
-                <button class="setting-name">Sound Settings</button>
+                <button class="setting-name" onclick="audioSettings()">Sound Settings</button>
                 <button class="setting-name" id="reset" onClick="winState()" disabled>Factory Reset</button>
             </div>
         </div>
 
-    </div>
-
-    <div class="settings-menu">
-        
-      <img src="https://win98icons.alexmeub.com/icons/png/loudspeaker_rays-1.png" onclick="clickSettings()"/>
-                  
-      <div id="settings-menu-content" style="display:none;">
-          
-              <!-- Start Menu icons-->
-          <div class="start-menu-divs">
-              <p><b>Settings</b></p>
-              <button class="setting-name" onclick="openWindow('files')">File Explorer</button>
-              <button class="setting-name">Sound Settings</button>
-              <button class="setting-name" id="reset" disabled>Factory Reset</button>
-          </div>
-      </div>
-
-  </div>
-      
-
+        <div id="audioButton" onclick="audioSettings()">
+          <img src="https://win98icons.alexmeub.com/icons/png/loudspeaker_rays-1.png"/>
+        </div>
         <span id="clock"></span>
     </div>
     
