@@ -590,9 +590,10 @@ $(document).ready(function () {
         for (var i = onScreen.length - 1; i >= 0; i--) {
             closeWindow(onScreen[i][0]);
         }
+        clickSettings();
         rebootScreenFade();
 
-        document.body.style.backgroundColor = "#008080";
+        document.body.style.background = "#008080";
         document.getElementById("bust-background").style.display = "none";
         document.getElementsByClassName("icon-name").style.color = "white";
         cursoreffects = false;
