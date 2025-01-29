@@ -657,10 +657,12 @@ let currentRightClickedElement = null; // To store the currently right-clicked e
 // Trigger action when the contexmenu is about to be shown
 $(document).bind("contextmenu", function (event) {
 
-    if (($(event.target).closest(".icon-group").length > 0) && ($(event.target).closest(".icon-group") !== "recycle")) {    // FIXME
+    // if statement for only allowing context menu to appear when right clicking on icon
+    // for testing only
+    //if($(event.target).closest(".icon-group").length > 0) {
+    if (($(event.target).closest(".icon-group") !== "recycle")) {    // FIXME: Avoid letting the player delete the recycle bin
         // Avoid the real one
         event.preventDefault();
-        
 
         currentRightClickedElement = $(event.target).closest(".icon-group"); // Store the clicked element
 
@@ -673,6 +675,7 @@ $(document).bind("contextmenu", function (event) {
         $(".custom-menu").hide(100);
         currentRightClickedElement = null;
     }
+    //}
 });
 
 // If the document is clicked somewhere else

@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <audio src="audio/GGJ2k25.mp3" id="audio-controls" style="display:none" controls>
+  <audio src="audio/GGJ2k25.mp3" id="audio-controls" style="display:none" controls autoplay>
     <p>If you are reading this, it is because your browser does not support the audio element.</p>
     </audio>
 
@@ -744,7 +744,7 @@
   </div>
 
   <!-- Browser Window-->
-  <div class="window" style="width: 700px; display: none;" onclick="focusWindow('browser')" id="browser-window">
+  <div class="window" style="width: 700px; height: 550px; display: none;" onclick="focusWindow('browser')" id="browser-window">
       <div class="title-bar" id="browser-windowheader">
           <div class="title-bar-text">Web Surfer</div>
           <div class="title-bar-controls">
@@ -771,7 +771,7 @@
 
         <br>
 
-        <ul class="tree-view" id="browser-body" style="height: 250px; overflow-y:scroll">
+        <ul class="tree-view" id="browser-body" style="height: 450px; overflow-y:scroll">
 
         </ul>
 </div>
