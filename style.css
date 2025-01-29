@@ -23,6 +23,7 @@ body{
 
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 #bust-background {
     text-align: center;
@@ -162,6 +163,13 @@ footer {
     width: 100%;
     border-top: 2px solid rgb(231, 231, 231);
     /*    overflow: hidden;*/
+}
+
+#minimizeAll {
+    cursor: pointer;
+    height: 100%;
+    width: 15px;
+    border: 1px solid var(--windows-dark-grey);
 }
 
 .title-bar {

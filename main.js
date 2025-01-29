@@ -619,10 +619,7 @@ $(document).ready(function () {
     const enterPassword = prompt("Enter password to reset:");
 
     if(enterPassword === password) {
-        // Closes all windows
-        for (var i = onScreen.length - 1; i >= 0; i--) {
-            closeWindow(onScreen[i][0]);
-        }
+        closeAllWindows();
         clickSettings();
         rebootScreenFade();
 
@@ -633,6 +630,20 @@ $(document).ready(function () {
         
     } else {
         alert("Password incorrect.")
+    }
+  }
+
+  function closeAllWindows() {
+    // Closes all windows
+    for (var i = onScreen.length - 1; i >= 0; i--) {
+        closeWindow(onScreen[i][0]);
+    }
+  }
+
+  function minimizeAllWindows() {
+    // Minimizes all windows
+    for (var i = onScreen.length - 1; i >= 0; i--) {
+        minimizeWindow(onScreen[i][0]);
     }
   }
 
