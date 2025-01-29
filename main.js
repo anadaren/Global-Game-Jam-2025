@@ -623,10 +623,13 @@ $(document).ready(function () {
         clickSettings();
         rebootScreenFade();
 
-        document.body.style.background = "#008080";
-        document.getElementById("bust-background").style.display = "none";
-        document.getElementsByClassName("icon-name").style.color = "white";
-        cursoreffects = false;
+        setTimeout(() => {
+            document.body.style.background = "#008080";
+            document.getElementById("bust-background").style.display = "none";
+            document.getElementsByClassName("icon-name").style.color = "white";
+            cursoreffects = false;
+        }, 2000);
+        
         
     } else {
         alert("Password incorrect.")
