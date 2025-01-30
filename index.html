@@ -827,6 +827,41 @@
   </div>
 
 
+  <!-- Password Window -->
+  <div class="window" style="width:300px;display:none" onclick="focusWindow('password-window')" id="password-window">
+    <div class="title-bar" id="password-windowheader">
+      <div class="title-bar-text">Factory Reset</div>
+      <div class="title-bar-controls">
+        <button aria-label="Close" onclick="closeWindow('password')"></button>
+      </div>
+    </div>
+    <div class="window-body">
+      <img src="https://win98icons.alexmeub.com/icons/png/key_padlock-0.png"/>
+      <p>Enter password:</p>
+      <br>
+      <input id="password" type="text" value="" style="width: 100% !important;" />
+      <button style="float:right;" class="default" onclick="passwordCheck()">OK</button>
+    </div>
+  </div>
+</div> 
+
+ <!-- Incorrect Password Window -->
+ <div class="window" style="width:300px;display:none" id="incorrect-password-window">
+  <div class="title-bar" id="incorrect-password-windowheader">
+    <div class="title-bar-text">Password Incorrect</div>
+    <div class="title-bar-controls">
+      <button aria-label="Close" onclick="closeWindow('incorrect-password')"></button>
+    </div>
+  </div>
+  <div class="window-body">
+    <img src="https://win98icons.alexmeub.com/icons/png/msg_error-0.png"/>
+    <p>Password incorrect!</p>
+    <br>
+    <button style="float:right;" class="default" onclick="closeWindow('password');closeWindow('incorrect-password');">OK</button>
+  </div>
+</div>
+</div> 
+
   <!-- Win State Window -->
   <div class="window" style="width:300px;display:none" id="win-window">
     <div class="title-bar">
@@ -901,7 +936,7 @@
                 <p><b>Settings</b></p>
                 <button class="setting-name" onclick="openWindow('files')">File Explorer</button>
                 <button class="setting-name" onclick="audioSettings()">Sound Settings</button>
-                <button class="setting-name" id="reset" onClick="winState()" disabled>Factory Reset</button>
+                <button class="setting-name" id="reset" onClick="openWindow('password')" disabled>Factory Reset</button>
             </div>
         </div>
 

@@ -18,7 +18,7 @@ var divIDOnScreen = [
     "downloads1","documents1","pictures1","downloads2","documents2",
     "pictures2","downloads3","documents3","pictures3","secure","file1",
     "file2","commands","birds","list","untitled","notice","browser",
-    "notepad","recycle","terminal"];
+    "notepad","recycle","terminal","password","incorrect-password"];
     // list of all the windows that are able to be opened
 
 var webPages = ["web_pages/404.html", "web_pages/computer_info.html", "web_pages/online_shopping_general.html", "web_pages/online_shopping_checkout.html", "web_pages/birds.html"]
@@ -46,6 +46,7 @@ window.onload = fadeOut("load-screen");
 // WINDOW / DIV FUNCTIONS
 //------
 function openWindow(name,display){
+    console.log(name);
     var windowname = name + "-window";
     var minimizename = name + "-minimize";
  
@@ -79,42 +80,6 @@ function openWindow(name,display){
     
     //make the window the only focused window on screen
     focusWindow(name);
-}
-
-function openBrowser() {
-    // Which webpage to load
-    document.getElementById("site").value = webPageUrl[1];
-
-    launchWebpage();
-        openWindow('browser','Browser');
-}
-
-function launchWebpage() {
-    whichPage = getIndex(document.getElementById("site").value, webPageUrl);
-
-    if(!whichPage){
-
-            // Load in browser content
-    $('#browser-body').load("web_pages/404.html", function (response, status, xhr) {
-        if (status == "error") {
-            console.log("Error loading content: " + xhr.status + " " + xhr.statusText);
-        } else {
-            console.log("Content loaded successfully.");
-        }
-        });
-
-    } else {
-    
-    // Load in browser content
-    $('#browser-body').load(webPages[whichPage], function (response, status, xhr) {
-        if (status == "error") {
-            console.log("Error loading content: " + xhr.status + " " + xhr.statusText);
-        } else {
-            console.log("Content loaded successfully.");
-        }
-        });
-
-    }
 }
 
 function closeWindow(name){
@@ -242,6 +207,42 @@ function addMinimized(name,display=""){ //adds a minimized tab in the taskbar
     
 }
 
+function openBrowser() {
+    // Which webpage to load
+    document.getElementById("site").value = webPageUrl[1];
+
+    launchWebpage();
+        openWindow('browser','Browser');
+}
+
+function launchWebpage() {
+    whichPage = getIndex(document.getElementById("site").value, webPageUrl);
+
+    if(!whichPage){
+
+            // Load in browser content
+    $('#browser-body').load("web_pages/404.html", function (response, status, xhr) {
+        if (status == "error") {
+            console.log("Error loading content: " + xhr.status + " " + xhr.statusText);
+        } else {
+            console.log("Content loaded successfully.");
+        }
+        });
+
+    } else {
+    
+    // Load in browser content
+    $('#browser-body').load(webPages[whichPage], function (response, status, xhr) {
+        if (status == "error") {
+            console.log("Error loading content: " + xhr.status + " " + xhr.statusText);
+        } else {
+            console.log("Content loaded successfully.");
+        }
+        });
+
+    }
+}
+
 
 function clickStart(){
     var element = document.getElementById("start-menu-content");
@@ -361,7 +362,7 @@ function getIndex(item, array){
  }
 
  function checkForWinState() {
-    /* Check that all the files are name correctly */
+    /* Check that all other (future) win conditions are met here */
 
     if(document.getElementById('recycle-body').contains(document.getElementById('not_a_virus.exe'))) {
         var audio = new Audio('audio/Errorsound1.wav');
@@ -616,23 +617,27 @@ $(document).ready(function () {
   }
 
   function winState() {
-    const enterPassword = prompt("Enter password to reset:");
+    closeAllWindows();
+    clickSettings();
+    rebootScreenFade();
 
+    setTimeout(() => {
+        document.body.style.background = "#008080";
+        document.getElementById("bust-background").style.display = "none";
+        document.getElementsByClassName("icon-name").style.color = "white";
+        cursoreffects = false;
+    }, 2000);
+           
+    
+  }
+
+  function passwordCheck() {
+    const enterPassword = document.getElementById("password").value;
     if(enterPassword === password) {
-        closeAllWindows();
-        clickSettings();
-        rebootScreenFade();
-
-        setTimeout(() => {
-            document.body.style.background = "#008080";
-            document.getElementById("bust-background").style.display = "none";
-            document.getElementsByClassName("icon-name").style.color = "white";
-            cursoreffects = false;
-        }, 2000);
-        
-        
+        winState();
     } else {
-        alert("Password incorrect.")
+        document.getElementById("password").value = "";
+        openWindow("incorrect-password");
     }
   }
 
