@@ -32,6 +32,7 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    pointer-events: none;
 }
 
 #bust-background img {
@@ -184,7 +185,8 @@ footer * {
 }
 
 #footer-left{
-    display:inline-flex;
+   /*position:absolute;*/
+    display: inline-block;
     left: 0px;
     top: 5px;
     padding-right: 5px;
@@ -192,12 +194,15 @@ footer * {
 }
 
 #footer-right{
-    position:absolute;
-    display:inline-flex;
+    position: absolute;
+    display: inline-block;
     right: 0px;
-    top: 2px;
-    box-shadow: 1px 1px 1px black inset;
-    padding: 6px;
+    top: 0px;
+    padding: 5px;
+    border-top: 2px solid var(--windows-dark-grey);
+    border-left: 2px solid var(--windows-dark-grey);
+    border-right: 2px solid var(--windows-light-grey);
+    border-bottom: 2px solid var(--windows-light-grey);
 }
 #footer-right img {
     cursor: pointer;
