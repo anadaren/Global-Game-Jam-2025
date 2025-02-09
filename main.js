@@ -317,6 +317,12 @@ $("#site").keyup(function(event) {
 });
 
 
+function setDesktopBackground(url){
+
+    document.getElementById('desktop-background').src = url;
+    document.getElementById('desktop-background').style.backgroundSize = "cover";
+}
+
 //-----
 // CHECK FUNCTIONS
 //------
@@ -704,8 +710,7 @@ BUBBLES!!
     }
     
     function onTouchMove(e) {
-if(cursoreffects){ 
-
+if(cursoreffects){ //if showing bubbles, show bubbles (unless turned off in Terminal)
 
       if( e.touches.length > 0 ) {
         for( var i = 0; i < e.touches.length; i++ ) {

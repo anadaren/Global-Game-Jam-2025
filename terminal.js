@@ -72,6 +72,23 @@ $('#terminal-body').terminal({
     } else {
         this.echo("Unknown arguments. Try TRUE or FALSE.")
     }
+
+    
+    },
+
+    setdesktopbackground: function(url){
+        if(url != ""){
+            
+        backgroundURL = url;
+        setDesktopBackground(url);
+            
+        this.echo('Background image set to: ' + url);
+        
+    } else {
+        this.echo("Enter 'setdesktopbackground <url>'.")
+    }
+
+    
     },
 
     adminaccess: function(bool){
