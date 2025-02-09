@@ -10,15 +10,36 @@
 }
 
 body{
-    background-image: linear-gradient(to bottom right, 
+    background: linear-gradient(to top left, 
                                       var(--vaporwave-magenta), 
                                       var(--vaporwave-cyan)
     );
-    background: var(--vaporwave-cyan);
 
+    /*background-size: 40px 40px;
+    background-image:
+    linear-gradient(to right, grey 1px, transparent 1px),
+    linear-gradient(to bottom, grey 1px, transparent 1px);*/
+    /*background: var(--vaporwave-cyan);*/
 
     margin: 0;
     padding: 0;
+    overflow: hidden;
+}
+#bust-background {
+    text-align: center;
+    border: 3px solid var(--vaporwave-cyan);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+#bust-background img {
+    max-height: 80vh;
+    max-width: 80vw;
+    position: relative;
+    z-index: -1;
 }
 
 table {
@@ -31,14 +52,6 @@ table {
 td {
   padding: 10px 0;
     width:100px;
-}
-
-#bust-background {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    z-index: -1;
-    text-align: center;
 }
 
 .desktop {
@@ -86,7 +99,7 @@ td.email-content {
     line-height: 20px;
     overflow-y: auto;
     min-height: 200px;
-    height: 80%;
+    height: 85%;
 }
 
 
@@ -165,23 +178,33 @@ footer * {
 }
 
 #footer-left{
-    display:inline-flex;
+   /*position:absolute;*/
+    display: inline-block;
     left: 0px;
     top: 5px;
-    padding-right: 5px;
+    padding-right: 2px;
     border-right: 1px solid var(--windows-dark-grey);
 }
 
 #footer-right{
-    position:absolute;
-    display:inline-flex;
+    position: absolute;
     right: 0px;
-    top: 2px;
-    box-shadow: 1px 1px 1px black inset;
-    padding: 6px;
+    top: 0px;
+    width: 160px;
 }
 #footer-right img {
     cursor: pointer;
+}
+
+#minimizeAll {
+    cursor: pointer;
+    height: 100%;
+    min-width: 1px;
+    width: 15px;
+    padding: 0;
+    position: absolute;
+    right: -2px;
+    top: 0px;
 }
 
 .minimized-tab {
@@ -238,15 +261,23 @@ footer * {
 
 
 .settings-menu {
+    display: flex;
     position: relative;
     font-family: monospace;
+    width: 130px;
+
+    padding: 2px;
+    border-top: 2px solid var(--windows-dark-grey);
+    border-left: 2px solid var(--windows-dark-grey);
+    border-right: 2px solid var(--windows-light-grey);
+    border-bottom: 2px solid var(--windows-light-grey);
   }
   
   #settings-menu-content {
       position:absolute;
       min-width: 160px;
       bottom: 22pt;
-      right: 15px;
+      right: 10px;
       z-index: 100;
       background-color: var(--windows-grey);
       border-top: 2px solid var(--windows-light-grey);
@@ -287,6 +318,10 @@ footer * {
 
 #desktop{
     user-select:none;
+}
+
+#file1-database {
+    overflow-y: scroll;
 }
 
 #load-screen, #blue-screen, #reboot-screen {
@@ -350,6 +385,18 @@ transform: translateX(-50%);
 
 .start-menu-divs {
     margin-left: 40px;
+}
+
+#audioButton {
+   margin: 0;
+}
+
+audio {
+    position: fixed;
+    bottom: 35px;
+    right: 10px;
+    z-index: 1000;
+    background: var(--windows-grey);
 }
 
 #start-menu-content .item{

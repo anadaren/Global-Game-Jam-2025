@@ -1,6 +1,7 @@
 //https://stackoverflow.com/questions/27979002/convert-csv-data-into-json-format-using-javascript
 
-var testCases;
+var sheet1Data;
+var sheet2Data;
 var password = "password";
 
 //Object arrays grabbed from the spreadsheets
@@ -12,7 +13,14 @@ var emails; //object array of all the emails
 
 var onScreen = []; // 2d array of the IDs for objects that are on screen [id name, minimized boolean]
 
-var divIDOnScreen = ["files","users","programFiles","os","user1","user2","user3","downloads","documents","pictures","folder1","subfolder1","file1","untitled1","browser","notepad","recycle","terminal"]; // list of all the divs that are hard-coded, used in closeWindow()
+var divIDOnScreen = [
+    "files","users","programFiles","os","manual","user1","user2","user3",
+    "downloads1","documents1","pictures1","downloads2","documents2",
+    "pictures2","downloads3","documents3","pictures3","secure","file1",
+    "file2","commands","birds","list","untitled","notice","browser",
+    "notepad","recycle","terminal","password","incorrect-password"];
+    // list of all the windows that are able to be opened
+
 var webPages = ["web_pages/404.html", "web_pages/computer_info.html", "web_pages/online_shopping_general.html", "web_pages/online_shopping_checkout.html", "web_pages/birds.html"]
 var webPageUrl = ["404", "www.placeholderos.com", "www.vaporwaveshop.net", "www.vaporwaveshop.net/checkout", "www.birdsarereal.com",]
 
@@ -27,15 +35,9 @@ var zind = 6;
 //terminal.js variables
 var g = 0;
 var admin = 0;
-var salty = "saltyboi";
-var adminusername = "";
-var passwords = [["abshirea","627c787c7a647f612e73",""],
-                ["turneri","7d74666f6d6f627a272523636526672561277474722426236d7422",""]];
-
-if(getCookie("restorefolder") == "true"){
-    reFolder();
-}
-
+var adminusername = "libraryITguy";
+var passwords = [["libraryITguy","password",""],
+                ["old-libraryITguy","14159265358979323",""]];
 
 // Call the load screen fade out when the page is fully loaded
 window.onload = fadeOut("load-screen");
@@ -44,6 +46,7 @@ window.onload = fadeOut("load-screen");
 // WINDOW / DIV FUNCTIONS
 //------
 function openWindow(name,display){
+    console.log(name);
     var windowname = name + "-window";
     var minimizename = name + "-minimize";
  
@@ -54,6 +57,8 @@ function openWindow(name,display){
     if(!setup){
         // Setup for everything that reads from a CSV file
         setupFile1();
+        setupFile2();
+        setup = true;
     }
         
     //if the window isn't already open, add it to the onScreen array
@@ -75,42 +80,6 @@ function openWindow(name,display){
     
     //make the window the only focused window on screen
     focusWindow(name);
-}
-
-function openBrowser() {
-    // Which webpage to load
-    document.getElementById("site").value = webPageUrl[1];
-
-    launchWebpage();
-        openWindow('browser','Browser');
-}
-
-function launchWebpage() {
-    whichPage = getIndex(document.getElementById("site").value, webPageUrl);
-
-    if(!whichPage){
-
-            // Load in browser content
-    $('#browser-body').load("web_pages/404.html", function (response, status, xhr) {
-        if (status == "error") {
-            console.log("Error loading content: " + xhr.status + " " + xhr.statusText);
-        } else {
-            console.log("Content loaded successfully.");
-        }
-        });
-
-    } else {
-    
-    // Load in browser content
-    $('#browser-body').load(webPages[whichPage], function (response, status, xhr) {
-        if (status == "error") {
-            console.log("Error loading content: " + xhr.status + " " + xhr.statusText);
-        } else {
-            console.log("Content loaded successfully.");
-        }
-        });
-
-    }
 }
 
 function closeWindow(name){
@@ -238,6 +207,42 @@ function addMinimized(name,display=""){ //adds a minimized tab in the taskbar
     
 }
 
+function openBrowser() {
+    // Which webpage to load
+    document.getElementById("site").value = webPageUrl[1];
+
+    launchWebpage();
+        openWindow('browser','Browser');
+}
+
+function launchWebpage() {
+    whichPage = getIndex(document.getElementById("site").value, webPageUrl);
+
+    if(!whichPage){
+
+            // Load in browser content
+    $('#browser-body').load("web_pages/404.html", function (response, status, xhr) {
+        if (status == "error") {
+            console.log("Error loading content: " + xhr.status + " " + xhr.statusText);
+        } else {
+            console.log("Content loaded successfully.");
+        }
+        });
+
+    } else {
+    
+    // Load in browser content
+    $('#browser-body').load(webPages[whichPage], function (response, status, xhr) {
+        if (status == "error") {
+            console.log("Error loading content: " + xhr.status + " " + xhr.statusText);
+        } else {
+            console.log("Content loaded successfully.");
+        }
+        });
+
+    }
+}
+
 
 function clickStart(){
     var element = document.getElementById("start-menu-content");
@@ -363,9 +368,12 @@ function getIndex(item, array){
  }
 
  function checkForWinState() {
-    /* Check that all the files are name correctly */
+    /* Check that all other (future) win conditions are met here */
 
-    if(document.getElementById('recycle-body').contains(document.getElementById('not_a_virus.txt'))) {
+    if(document.getElementById('recycle-body').contains(document.getElementById('not_a_virus.exe'))) {
+        var audio = new Audio('audio/Errorsound1.wav');
+        audio.play();
+        
         document.getElementById("reset").disabled = false;
         document.getElementById("reset").style.color = "black";
     }
@@ -375,21 +383,35 @@ function getIndex(item, array){
 // CSV to JSON
 //------
 $(document).ready(function() {
-    const sheetUrl = "sheet1.csv";
 
     $.ajax({
         type: "GET",
-        url: sheetUrl,
+        url: "sheet1.csv",
         dataType: "text",
         success: function(data) {
-            testCases=csvToJson(data);
-            parseText(testCases); // Process text if needed
-            console.log("Data loaded successfully:", testCases);
+            sheet1Data=csvToJson(data);
+            parseText(sheet1Data); // Process text if needed
+            console.log("Data loaded successfully:", sheet1Data);
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.error("Error:", textStatus, errorThrown);
           }
      });
+
+    $.ajax({
+        type: "GET",
+        url: "sheet2.csv",
+        dataType: "text",
+        success: function(data) {
+            sheet2Data=csvToJson(data);
+            parseText(sheet2Data); // Process text if needed
+            console.log("Data loaded successfully:", sheet2Data);
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.error("Error:", textStatus, errorThrown);
+          }
+     });
+
 
 });
 
@@ -457,21 +479,36 @@ function parseText(array) {
 //------
 
 function setupFile1() {
-    if (!testCases) {
-        console.error("Error: testCases is undefined. Data not yet loaded.");
+    if (!sheet1Data) {
+        console.error("Error: sheet1Data is undefined. Data not yet loaded.");
         return;
     }
     
     var addHTML = "<table><tr><th>User</th><th>Time</th><th>Search</th></tr>";
-    for(var i = 0; i < testCases.length; i++){
-       addHTML += '<tr><td>' + testCases[i].User + '</td>' +
-                  '<td>' + testCases[i].Time + '</td>' +
-                  '<td>' + testCases[i].Search + '</td></tr>'; 
+    for(var i = 0; i < sheet1Data.length; i++){
+       addHTML += '<tr><td>' + sheet1Data[i].User + '</td>' +
+                  '<td>' + sheet1Data[i].Time + '</td>' +
+                  '<td>' + sheet1Data[i].Search + '</td></tr>'; 
     }
       addHTML += "</table>";
     var elements = document.getElementsByClassName("file1-database")
     elements[0].innerHTML = addHTML;
-    setup=true;
+}
+
+function setupFile2() {
+    if (!sheet2Data) {
+        console.error("Error: sheet2Data is undefined. Data not yet loaded.");
+        return;
+    }
+    
+    var addHTML = "<table><tr><th>UserID</th><th>Password</th></tr>";
+    for(var i = 0; i < sheet2Data.length; i++){
+       addHTML += '<tr><td>' + sheet2Data[i].UserID + '</td>' +
+                  '<td>' + sheet2Data[i].Password + '</td>';
+    }
+      addHTML += "</table>";
+    var elements = document.getElementsByClassName("file2-database")
+    elements[0].innerHTML = addHTML;
 }
 
 
@@ -586,21 +623,41 @@ $(document).ready(function () {
   }
 
   function winState() {
-    const enterPassword = prompt("Enter password to reset:");
+    closeAllWindows();
+    clickSettings();
+    rebootScreenFade();
 
-    if(enterPassword === password) {
-        // Closes all windows
-        for (var i = onScreen.length - 1; i >= 0; i--) {
-            closeWindow(onScreen[i][0]);
-        }
-        rebootScreenFade();
-        
-        document.body.style.backgroundColor = "#008080";
+    setTimeout(() => {
+        document.body.style.background = "#008080";
         document.getElementById("bust-background").style.display = "none";
         document.getElementsByClassName("icon-name").style.color = "white";
-        
+        cursoreffects = false;
+    }, 2000);
+           
+    
+  }
+
+  function passwordCheck() {
+    const enterPassword = document.getElementById("password").value;
+    if(enterPassword === password) {
+        winState();
     } else {
-        alert("Password incorrect.")
+        document.getElementById("password").value = "";
+        openWindow("incorrect-password");
+    }
+  }
+
+  function closeAllWindows() {
+    // Closes all windows
+    for (var i = onScreen.length - 1; i >= 0; i--) {
+        closeWindow(onScreen[i][0]);
+    }
+  }
+
+  function minimizeAllWindows() {
+    // Minimizes all windows
+    for (var i = onScreen.length - 1; i >= 0; i--) {
+        minimizeWindow(onScreen[i][0]);
     }
   }
 
@@ -625,10 +682,12 @@ let currentRightClickedElement = null; // To store the currently right-clicked e
 // Trigger action when the contexmenu is about to be shown
 $(document).bind("contextmenu", function (event) {
 
-    if (($(event.target).closest(".icon-group").length > 0) && ($(event.target).closest(".icon-group") !== "recycle")) {    // FIXME
+    // if statement for only allowing context menu to appear when right clicking on icon
+    // for testing only
+    //if($(event.target).closest(".icon-group").length > 0) {
+    if (($(event.target).closest(".icon-group") !== "recycle")) {    // FIXME: Avoid letting the player delete the recycle bin
         // Avoid the real one
         event.preventDefault();
-        
 
         currentRightClickedElement = $(event.target).closest(".icon-group"); // Store the clicked element
 
@@ -641,6 +700,7 @@ $(document).bind("contextmenu", function (event) {
         $(".custom-menu").hide(100);
         currentRightClickedElement = null;
     }
+    //}
 });
 
 // If the document is clicked somewhere else
@@ -826,3 +886,14 @@ if(cursoreffects){ //if showing bubbles, show bubbles (unless turned off in Term
     
     init();
   })();
+
+
+  function audioSettings() {
+    var element = document.getElementById("audio-controls");
+    
+    if(element.style.display=="block"){
+       element.style.display="none"; 
+    } else {
+        element.style.display="block";
+    }
+  }
