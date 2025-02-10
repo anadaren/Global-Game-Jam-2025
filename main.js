@@ -693,7 +693,7 @@ $(document).bind("contextmenu", function (event) {
         currentRightClickedElement = $(event.target).closest(".icon-group"); // Store the clicked element
         elem = currentRightClickedElement.get(0);
         if(elem) {
-            console.log(elem.title);
+            console.log(elem.id);
             elemIsFolder = elem.classList.contains('folder');
         }
 
@@ -721,14 +721,14 @@ $(document).bind("mousedown", function (e) {
 // If the menu element is clicked
 $(".custom-menu li").click(function () {
     switch ($(this).attr("data-action")) {
-        case "open": openWindow(currentRightClickedElement.getAttribute("onclick")); break;
-        case "newfile": if(elem && elemIsFolder) { createNewElement(prompt("New file name:"),false,elem.title + "-body"); }
-                        else { createNewElement(prompt("New file name:"),false); }
+        case "open": openWindow(elem.title); break;
+        case "newfile": if(elem && elemIsFolder) { createNewElement(prompt("New file name:"),'',false,elem.title + "-body"); }
+                        else { createNewElement(prompt("New file name:"),'',false); }
                         break;
-        case "newfolder": if(elem && elemIsFolder) { createNewElement(prompt("New folder name:"),true,elem.title + "-body"); }
-                        else { createNewElement(prompt("New folder name:"),true); }
+        case "newfolder": if(elem && elemIsFolder) { createNewElement(prompt("New folder name:"),'',true,elem.title + "-body"); }
+                        else { createNewElement(prompt("New folder name:"),'',true); }
                         break;
-        case "shortcut": if(elem) { createNewElement(elem.title+" SHORTCUT",elemIsFolder,"icon-container"); }
+        case "shortcut": if(elem) { createNewElement(elem.title+" SHORTCUT",elem.title+" SHORTCUT",elemIsFolder,"icon-container"); }
                         break;
         case "rename": const fileNameElement = currentRightClickedElement.find(".icon-name"); // Ensure correct target
                         renameFile(fileNameElement);
@@ -754,19 +754,21 @@ function deleteFile() {
 //------
 
 /* New Folder/File */
-function createNewElement(name, isFolder, fileLocation = 'icon-container') {
+function createNewElement(name, display, isFolder, fileLocation = 'icon-container') {
     if(divIDOnScreen.includes(name)) {
         alert("Name already taken.");
         return;
     } else {
         divIDOnScreen.push(name);
     }
+
+    if(display == '') { display = name; }
     
     // Create the main icon-group div
     const iconGroup = document.createElement('div');
     iconGroup.className = 'icon-group';
-    iconGroup.title = '';
-    iconGroup.onclick = () => openWindow(name, name);
+    iconGroup.title = name;
+    iconGroup.onclick = () => openWindow(name, display);
 
     // Creates the elements icon
     const iconImage = document.createElement('div');
@@ -785,7 +787,7 @@ function createNewElement(name, isFolder, fileLocation = 'icon-container') {
     const elementName = document.createElement('span');
     elementName.className = 'icon-name';
     elementName.id = name + '-text';
-    elementName.textContent = name;
+    elementName.textContent = display;
 
     // Appends image and name to parent icon-group div
     iconGroup.appendChild(iconImage);
@@ -797,14 +799,14 @@ function createNewElement(name, isFolder, fileLocation = 'icon-container') {
 
     if(!name.endsWith(" SHORTCUT")) {
         // Creates content of new file
-        createElementContent(name, isFolder);
+        createElementContent(name, display, isFolder);
     } else {
-        iconGroup.onclick = () => openWindow(name.replace(' SHORTCUT',''), name.replace(' SHORTCUT',''));
+        iconGroup.onclick = () => openWindow(name.replace(' SHORTCUT',''), display);
     }
 }
 
 /* Create Window Content Window */
-function createElementContent(name, isFolder) {
+function createElementContent(name, display, isFolder) {
 
     // Create the main window div
     const windowDiv = document.createElement('div');
@@ -822,7 +824,7 @@ function createElementContent(name, isFolder) {
     // Create the title bar text div
     const titleBarText = document.createElement('div');
     titleBarText.className = 'title-bar-text';
-    titleBarText.textContent = name;
+    titleBarText.textContent = display;
     
     // Create the title bar controls div
     const titleBarControls = document.createElement('div');
