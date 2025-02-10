@@ -20,10 +20,10 @@
 
   <ul class='custom-menu'>
     <li data-action = "open"><b><u>O</u>pen</b></li>
-    <li data-action = "newfile">New File</li>
-    <li data-action = "newfolder">New Folder</li>
-    <li data-action = "rename">Rena<u>m</u>e</li>
+    <li data-action = "newfile">Create New <u>F</u>ile</li>
+    <li data-action = "newfolder">Create New <u>F</u>older</li>
     <li data-action = "delete"><u>D</u>elete</li>
+    <li data-action = "rename">Rena<u>m</u>e</li>
   </ul>
 
   <div id="load-screen" style="opacity: 1;">
@@ -98,18 +98,18 @@
         </div>
       </div>
       <div class="window-body">
-        <ul class="tree-view" id="users-body">
-        <div class="icon-group" title="users" onclick="openWindow('users')">
+        <ul class="tree-view" id="files-body">
+        <div class="icon-group folder" title="users" onclick="openWindow('users')">
           <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
           <span class="icon-name-dark">Users</span>
         </div>
 
-        <div class="icon-group" title="programFiles" onclick="openWindow('programFiles')">
+        <div class="icon-group folder" title="programFiles" onclick="openWindow('programFiles')">
           <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
           <span class="icon-name-dark">Program Files</span>
         </div>
 
-        <div class="icon-group" title="os" onclick="openWindow('os')">
+        <div class="icon-group folder" title="os" onclick="openWindow('os')">
           <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
           <span class="icon-name-dark">Placeholder OS</span>
         </div>
@@ -132,17 +132,17 @@
         <ul class="tree-view" id="users-body">
 
 
-          <div class="icon-group" title="user1" onclick="openWindow('user1')">
+          <div class="icon-group folder" title="user1" onclick="openWindow('user1')">
           <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
           <span class="icon-name-dark">GraSmith</span>
           </div>
 
-          <div class="icon-group" title="user2" onclick="openWindow('user2')">
+          <div class="icon-group folder" title="user2" onclick="openWindow('user2')">
           <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
           <span class="icon-name-dark">JKR</span>
           </div>
 
-          <div class="icon-group" title="user3" onclick="openWindow('user3')">
+          <div class="icon-group folder" title="user3" onclick="openWindow('user3')">
           <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
           <span class="icon-name-dark">Qlile</span>
           </div>
@@ -163,7 +163,7 @@
     </div>
     <div class="window-body">
         <ul class="tree-view" id="programFiles-body">
-          <div class="icon-group" title="secure" onclick="openWindow('secure')">
+          <div class="icon-group folder" title="secure" onclick="openWindow('secure')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
             <span class="icon-name-dark">Secure</span>
             </div>
@@ -214,7 +214,7 @@
     
           <div class="icon-group" title="manual" onclick="openWindow('manual')">
           <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
-          <span class="icon-name-dark">User Manual</span>
+          <span class="icon-name-dark">User Manual.pdf</span>
           </div>
         </ul>
     </div>
@@ -232,17 +232,17 @@
     <div class="window-body">
         <ul class="tree-view" id="user1-body">
           
-          <div class="icon-group" title="Downloads" onclick="openWindow('downloads1')">
+          <div class="icon-group folder" title="Downloads" onclick="openWindow('downloads1')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
             <span class="icon-name-dark">Downloads</span>
             </div>
 
-          <div class="icon-group" title="Documents" onclick="openWindow('documents1')">
+          <div class="icon-group folder" title="Documents" onclick="openWindow('documents1')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
             <span class="icon-name-dark">Documents</span>
             </div>
 
-          <div class="icon-group" title="Pictures" onclick="openWindow('pictures1')">
+          <div class="icon-group folder" title="Pictures" onclick="openWindow('pictures1')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
             <span class="icon-name-dark">Pictures</span>
             </div>
@@ -272,17 +272,17 @@
     </div>
     <div class="window-body">
         <ul class="tree-view" id="user2-body">
-          <div class="icon-group" title="Downloads" onclick="openWindow('downloads2')">
+          <div class="icon-group folder" title="Downloads" onclick="openWindow('downloads2')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
             <span class="icon-name-dark">Downloads</span>
             </div>
 
-          <div class="icon-group" title="Documents" onclick="openWindow('documents2')">
+          <div class="icon-group folder" title="Documents" onclick="openWindow('documents2')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
             <span class="icon-name-dark">Documents</span>
             </div>
 
-          <div class="icon-group" title="Pictures" onclick="openWindow('pictures2')">
+          <div class="icon-group folder" title="Pictures" onclick="openWindow('pictures2')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
             <span class="icon-name-dark">Pictures</span>
             </div>
@@ -308,17 +308,17 @@
     <div class="window-body">
         <ul class="tree-view" id="user3-body">
           
-          <div class="icon-group" title="Downloads" onclick="openWindow('downloads3')">
+          <div class="icon-group folder" title="Downloads" onclick="openWindow('downloads3')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
             <span class="icon-name-dark">Downloads</span>
             </div>
 
-          <div class="icon-group" title="Documents" onclick="openWindow('documents3')">
+          <div class="icon-group folder" title="Documents" onclick="openWindow('documents3')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
             <span class="icon-name-dark">Documents</span>
             </div>
 
-          <div class="icon-group" title="Pictures" onclick="openWindow('pictures3')">
+          <div class="icon-group folder" title="Pictures" onclick="openWindow('pictures3')">
             <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"/></div>
             <span class="icon-name-dark">Pictures</span>
             </div>

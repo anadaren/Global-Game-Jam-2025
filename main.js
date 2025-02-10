@@ -678,17 +678,23 @@ $(document).ready(function () {
 
 let currentRightClickedElement = null; // To store the currently right-clicked element
 
+let elem // stores currentRightClickedElement as a DOM element and not a jQuery object
+let elemIsFolder = false; // To store whether or not the current right clicked element is a folder or a file
+
 // Trigger action when the contexmenu is about to be shown
 $(document).bind("contextmenu", function (event) {
 
     // if statement for only allowing context menu to appear when right clicking on icon
-    // for testing only
-    //if($(event.target).closest(".icon-group").length > 0) {
     if (($(event.target).closest(".icon-group") !== "recycle")) {    // FIXME: Avoid letting the player delete the recycle bin
-        // Avoid the real one
+        // Avoid the real right click menu
         event.preventDefault();
 
         currentRightClickedElement = $(event.target).closest(".icon-group"); // Store the clicked element
+        elem = currentRightClickedElement.get(0);
+        if(elem) {
+            console.log(elem.title);
+            elemIsFolder = elem.classList.contains('folder');
+        }
 
         $(".custom-menu").finish().toggle(100).css({
             top: event.pageY + "px",
@@ -715,9 +721,11 @@ $(document).bind("mousedown", function (e) {
 $(".custom-menu li").click(function () {
     switch ($(this).attr("data-action")) {
         case "open": openWindow(currentRightClickedElement.getAttribute("onclick")); break;
-        case "newfile": createNewElement(prompt("New file name:"),false);
+        case "newfile": if(elem && elemIsFolder) { createNewElement(prompt("New file name:"),false,elem.title + "-body"); }
+                        else { createNewElement(prompt("New file name:"),false); }
                         break;
-        case "newfolder": createNewElement(prompt("New folder name:"),true);
+        case "newfolder": if(elem && elemIsFolder) { createNewElement(prompt("New folder name:"),true,elem.title + "-body"); }
+                        else { createNewElement(prompt("New folder name:"),true); }
                         break;
         case "rename": const fileNameElement = currentRightClickedElement.find(".icon-name"); // Ensure correct target
                         renameFile(fileNameElement);
@@ -737,6 +745,10 @@ function deleteFile() {
     checkForWinState();
 }
 
+
+//------
+// NEW FOLDER/FILE FUNCTIONS
+//------
 
 /* New Folder/File */
 function createNewElement(name, isFolder, fileLocation = 'icon-container') {
@@ -854,6 +866,10 @@ function createElementContent(name, isFolder) {
     windowsContainer.appendChild(windowDiv);
 }
 
+
+//------
+// CURSOR BUBBLES
+//------
 
 /* 
 
@@ -1006,7 +1022,6 @@ if(cursoreffects){ //if showing bubbles, show bubbles (unless turned off in Term
     
     init();
   })();
-
 
   function audioSettings() {
     var element = document.getElementById("audio-controls");
