@@ -46,7 +46,6 @@ window.onload = fadeOut("load-screen");
 // WINDOW / DIV FUNCTIONS
 //------
 function openWindow(name,display){
-    console.log(name);
     var windowname = name + "-window";
     var minimizename = name + "-minimize";
  
@@ -740,7 +739,14 @@ function deleteFile() {
 
 
 /* New Folder/File */
-function createNewElement(name, isFolder) {
+function createNewElement(name, isFolder, fileLocation = 'icon-container') {
+    if(divIDOnScreen.includes(name)) {
+        alert("Name already taken.");
+        return;
+    } else {
+        divIDOnScreen.push(name);
+    }
+    
     // Create the main icon-group div
     const iconGroup = document.createElement('div');
     iconGroup.className = 'icon-group';
@@ -766,17 +772,86 @@ function createNewElement(name, isFolder) {
     elementName.id = name + '-text';
     elementName.textContent = name;
 
-    // Appends new children to icon-group div
+    // Appends image and name to parent icon-group div
     iconGroup.appendChild(iconImage);
     iconGroup.appendChild(elementName);
 
     // Adds newly created element to desktop
-    const iconContainer = document.getElementById('icon-container');
+    const iconContainer = document.getElementById(fileLocation);
     iconContainer.appendChild(iconGroup);
+
+    // Creates content of new file
+    createElementContent(name, isFolder);
 }
 
-function createElementContent() {
+/* Create Window Content Window */
+function createElementContent(name, isFolder) {
 
+    // Create the main window div
+    const windowDiv = document.createElement('div');
+    windowDiv.className = 'window';
+    windowDiv.style.width = '450px';
+    windowDiv.style.display = 'none';
+    windowDiv.onclick = () => focusWindow(name);
+    windowDiv.id = name + '-window';
+    
+    // Create the title bar div
+    const titleBar = document.createElement('div');
+    titleBar.className = 'title-bar';
+    titleBar.id = name + '-windowheader';
+    
+    // Create the title bar text div
+    const titleBarText = document.createElement('div');
+    titleBarText.className = 'title-bar-text';
+    titleBarText.textContent = name;
+    
+    // Create the title bar controls div
+    const titleBarControls = document.createElement('div');
+    titleBarControls.className = 'title-bar-controls';
+    
+    // Create the minimize button
+    const minimizeButton = document.createElement('button');
+    minimizeButton.setAttribute('aria-label', 'Minimize');
+    minimizeButton.onclick = () => minimizeWindow(name);
+    
+    // Create the close button
+    const closeButton = document.createElement('button');
+    closeButton.setAttribute('aria-label', 'Close');
+    closeButton.onclick = () => closeWindow(name);
+    
+    // Append the buttons to the title bar controls div
+    titleBarControls.appendChild(minimizeButton);
+    titleBarControls.appendChild(closeButton);
+    
+    // Append the title bar text and controls to the title bar
+    titleBar.appendChild(titleBarText);
+    titleBar.appendChild(titleBarControls);
+    
+    // Create the window body div
+    const windowBody = document.createElement('div');
+    windowBody.className = 'window-body';
+    
+    // Create the tree-view ul
+    const treeView = document.createElement('ul');
+    treeView.className = 'tree-view';
+    treeView.id = name + '-body';
+    
+    if(!isFolder) {
+        // Create the paragraphs for the content and appends into the window
+        const windowContent = document.createElement('textarea');
+        treeView.appendChild(windowContent);
+    }
+    
+    // Append the tree-view to the window body
+    windowBody.appendChild(treeView);
+    
+    // Append the title bar and window body to the window div
+    windowDiv.appendChild(titleBar);
+    windowDiv.appendChild(windowBody);
+    
+    // Append the window div to the windows-container div
+    const windowsContainer = document.getElementById('windows-container');
+    windowsContainer.appendChild(windowDiv);
 }
 
 
