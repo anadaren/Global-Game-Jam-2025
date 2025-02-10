@@ -22,6 +22,7 @@
     <li data-action = "open"><b><u>O</u>pen</b></li>
     <li data-action = "newfile">Create New <u>F</u>ile</li>
     <li data-action = "newfolder">Create New <u>F</u>older</li>
+    <li data-action = "shortcut">Create <u>S</u>hortcut</li>
     <li data-action = "delete"><u>D</u>elete</li>
     <li data-action = "rename">Rena<u>m</u>e</li>
   </ul>
@@ -73,6 +74,12 @@
     <div class="icon-group" title="" onclick="openWindow('readme','README')">
       <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
       <span class="icon-name" id="readme-text">README.txt</span>
+      </div>
+
+      <!-- Credits Icon -->
+    <div class="icon-group" title="" onclick="openWindow('credits','credits')">
+      <div class="icon-image"><img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png"/></div>
+      <span class="icon-name" id="readme-text">Credits.txt</span>
       </div>
 
 
@@ -726,6 +733,22 @@
           <br>
           <p>Signed,</p>
           <p>Guy who used to have your job</p>
+        </ul>
+    </div>
+  </div>
+
+  <!-- README Window -->
+  <div class="window" style="width: 450px;display:none" onclick="focusWindow('credits')" id="credits-window">
+    <div class="title-bar" id="credits-windowheader">
+      <div class="title-bar-text">Credits.txt</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize" onclick="minimizeWindow('credits')"></button>
+        <button aria-label="Close" onclick="closeWindow('credits')"></button>
+      </div>
+    </div>
+    <div class="window-body">
+        <ul class="tree-view" id="credits-body">
+          <p>Add Credits here</p>
         </ul>
     </div>
   </div>

@@ -18,7 +18,8 @@ var divIDOnScreen = [
     "downloads1","documents1","pictures1","downloads2","documents2",
     "pictures2","downloads3","documents3","pictures3","secure","file1",
     "file2","commands","birds","list","untitled","notice","browser",
-    "notepad","recycle","terminal","password","incorrect-password"];
+    "notepad","recycle","terminal","password","incorrect-password",
+    "readme","credits"];
     // list of all the windows that are able to be opened
 
 var webPages = ["web_pages/404.html", "web_pages/computer_info.html", "web_pages/online_shopping_general.html", "web_pages/online_shopping_checkout.html", "web_pages/birds.html"]
@@ -727,6 +728,8 @@ $(".custom-menu li").click(function () {
         case "newfolder": if(elem && elemIsFolder) { createNewElement(prompt("New folder name:"),true,elem.title + "-body"); }
                         else { createNewElement(prompt("New folder name:"),true); }
                         break;
+        case "shortcut": if(elem) { createNewElement(elem.title+" SHORTCUT",elemIsFolder,"icon-container"); }
+                        break;
         case "rename": const fileNameElement = currentRightClickedElement.find(".icon-name"); // Ensure correct target
                         renameFile(fileNameElement);
                         break;
@@ -788,12 +791,16 @@ function createNewElement(name, isFolder, fileLocation = 'icon-container') {
     iconGroup.appendChild(iconImage);
     iconGroup.appendChild(elementName);
 
-    // Adds newly created element to desktop
+    // Adds newly created element to file location
     const iconContainer = document.getElementById(fileLocation);
     iconContainer.appendChild(iconGroup);
 
-    // Creates content of new file
-    createElementContent(name, isFolder);
+    if(!name.endsWith(" SHORTCUT")) {
+        // Creates content of new file
+        createElementContent(name, isFolder);
+    } else {
+        iconGroup.onclick = () => openWindow(name.replace(' SHORTCUT',''), name.replace(' SHORTCUT',''));
+    }
 }
 
 /* Create Window Content Window */
