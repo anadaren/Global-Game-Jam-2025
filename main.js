@@ -716,6 +716,10 @@ $(document).bind("mousedown", function (e) {
 $(".custom-menu li").click(function () {
     switch ($(this).attr("data-action")) {
         case "open": openWindow(currentRightClickedElement.getAttribute("onclick")); break;
+        case "newfile": createNewElement(prompt("New file name:"),false);
+                        break;
+        case "newfolder": createNewElement(prompt("New folder name:"),true);
+                        break;
         case "rename": const fileNameElement = currentRightClickedElement.find(".icon-name"); // Ensure correct target
                         renameFile(fileNameElement);
                         break;
@@ -732,6 +736,47 @@ function deleteFile() {
         currentRightClickedElement = null;
     }
     checkForWinState();
+}
+
+
+/* New Folder/File */
+function createNewElement(name, isFolder) {
+    // Create the main icon-group div
+    const iconGroup = document.createElement('div');
+    iconGroup.className = 'icon-group';
+    iconGroup.title = '';
+    iconGroup.onclick = () => openWindow(name, name);
+
+    // Creates the elements icon
+    const iconImage = document.createElement('div');
+    iconImage.className = 'icon-image';
+    const img = document.createElement('img');
+    if(isFolder) {
+        // Folder Icon
+        img.src = 'https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png';
+    } else {
+        // File Icon
+        img.src = 'https://win98icons.alexmeub.com/icons/png/file_lines-0.png';
+    }
+    iconImage.appendChild(img);
+
+    // Creates the icon name text
+    const elementName = document.createElement('span');
+    elementName.className = 'icon-name';
+    elementName.id = name + '-text';
+    elementName.textContent = name;
+
+    // Appends new children to icon-group div
+    iconGroup.appendChild(iconImage);
+    iconGroup.appendChild(elementName);
+
+    // Adds newly created element to desktop
+    const iconContainer = document.getElementById('icon-container');
+    iconContainer.appendChild(iconGroup);
+}
+
+function createElementContent() {
+
 }
 
 
