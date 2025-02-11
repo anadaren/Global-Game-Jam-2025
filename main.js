@@ -1032,6 +1032,22 @@ if(cursoreffects){ //if showing bubbles, show bubbles (unless turned off in Term
     init();
   })();
 
+//------
+// AUDIO
+//------
+
+const audio = document.getElementById('audio-controls');
+
+document.addEventListener('click', playAudio);
+
+// Plays audio when screen is clicked for the first time
+function playAudio() {
+    audio.play();
+    // Removes event listener after the players first click
+    document.removeEventListener('click', playAudio);
+}
+
+// Audio button in toolbar
   function audioSettings() {
     var element = document.getElementById("audio-controls");
     
@@ -1041,3 +1057,5 @@ if(cursoreffects){ //if showing bubbles, show bubbles (unless turned off in Term
         element.style.display="block";
     }
   }
+
+
