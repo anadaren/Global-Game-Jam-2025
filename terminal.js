@@ -199,6 +199,7 @@ $('#terminal-body').terminal({
     
     
 }, {
-    greetings: '[ (C) Placeholder OS ] Waiting for command...'
+    greetings: '[ (C) Placeholder OS ] Waiting for command...',
+    height: 575
    
 });
